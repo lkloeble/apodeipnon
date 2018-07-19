@@ -53,6 +53,48 @@ public class HelloWorldApplication extends Application implements EventHandler<K
         if(keyCode.getName().equals("A")) {
             drawApostrophos();
         }
+        if(keyCode.getName().equals("E")) {
+            drawElafron();
+        }
+        if(keyCode.getName().equals("P")) {
+            drawPetastie();
+        }
+        if(keyCode.getName().equals("K")) {
+            drawKendimata();
+        }
+    }
+
+    private void drawKendimata() {
+        System.out.println("drawKendimata");
+        SVGPath svgPath = new SVGPath();
+        svgPath.setContent("M65 80 c-14 -22 -25 -42 -25 -45 0 -3 13 -5 30 -5 24 0 33 7 50 40 25 49 25 50 -5 50 -18 0 -32 -11 -50 -40z M173 85 c-9 -19 -20 -35 -25 -35 -4 0 -8 -4 -8 -10 0 -12 50 -13 66 -2 11 7 44 65 44 77 0 3 -14 5 -30 5 -25 0 -33 -6 -47 -35z");
+        svgPath.setScaleX(0.1);
+        svgPath.setScaleY(0.1);
+        svgPath.setTranslateX(lastXIsonCoordonate);
+        lastXIsonCoordonate += 80;
+        group.getChildren().addAll(svgPath);
+    }
+
+    private void drawPetastie() {
+        System.out.println("drawPetastie");
+        SVGPath svgPath = new SVGPath();
+        svgPath.setContent("M247 200 c-61 -24 -197 -101 -197 -112 0 -4 28 -8 62 -8 54 0 60 2 43 14 -28 21 -13 41 61 77 113 56 214 41 214 -31 0 -30 -13 -45 -45 -53 -13 -3 -9 -5 12 -6 68 -2 105 34 88 88 -16 51 -144 68 -238 31z");
+        svgPath.setScaleX(0.1);
+        svgPath.setScaleY(0.1);
+        svgPath.setTranslateX(lastXIsonCoordonate);
+        lastXIsonCoordonate += 80;
+        group.getChildren().addAll(svgPath);
+    }
+
+    private void drawElafron() {
+        System.out.println("drawElafron");
+        SVGPath svgPath = new SVGPath();
+        svgPath.setContent("M90 230 c-29 -29 -26 -74 8 -100 24 -19 37 -21 109 -18 74 3 89 7 177 52 53 27 104 58 113 68 15 17 13 18 -47 18 -62 0 -63 0 -46 -19 17 -19 16 -21 -25 -50 -69 -51 -167 -73 -212 -50 -29 16 -37 28 -37 60 0 29 13 44 45 52 11 2 1 5 -22 6 -31 1 -49 -5 -63 -19z");
+        svgPath.setScaleX(0.1);
+        svgPath.setScaleY(0.1);
+        svgPath.setTranslateX(lastXIsonCoordonate);
+        lastXIsonCoordonate += 80;
+        group.getChildren().addAll(svgPath);
     }
 
     public void drawIson() {
@@ -90,7 +132,6 @@ public class HelloWorldApplication extends Application implements EventHandler<K
         lastXIsonCoordonate += 30;
         group.getChildren().addAll(svgPath);
     }
-
 
     //https://convertio.co/fr/png-converter/
 }
