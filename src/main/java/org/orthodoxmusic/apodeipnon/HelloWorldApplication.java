@@ -1,8 +1,10 @@
 package org.orthodoxmusic.apodeipnon;
 
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.input.KeyCode;
@@ -11,14 +13,16 @@ import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 
 
+
 public class HelloWorldApplication extends Application implements EventHandler<KeyEvent>{
 
     Canvas canvas = new Canvas(800,600);
     Group group = new Group(canvas);
     Scene scene = new Scene(group);
     Stage globalStage;
-
-    private int lastXIsonCoordonate = -250;
+    UserInputList userInputList = new UserInputList();
+    private int currentX = 0;
+    private int currentY = 0;
 
     public static void main(String[] args) {
         System.out.println("on passe par main avec " + args.length + " arguments");
@@ -43,7 +47,7 @@ public class HelloWorldApplication extends Application implements EventHandler<K
         String type = e.getEventType().getName();
         // Get the KeyCode of the Event
         KeyCode keyCode = e.getCode();
-        System.out.println("keyevent " + type + " " + keyCode);
+        System.out.println("keyevent " + keyCode.getName());
         if(keyCode.getName().equals("I")) {
             drawIson();
         }
@@ -62,76 +66,102 @@ public class HelloWorldApplication extends Application implements EventHandler<K
         if(keyCode.getName().equals("K")) {
             drawKendimata();
         }
+        if(keyCode.getName().equals("Enter")) {
+            System.out.println("enter");
+            currentY += 80;
+            currentX = 0;
+        }
+        if(keyCode.getName().equals("Backspace")) {
+            System.out.println("asked for backspace");
+            ObservableList<Node> groupChildren = group.getChildren();
+            group.getChildren().removeAll(groupChildren);
+            currentX = 0;
+            userInputList.eraseLastUserInput();
+            group.getChildren().addAll(userInputList.getAllSVGPathes());
+            currentX = userInputList.getCurrentX();
+        }
     }
 
-    private void drawKendimata() {
-        System.out.println("drawKendimata");
-        SVGPath svgPath = new SVGPath();
-        svgPath.setContent("M65 80 c-14 -22 -25 -42 -25 -45 0 -3 13 -5 30 -5 24 0 33 7 50 40 25 49 25 50 -5 50 -18 0 -32 -11 -50 -40z M173 85 c-9 -19 -20 -35 -25 -35 -4 0 -8 -4 -8 -10 0 -12 50 -13 66 -2 11 7 44 65 44 77 0 3 -14 5 -30 5 -25 0 -33 -6 -47 -35z");
-        svgPath.setScaleX(0.1);
-        svgPath.setScaleY(0.1);
-        svgPath.setTranslateX(lastXIsonCoordonate);
-        lastXIsonCoordonate += 80;
-        group.getChildren().addAll(svgPath);
-    }
-
-    private void drawPetastie() {
-        System.out.println("drawPetastie");
-        SVGPath svgPath = new SVGPath();
-        svgPath.setContent("M247 200 c-61 -24 -197 -101 -197 -112 0 -4 28 -8 62 -8 54 0 60 2 43 14 -28 21 -13 41 61 77 113 56 214 41 214 -31 0 -30 -13 -45 -45 -53 -13 -3 -9 -5 12 -6 68 -2 105 34 88 88 -16 51 -144 68 -238 31z");
-        svgPath.setScaleX(0.1);
-        svgPath.setScaleY(0.1);
-        svgPath.setTranslateX(lastXIsonCoordonate);
-        lastXIsonCoordonate += 80;
-        group.getChildren().addAll(svgPath);
-    }
-
-    private void drawElafron() {
-        System.out.println("drawElafron");
-        SVGPath svgPath = new SVGPath();
-        svgPath.setContent("M90 230 c-29 -29 -26 -74 8 -100 24 -19 37 -21 109 -18 74 3 89 7 177 52 53 27 104 58 113 68 15 17 13 18 -47 18 -62 0 -63 0 -46 -19 17 -19 16 -21 -25 -50 -69 -51 -167 -73 -212 -50 -29 16 -37 28 -37 60 0 29 13 44 45 52 11 2 1 5 -22 6 -31 1 -49 -5 -63 -19z");
-        svgPath.setScaleX(0.1);
-        svgPath.setScaleY(0.1);
-        svgPath.setTranslateX(lastXIsonCoordonate);
-        lastXIsonCoordonate += 80;
-        group.getChildren().addAll(svgPath);
-    }
 
     public void drawIson() {
         System.out.println("drawIson");
         SVGPath svgPath = new SVGPath();
-        //svgPath.setContent("M390 199 c-229 -10 -314 -30 -340 -78 -24 -46 0 -82 41 -61 23 13 24 26 4 34 -27 10 -16 37 21 52 30 13 68 14 223 8 182 -6 187 -6 214 16 28 23 36 41 15 38 -7 0 -87 -5 -178 -9z");
-        svgPath.setContent("M390 199 c-229 -10 -314 -30 -340 -78 -24 -46 0 -82 41 -61 23 13 24 26 4 34 -27 10 -16 37 21 52 30 13 68 14 223 8 182 -6 187 -6 214 16 28 23 36 41 15 38 -7 0 -87 -5 -178 -9z");
-        svgPath.setScaleX(0.1);
-        svgPath.setScaleY(0.1);
-        svgPath.setTranslateX(lastXIsonCoordonate);
-        lastXIsonCoordonate += 80;
-        group.getChildren().addAll(svgPath);
-    }
-
-    public void drawOligon() {
-        System.out.println("drawOligon");
-        SVGPath svgPath = new SVGPath();
-        //svgPath.setContent("M334 180 c-220 -5 -244 -7 -263 -24 -12 -11 -21 -22 -21 -25 0 -3 110 -4 245 -1 236 5 245 6 267 27 12 12 20 24 17 25 -2 2 -113 1 -245 -2z");
-        svgPath.setContent("M320 160 c-220 -5 -244 -7 -263 -24 -12 -11 -21 -22 -21 -25 0 -3 110 -4 245 -1 236 5 245 6 267 27 12 12 20 24 17 25 -2 2 -113 1 -245 -2z");
-        svgPath.setScaleX(0.1);
-        svgPath.setScaleY(0.1);
-        svgPath.setTranslateX(lastXIsonCoordonate);
-        lastXIsonCoordonate += 60;
+        svgPath.setContent("M890 300 c-36 -13 -127 -17 -465 -23 -493 -9 -710 -29 -970 -87 -182 -40 -315 -147 -338 -270 -13 -67 29 -138 89 -149 54 -10 184 62 184 101 0 7 -19 20 -41 31 -68 30 -89 51 -89 89 0 63 90 115 235 136 48 7 246 5 654 -6 321 -9 598 -13 615 -9 55 12 104 42 161 101 83 85 68 121 -35 86z");
+        svgPath.setScaleX(0.03);
+        svgPath.setScaleY(0.03);
+        svgPath.setTranslateX(currentX);
+        svgPath.setTranslateY(currentY);
+        currentX += 60;
+        userInputList.addUserInput(new UserInput(svgPath));
         group.getChildren().addAll(svgPath);
     }
 
     public void drawApostrophos() {
         System.out.println("drawApostrophos");
         SVGPath svgPath = new SVGPath();
-        //svgPath.setContent("M157 183 c-4 -3 2 -12 13 -20 11 -8 20 -25 20 -39 0 -30 -44 -52 -121 -61 -52 -6 -68 -23 -21 -23 43 0 139 26 167 44 14 9 31 29 38 43 10 22 8 28 -12 44 -23 19 -71 26 -84 12z");
-        svgPath.setContent("M300 200 c-4 -3 2 -12 13 -20 11 -8 20 -25 20 -39 0 -30 -44 -52 -121 -61 -52 -6 -68 -23 -21 -23 43 0 139 26 167 44 14 9 31 29 38 43 10 22 8 28 -12 44 -23 19 -71 26 -84 12z");
-        svgPath.setScaleX(0.1);
-        svgPath.setScaleY(0.1);
-        svgPath.setTranslateX(lastXIsonCoordonate);
-        lastXIsonCoordonate += 30;
+        svgPath.setContent("M89 269 c-19 -12 -6 -28 29 -36 39 -9 96 -74 110 -126 37 -138 -150 -238 -495 -266 -79 -6 -100 -11 -100 -23 0 -24 184 -18 317 9 309 63 478 174 478 314 0 43 -4 54 -34 81 -18 18 -51 37 -73 44 -46 14 -211 16 -232 3z");
+        svgPath.setScaleX(0.03);
+        svgPath.setScaleY(0.03);
+        svgPath.setTranslateX(currentX);
+        svgPath.setTranslateY(currentY);
+        currentX += 30;
+        userInputList.addUserInput(new UserInput(svgPath));
         group.getChildren().addAll(svgPath);
     }
 
-    //https://convertio.co/fr/png-converter/
+    private void drawPetastie() {
+        System.out.println("drawPetastie");
+        SVGPath svgPath = new SVGPath();
+        svgPath.setContent("M205 290 c-179 -25 -459 -154 -842 -387 -69 -42 -95 -75 -76 -94 5 -5 93 -12 196 -16 144 -5 190 -3 202 7 22 19 19 25 -25 45 -98 44 -87 101 36 184 93 61 256 142 363 178 65 22 94 26 206 27 116 1 135 -1 180 -22 96 -44 144 -114 145 -211 0 -88 -57 -161 -128 -161 -40 0 -82 -13 -82 -26 0 -22 21 -28 96 -26 76 1 174 28 232 64 46 28 81 93 88 164 12 116 -66 208 -214 255 -76 24 -272 34 -377 19z");
+        svgPath.setScaleX(0.03);
+        svgPath.setScaleY(0.03);
+        svgPath.setTranslateX(currentX);
+        svgPath.setTranslateY(currentY);
+        currentX += 50;
+        userInputList.addUserInput(new UserInput(svgPath));
+        group.getChildren().addAll(svgPath);
+    }
+
+    private void drawElafron() {
+        System.out.println("drawElafron");
+        SVGPath svgPath = new SVGPath();
+        svgPath.setContent("M-474 287 c-60 -12 -147 -49 -173 -73 -36 -33 -63 -93 -69 -152 -4 -42 -1 -63 17 -99 64 -134 241 -196 502 -176 212 16 383 84 772 305 188 107 236 145 220 172 -10 16 -29 18 -201 21 -155 2 -192 0 -202 -12 -10 -11 -4 -18 31 -38 23 -12 49 -35 57 -50 14 -25 14 -29 -5 -55 -53 -73 -341 -228 -499 -269 -44 -11 -108 -18 -175 -18 -101 -1 -108 0 -175 34 -86 43 -125 93 -133 169 -6 69 4 112 36 149 23 27 38 35 97 45 48 9 71 18 73 29 5 27 -82 36 -173 18z");
+        svgPath.setScaleX(0.03);
+        svgPath.setScaleY(0.03);
+        svgPath.setTranslateX(currentX);
+        svgPath.setTranslateY(currentY);
+        currentX += 45;
+        userInputList.addUserInput(new UserInput(svgPath));
+        group.getChildren().addAll(svgPath);
+    }
+
+
+    public void drawOligon() {
+        System.out.println("drawOligon");
+        SVGPath svgPath = new SVGPath();
+        svgPath.setContent("M910 150 c-31 -14 -124 -16 -820 -21 l-785 -5 -41 -22 c-50 -26 -134 -118 -134 -144 0 -26 23 -34 52 -17 18 10 181 14 808 18 883 6 823 0 908 83 58 56 79 95 60 112 -10 10 -20 9 -48 -4z");
+        svgPath.setScaleX(0.03);
+        svgPath.setScaleY(0.03);
+        svgPath.setTranslateX(currentX);
+        svgPath.setTranslateY(currentY);
+        currentX += 60;
+        userInputList.addUserInput(new UserInput(svgPath));
+        group.getChildren().addAll(svgPath);
+    }
+
+    public void drawKendimata() {
+        System.out.println("drawKendimata");
+        SVGPath svgPath = new SVGPath();
+        svgPath.setContent("M-148 212 c-45 -6 -66 -37 -108 -163 -29 -87 -43 -115 -67 -134 -44 -34 -29 -46 55 -45 127 2 127 2 165 99 47 124 83 198 99 204 7 3 13 12 13 19 0 22 -69 31 -157 20z M250 212 c-47 -7 -60 -26 -105 -153 -33 -94 -48 -125 -72 -144 -50 -39 -30 -49 80 -44 107 6 109 8 138 87 43 116 79 195 96 210 10 8 18 21 18 27 0 19 -79 28 -155 17z");
+        svgPath.setScaleX(0.03);
+        svgPath.setScaleY(0.03);
+        svgPath.setTranslateX(currentX);
+        svgPath.setTranslateY(currentY);
+        svgPath.setId("kendimata");
+        currentX += 25;
+        userInputList.addUserInput(new UserInput(svgPath));
+        group.getChildren().addAll(svgPath);
+    }
+
+
 }
