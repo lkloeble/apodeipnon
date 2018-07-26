@@ -33,8 +33,8 @@ public class UserInputList {
         int currentX = 0;
         int maxY = getMaxY();
         for(UserInput userInput : userInputs) {
-            if(userInput.getNeume().getCurrentY() < maxY) continue;
-            currentX += userInput.getNeume().getHorizontalSpace();
+            if(userInput.getCurrentY() < maxY) continue;
+            currentX += userInput.getHorizontalSpace();
         }
         return currentX;
     }
@@ -42,8 +42,8 @@ public class UserInputList {
     private int getMaxY() {
         int maxY = 0;
         for(UserInput userInput : userInputs) {
-            if(userInput.getNeume().getCurrentY() > maxY) {
-                maxY =userInput.getNeume().getCurrentY();
+            if(userInput.getCurrentY() > maxY) {
+                maxY =userInput.getCurrentY();
             }
         }
         return maxY;

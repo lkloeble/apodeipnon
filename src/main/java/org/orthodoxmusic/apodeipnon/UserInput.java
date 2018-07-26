@@ -1,33 +1,41 @@
 package org.orthodoxmusic.apodeipnon;
 
 import javafx.scene.shape.SVGPath;
-import org.orthodoxmusic.apodeipnon.Neumes.Neume;
+import org.orthodoxmusic.apodeipnon.neumes.Neume;
 
 import java.sql.Timestamp;
 
 public class UserInput {
 
-    private Neume neume;
+    private GraphicSymbol graphicSymbol;
     private Timestamp timestamp;
 
-    public UserInput(Neume neume) {
-        this.neume = neume;
+    public UserInput(GraphicSymbol graphicSymbol) {
+        this.graphicSymbol = graphicSymbol;
         timestamp = new Timestamp(System.currentTimeMillis());
-    }
-
-    public Neume getNeume() {
-        return neume;
     }
 
     @Override
     public String toString() {
         return "UserInput{" +
-                "neume=" + neume +
+                "graphicSymbol=" + graphicSymbol +
                 ", timestamp=" + timestamp +
                 '}';
     }
 
+    public GraphicSymbol getGraphicSymbol() {
+        return graphicSymbol;
+    }
+
     public SVGPath getSvgPath() {
-        return neume.getSvgPath();
+        return graphicSymbol.getSvgPath();
+    }
+
+    public int getCurrentY() {
+        return getGraphicSymbol().getCurrentY();
+    }
+
+    public int getHorizontalSpace() {
+        return getGraphicSymbol().getHorizontalSpace();
     }
 }

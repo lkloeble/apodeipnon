@@ -1,20 +1,20 @@
-package org.orthodoxmusic.apodeipnon.Neumes;
+package org.orthodoxmusic.apodeipnon.neumes;
 
 import javafx.scene.shape.SVGPath;
 
-public class Ison implements Neume {
+public class Elaphron implements Neume {
 
-    private static final int ISON_HORIZONTAL_SPACE = 60;
+    private static final int ELAPHRON_HORIZONTAL_SPACE = 45;
 
     private SVGPath svgPath;
 
-    public Ison(SVGPath svgPath) {
+    public Elaphron(SVGPath svgPath) {
         this.svgPath = svgPath;
     }
 
     @Override
     public int getHorizontalSpace() {
-        return ISON_HORIZONTAL_SPACE;
+        return ELAPHRON_HORIZONTAL_SPACE;
     }
 
     @Override
@@ -26,10 +26,4 @@ public class Ison implements Neume {
     public int getCurrentY() {
         return (int) svgPath.getTranslateY();
     }
-
-    @Override
-    public int getLength() {
-        return 150;
-    }
-
 }

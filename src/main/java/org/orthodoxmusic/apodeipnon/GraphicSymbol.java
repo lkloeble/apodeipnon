@@ -1,8 +1,8 @@
-package org.orthodoxmusic.apodeipnon.Neumes;
+package org.orthodoxmusic.apodeipnon;
 
 import javafx.scene.shape.SVGPath;
 
-public interface Neume {
+public interface GraphicSymbol {
 
     int getHorizontalSpace();
 
@@ -10,5 +10,4 @@ public interface Neume {
 
     int getCurrentY();
 
-    int getLength();
 }

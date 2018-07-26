@@ -1,20 +1,20 @@
-package org.orthodoxmusic.apodeipnon.Neumes;
+package org.orthodoxmusic.apodeipnon.neumes;
 
 import javafx.scene.shape.SVGPath;
 
-public class Apostrophos implements Neume {
+public class Kendimata implements Neume {
 
-    private static final int APOSTROPHOS_HORIZONTAL_SPACE = 35;
+    private static final int KENDIMATA_HORIZONTAL_SPACE = 25;
 
     private SVGPath svgPath;
 
-    public Apostrophos(SVGPath svgPath) {
+    public Kendimata(SVGPath svgPath) {
         this.svgPath = svgPath;
     }
 
     @Override
     public int getHorizontalSpace() {
-        return APOSTROPHOS_HORIZONTAL_SPACE;
+        return KENDIMATA_HORIZONTAL_SPACE;
     }
 
     @Override
@@ -25,10 +25,5 @@ public class Apostrophos implements Neume {
     @Override
     public int getCurrentY() {
         return (int) svgPath.getTranslateY();
-    }
-
-    @Override
-    public int getLength() {
-        return 70;
     }
 }

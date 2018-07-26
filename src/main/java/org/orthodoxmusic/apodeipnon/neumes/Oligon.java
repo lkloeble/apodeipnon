@@ -1,20 +1,20 @@
-package org.orthodoxmusic.apodeipnon.Neumes;
+package org.orthodoxmusic.apodeipnon.neumes;
 
 import javafx.scene.shape.SVGPath;
 
-public class Kendimata implements Neume {
+public class Oligon implements Neume {
 
-    private static final int KENDIMATA_HORIZONTAL_SPACE = 25;
+    private static final int OLIGON_HORIZONTAL_SPACE = 60;
 
     private SVGPath svgPath;
 
-    public Kendimata(SVGPath svgPath) {
+    public Oligon(SVGPath svgPath) {
         this.svgPath = svgPath;
     }
 
     @Override
     public int getHorizontalSpace() {
-        return KENDIMATA_HORIZONTAL_SPACE;
+        return OLIGON_HORIZONTAL_SPACE;
     }
 
     @Override
@@ -25,10 +25,5 @@ public class Kendimata implements Neume {
     @Override
     public int getCurrentY() {
         return (int) svgPath.getTranslateY();
-    }
-
-    @Override
-    public int getLength() {
-        return 50;
     }
 }
