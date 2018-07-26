@@ -11,7 +11,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
-
+import org.orthodoxmusic.apodeipnon.Neumes.*;
 
 
 public class HelloWorldApplication extends Application implements EventHandler<KeyEvent>{
@@ -91,8 +91,9 @@ public class HelloWorldApplication extends Application implements EventHandler<K
         svgPath.setScaleY(0.03);
         svgPath.setTranslateX(currentX);
         svgPath.setTranslateY(currentY);
-        currentX += 60;
-        userInputList.addUserInput(new UserInput(svgPath));
+        Ison ison = new Ison(svgPath);
+        currentX += ison.getHorizontalSpace();
+        userInputList.addUserInput(new UserInput(ison));
         group.getChildren().addAll(svgPath);
     }
 
@@ -104,8 +105,9 @@ public class HelloWorldApplication extends Application implements EventHandler<K
         svgPath.setScaleY(0.03);
         svgPath.setTranslateX(currentX);
         svgPath.setTranslateY(currentY);
-        currentX += 30;
-        userInputList.addUserInput(new UserInput(svgPath));
+        Apostrophos apostrophos = new Apostrophos(svgPath);
+        currentX += apostrophos.getHorizontalSpace();
+        userInputList.addUserInput(new UserInput(apostrophos));
         group.getChildren().addAll(svgPath);
     }
 
@@ -117,8 +119,9 @@ public class HelloWorldApplication extends Application implements EventHandler<K
         svgPath.setScaleY(0.03);
         svgPath.setTranslateX(currentX);
         svgPath.setTranslateY(currentY);
-        currentX += 50;
-        userInputList.addUserInput(new UserInput(svgPath));
+        Petastie petastie = new Petastie(svgPath);
+        currentX += petastie.getHorizontalSpace();
+        userInputList.addUserInput(new UserInput(petastie));
         group.getChildren().addAll(svgPath);
     }
 
@@ -130,8 +133,9 @@ public class HelloWorldApplication extends Application implements EventHandler<K
         svgPath.setScaleY(0.03);
         svgPath.setTranslateX(currentX);
         svgPath.setTranslateY(currentY);
-        currentX += 45;
-        userInputList.addUserInput(new UserInput(svgPath));
+        Elaphron elaphron = new Elaphron(svgPath);
+        currentX += elaphron.getHorizontalSpace();
+        userInputList.addUserInput(new UserInput(elaphron));
         group.getChildren().addAll(svgPath);
     }
 
@@ -144,8 +148,9 @@ public class HelloWorldApplication extends Application implements EventHandler<K
         svgPath.setScaleY(0.03);
         svgPath.setTranslateX(currentX);
         svgPath.setTranslateY(currentY);
-        currentX += 60;
-        userInputList.addUserInput(new UserInput(svgPath));
+        Oligon oligon = new Oligon(svgPath);
+        currentX += oligon.getHorizontalSpace();
+        userInputList.addUserInput(new UserInput(oligon));
         group.getChildren().addAll(svgPath);
     }
 
@@ -158,8 +163,9 @@ public class HelloWorldApplication extends Application implements EventHandler<K
         svgPath.setTranslateX(currentX);
         svgPath.setTranslateY(currentY);
         svgPath.setId("kendimata");
-        currentX += 25;
-        userInputList.addUserInput(new UserInput(svgPath));
+        Kendimata kendimata = new Kendimata(svgPath);
+        currentX += kendimata.getHorizontalSpace();
+        userInputList.addUserInput(new UserInput(kendimata));
         group.getChildren().addAll(svgPath);
     }
 

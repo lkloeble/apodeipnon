@@ -25,14 +25,27 @@ public class UserInputList {
         return svgPathList;
     }
 
-
-
     private int getLastIndex() {
         return userInputs.size()-1;
     }
 
-    //TODO : calculate real currentX
     public int getCurrentX() {
-        return 0;
+        int currentX = 0;
+        int maxY = getMaxY();
+        for(UserInput userInput : userInputs) {
+            if(userInput.getNeume().getCurrentY() < maxY) continue;
+            currentX += userInput.getNeume().getHorizontalSpace();
+        }
+        return currentX;
+    }
+
+    private int getMaxY() {
+        int maxY = 0;
+        for(UserInput userInput : userInputs) {
+            if(userInput.getNeume().getCurrentY() > maxY) {
+                maxY =userInput.getNeume().getCurrentY();
+            }
+        }
+        return maxY;
     }
 }
