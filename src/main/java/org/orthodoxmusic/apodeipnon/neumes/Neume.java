@@ -5,4 +5,5 @@ import org.orthodoxmusic.apodeipnon.GraphicSymbol;
 
 public interface Neume extends GraphicSymbol {
 
+    String getNeumeName();
 }

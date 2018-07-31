@@ -26,7 +26,7 @@
                     <archive>
                         <manifest>
                             <!-- Jar file entry point -->
-                            <mainClass>org.orthodoxmusic.apodeipnon.HelloWorldApplication</mainClass>
+                            <mainClass>org.orthodoxmusic.apodeipnon.ApplicationStartMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

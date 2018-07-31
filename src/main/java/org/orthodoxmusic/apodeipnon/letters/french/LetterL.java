@@ -3,30 +3,30 @@ package org.orthodoxmusic.apodeipnon.letters.french;
 import javafx.scene.shape.SVGPath;
 import org.orthodoxmusic.apodeipnon.GraphicSymbol;
 
-public class Underscore implements Letter {
+public class LetterL implements Letter {
 
-    private static final int UNDERSCORE_HORIZONTAL_SPACE = 20;
+    private static final int L_HORIZONTAL_SPACE = 7;
 
     private SVGPath svgPath;
 
-    public Underscore(int currentLetterX, int currentLetterY) {
+    public LetterL(int currentLetterX, int currentLetterY) {
         SVGPath svgPath = new SVGPath();
-        svgPath.setContent("M-200 72 c0 -19 7 -20 230 -20 223 0 230 1 230 20 0 19 -7 20 -230 20 -223 0 -230 -1 -230 -20z");
+        svgPath.setContent("M-75 351 c0 -5 13 -11 29 -14 26 -5 29 -11 34 -59 9 -69 9 -294 1 -391 -7 -76 -7 -77 -35 -77 -36 0 -38 -18 -4 -25 14 -3 37 -7 52 -10 16 -3 36 -8 46 -11 16 -5 17 13 17 281 l0 286 30 6 c61 12 27 23 -70 23 -55 0 -100 -4 -100 -9z");
         svgPath.setScaleX(0.03);
         svgPath.setScaleY(0.03);
         svgPath.setTranslateX(currentLetterX);
         svgPath.setTranslateY(currentLetterY);
-        svgPath.setId("symbol underscore");
+        svgPath.setId("letter L");
         this.svgPath = svgPath;
     }
 
     @Override
     public String getLetterName() {
-        return "_";
+        return "L";
     }
 
     public int getHorizontalSpace() {
-        return UNDERSCORE_HORIZONTAL_SPACE;
+        return L_HORIZONTAL_SPACE;
     }
 
     public SVGPath getSvgPath() {
