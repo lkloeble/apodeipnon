@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import org.orthodoxmusic.apodeipnon.letters.french.*;
 import org.orthodoxmusic.apodeipnon.neumes.*;
 
+import java.io.IOException;
 import java.util.*;
 
 
@@ -28,6 +29,8 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
     Group group = new Group(canvas);
     Scene scene = new Scene(group);
     Stage globalStage;
+    KeyboardMapper keyboardMapper;
+    static UserArguments userArguments;
 
     UserInputList userInputList = new UserInputList();
     private InputPhase inputPhase = new InputPhase();
@@ -40,6 +43,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
 
     public static void main(String[] args) {
         System.out.println("on passe par main avec " + args.length + " arguments");
+        userArguments = new UserArguments(args);
         launch(args);
     }
 
@@ -50,6 +54,11 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         stage.setScene(scene);
         stage.setTitle("Apodeipnon Application");
         System.out.println("on peut logger ");
+        try {
+            keyboardMapper = new KeyboardMapper(userArguments.hasMapping());
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
         globalStage = stage;
         drawTextInterface();
         stage.show();
@@ -61,11 +70,15 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         KeyCode keyCode = e.getCode();
         System.out.println("keyevent " + keyCode.getName());
 
-        handleNoPhaseEvent(keyCode);
-        updateInputPhaseWithNewInput(keyCode);
+        String mappedKeyCode = keyboardMapper.getMapping(keyCode);
+        System.out.println("keyevent après mapping : " + mappedKeyCode);
+
+
+        handleNoPhaseEvent(mappedKeyCode);
+        updateInputPhaseWithNewInput(mappedKeyCode);
 
         if(inputPhase.isNeumesPhase()) {
-            updateNeumesInputPhase(keyCode);
+            updateNeumesInputPhase(mappedKeyCode);
             drawNeumesInterface();
         } else if(inputPhase.isNewBlockPhase()) {
             drawTextInterface();
@@ -73,7 +86,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
             inputPhase.setTextPhase();
             allBlocks.printlog();
         } else if(inputPhase.isTextPhase()) {
-            updateTextInputPhase(keyCode);
+            updateTextInputPhase(mappedKeyCode);
         }
     }
 
@@ -110,15 +123,15 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         group.getChildren().addAll(textNeumes);
     }
 
-    private void handleNoPhaseEvent(KeyCode keyCode) {
-        if(keyCode.getName().equals("Enter")) {
+    private void handleNoPhaseEvent(String keyCode) {
+        if(keyCode.equals("Enter")) {
             System.out.println("enter");
             currentNeumeY += 80;
             currentLetterY += 80;
             currentNeumeX = 0;
             currentLetterX = 0;
         }
-        if(keyCode.getName().equals("Backspace")) {
+        if(keyCode.equals("Backspace")) {
             System.out.println("asked for backspace");
             ObservableList<Node> groupChildren = group.getChildren();
             group.getChildren().removeAll(groupChildren);
@@ -129,50 +142,50 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         }
     }
 
-    private void updateInputPhaseWithNewInput(KeyCode keyCode) {
-        inputPhase.setCurrentType(keyCode.getName());
+    private void updateInputPhaseWithNewInput(String keyCode) {
+        inputPhase.setCurrentType(keyCode);
     }
 
-    private void updateNeumesInputPhase(KeyCode keyCode) {
+    private void updateNeumesInputPhase(String keyCode) {
         System.out.println("ENTER NEUMES MODE");
-        if (keyCode.getName().equals("I")) {
+        if (keyCode.equals("I")) {
             drawIson();
         }
-        else if (keyCode.getName().equals("O")) {
+        else if (keyCode.equals("O")) {
             drawOligon();
         }
-        else if (keyCode.getName().equals("A")) {
+        else if (keyCode.equals("A")) {
             drawApostrophos();
         }
-        else if (keyCode.getName().equals("E")) {
+        else if (keyCode.equals("E")) {
             drawElafron();
         }
-        else if (keyCode.getName().equals("P")) {
+        else if (keyCode.equals("P")) {
             drawPetastie();
         }
-        else if (keyCode.getName().equals("K")) {
+        else if (keyCode.equals("K")) {
             drawKendimata();
         }
     }
 
-    private void updateTextInputPhase(KeyCode keyCode) {
+    private void updateTextInputPhase(String keyCode) {
         System.out.println("ENTER TEXT MODE");
-        if (keyCode.getName().equals("A")) {
+        if (keyCode.equals("A")) {
             drawLetterA();
         }
-        else if (keyCode.getName().equals("L")) {
+        else if (keyCode.equals("L")) {
             drawLetterL();
         }
-        else if (keyCode.getName().equals("E")) {
+        else if (keyCode.equals("E")) {
             drawLetterE();
         }
-        else if (keyCode.getName().equals("I")) {
+        else if (keyCode.equals("I")) {
             drawLetterI();
         }
-        else if (keyCode.getName().equals("U")) {
+        else if (keyCode.equals("U")) {
             drawLetterU();
         }
-        else if (keyCode.getName().equals("8")) {
+        else if (keyCode.equals("8")) {
             drawUnderline();
         }
     }
