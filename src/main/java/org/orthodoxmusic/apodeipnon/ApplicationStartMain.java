@@ -86,6 +86,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
             inputPhase.setTextPhase();
             allBlocks.printlog();
         } else if(inputPhase.isTextPhase()) {
+            drawTextInterface();
             updateTextInputPhase(mappedKeyCode);
         }
     }
