@@ -9,7 +9,7 @@ public class LetterL implements Letter {
 
     private SVGPath svgPath;
 
-    public LetterL(int currentLetterX, int currentLetterY) {
+    public LetterL(double currentLetterX, double currentLetterY) {
         SVGPath svgPath = new SVGPath();
         svgPath.setContent("M-75 351 c0 -5 13 -11 29 -14 26 -5 29 -11 34 -59 9 -69 9 -294 1 -391 -7 -76 -7 -77 -35 -77 -36 0 -38 -18 -4 -25 14 -3 37 -7 52 -10 16 -3 36 -8 46 -11 16 -5 17 13 17 281 l0 286 30 6 c61 12 27 23 -70 23 -55 0 -100 -4 -100 -9z");
         svgPath.setScaleX(0.03);
@@ -33,8 +33,17 @@ public class LetterL implements Letter {
         return svgPath;
     }
 
-    public int getCurrentY() {
-        return (int) svgPath.getTranslateY();
+    public double getCurrentY() {
+        return svgPath.getTranslateY();
+    }
+
+    public double getCurrentX() {
+        return svgPath.getTranslateX() + L_HORIZONTAL_SPACE;
+    }
+
+    @Override
+    public int getGraphicalSize() {
+        return (int)(svgPath.getBoundsInLocal().getWidth()*getSvgPath().getScaleX()) + L_HORIZONTAL_SPACE;
     }
 
 }

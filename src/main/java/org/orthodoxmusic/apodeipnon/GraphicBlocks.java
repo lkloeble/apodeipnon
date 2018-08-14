@@ -1,5 +1,6 @@
 package org.orthodoxmusic.apodeipnon;
 
+import javafx.scene.Group;
 import org.orthodoxmusic.apodeipnon.letters.french.Letter;
 import org.orthodoxmusic.apodeipnon.neumes.Ison;
 import org.orthodoxmusic.apodeipnon.neumes.Neume;
@@ -9,6 +10,7 @@ import java.util.*;
 public class GraphicBlocks {
 
     private Map<Integer,GraphicBlock> internalMap = new HashMap<Integer, GraphicBlock>();
+    private double currentLetterX = 0;
 
     public GraphicBlocks() {
         createNewBlock();
@@ -16,8 +18,23 @@ public class GraphicBlocks {
 
     public void createNewBlock() {
         int currentPosition = getCurrentIndice();
-        System.out.println("creation d'un graphic block après currentPosition " + currentPosition);
+        currentLetterX = updateLetterX();
+        System.out.println("creation d'un graphic block après currentPosition " + currentPosition + " avec pour currentLetterX " + currentLetterX);
         internalMap.put(++currentPosition,new GraphicBlock(currentPosition));
+    }
+
+    private double updateLetterX() {
+        GraphicBlock lastBlock = getLastGraphicBlock();
+        if(lastBlock != null) return lastBlock.getLastXPosition();
+        return 0;
+    }
+
+    private GraphicBlock getLastGraphicBlock() {
+        int currentIndice = getCurrentIndice();
+        if(internalMap.containsKey(currentIndice)) {
+            return internalMap.get(currentIndice);
+        }
+        return null;
     }
 
     public int getBlockCount() {
@@ -60,5 +77,14 @@ public class GraphicBlocks {
     public void addNeumeToVerticalNeumeContainer(Neume neume) {
         GraphicBlock currentGraphicBlock = getCurrentGraphicBlock();
         currentGraphicBlock.addNeumeToVerticalBlock(neume);
+    }
+
+    public void drawBlocks(Group group) {
+        internalMap.entrySet().stream()
+                .forEach(entry -> entry.getValue().drawBlock(group));
+    }
+
+    public double getNewCurrentLetterX() {
+        return currentLetterX;
     }
 }

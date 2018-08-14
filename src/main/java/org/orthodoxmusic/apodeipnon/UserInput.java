@@ -31,7 +31,7 @@ public class UserInput {
         return graphicSymbol.getSvgPath();
     }
 
-    public int getCurrentY() {
+    public double getCurrentY() {
         return getGraphicSymbol().getCurrentY();
     }
 

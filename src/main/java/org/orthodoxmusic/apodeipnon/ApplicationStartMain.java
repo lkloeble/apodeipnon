@@ -36,10 +36,10 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
     private InputPhase inputPhase = new InputPhase();
     private GraphicBlocks allBlocks = new GraphicBlocks();
 
-    private int currentNeumeX = 0;
-    private int currentNeumeY = 0;
-    private int currentLetterX = 0;
-    private int currentLetterY = 0;
+    private double currentNeumeX = 0;
+    private double currentNeumeY = 0;
+    private double currentLetterX = 0;
+    private double currentLetterY = 0;
 
     public static void main(String[] args) {
         System.out.println("on passe par main avec " + args.length + " arguments");
@@ -74,6 +74,8 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         System.out.println("keyevent après mapping : " + mappedKeyCode);
 
 
+        eraseEveryNodes();
+        showReperes();
         handleNoPhaseEvent(mappedKeyCode);
         updateInputPhaseWithNewInput(mappedKeyCode);
 
@@ -83,12 +85,41 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         } else if(inputPhase.isNewBlockPhase()) {
             drawTextInterface();
             allBlocks.createNewBlock();
+            currentLetterX = allBlocks.getNewCurrentLetterX();
+            currentNeumeX = allBlocks.getNewCurrentLetterX();
+            System.out.println("*****newPhase with currentLetter " + currentLetterX + " currentNeumeX " + currentNeumeX);
             inputPhase.setTextPhase();
-            allBlocks.printlog();
         } else if(inputPhase.isTextPhase()) {
             drawTextInterface();
             updateTextInputPhase(mappedKeyCode);
         }
+        drawAllBlocks();
+    }
+
+    private void showReperes() {
+        Text text0 = new Text();
+        text0.setText("0");
+        text0.setX(0);
+        text0.setY(250);
+        Text text100 = new Text();
+        text100.setText("100");
+        text100.setX(100);
+        text100.setY(250);
+        Text text200 = new Text();
+        text200.setText("200");
+        text200.setX(200);
+        text200.setY(250);
+        group.getChildren().addAll(text0);
+        group.getChildren().addAll(text100);
+        group.getChildren().addAll(text200);
+    }
+
+    private void eraseEveryNodes() {
+        group.getChildren().removeAll(group.getChildren());
+    }
+
+    private void drawAllBlocks() {
+        allBlocks.drawBlocks(group);
     }
 
     private void drawTextInterface() {
@@ -197,7 +228,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         currentNeumeX += ison.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(ison));
         allBlocks.addNeumeToVerticalNeumeContainer(ison);
-        group.getChildren().addAll(ison.getSvgPath());
+        //group.getChildren().addAll(ison.getSvgPath());
     }
 
     public void drawApostrophos() {
@@ -206,7 +237,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         currentNeumeX += apostrophos.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(apostrophos));
         allBlocks.addNeumeToVerticalNeumeContainer(apostrophos);
-        group.getChildren().addAll(apostrophos.getSvgPath());
+        //group.getChildren().addAll(apostrophos.getSvgPath());
     }
 
     private void drawPetastie() {
@@ -215,7 +246,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         currentNeumeX += petastie.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(petastie));
         allBlocks.addNeumeToVerticalNeumeContainer(petastie);
-        group.getChildren().addAll(petastie.getSvgPath());
+        //group.getChildren().addAll(petastie.getSvgPath());
     }
 
     private void drawElafron() {
@@ -224,7 +255,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         currentNeumeX += elaphron.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(elaphron));
         allBlocks.addNeumeToVerticalNeumeContainer(elaphron);
-        group.getChildren().addAll(elaphron.getSvgPath());
+        //group.getChildren().addAll(elaphron.getSvgPath());
     }
 
 
@@ -234,7 +265,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         currentNeumeX += oligon.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(oligon));
         allBlocks.addNeumeToVerticalNeumeContainer(oligon);
-        group.getChildren().addAll(oligon.getSvgPath());
+        //group.getChildren().addAll(oligon.getSvgPath());
     }
 
     public void drawKendimata() {
@@ -243,7 +274,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         currentNeumeX += kendimata.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(kendimata));
         allBlocks.addNeumeToVerticalNeumeContainer(kendimata);
-        group.getChildren().addAll(kendimata.getSvgPath());
+        //group.getChildren().addAll(kendimata.getSvgPath());
     }
 
     public void drawLetterA() {
@@ -252,7 +283,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         currentLetterX += letterA.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(letterA));
         allBlocks.addLetterToTextualSymbols(letterA);
-        group.getChildren().addAll(letterA.getSvgPath());
+        //group.getChildren().addAll(letterA.getSvgPath());
     }
 
     public void drawLetterL() {
@@ -261,7 +292,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         currentLetterX += letterL.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(letterL));
         allBlocks.addLetterToTextualSymbols(letterL);
-        group.getChildren().addAll(letterL.getSvgPath());
+        //group.getChildren().addAll(letterL.getSvgPath());
     }
 
     public void drawLetterE() {
@@ -270,7 +301,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         currentLetterX += letterE.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(letterE));
         allBlocks.addLetterToTextualSymbols(letterE);
-        group.getChildren().addAll(letterE.getSvgPath());
+        //group.getChildren().addAll(letterE.getSvgPath());
     }
 
     public void drawLetterU() {
@@ -279,7 +310,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         currentLetterX += letterU.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(letterU));
         allBlocks.addLetterToTextualSymbols(letterU);
-        group.getChildren().addAll(letterU.getSvgPath());
+        //group.getChildren().addAll(letterU.getSvgPath());
     }
 
     public void drawLetterI() {
@@ -288,7 +319,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         currentLetterX += letterI.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(letterI));
         allBlocks.addLetterToTextualSymbols(letterI);
-        group.getChildren().addAll(letterI.getSvgPath());
+        //group.getChildren().addAll(letterI.getSvgPath());
     }
 
     public void drawUnderline() {
@@ -297,7 +328,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         currentLetterX += underscore.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(underscore));
         allBlocks.addLetterToTextualSymbols(underscore);
-        group.getChildren().addAll(underscore.getSvgPath());
+        //group.getChildren().addAll(underscore.getSvgPath());
     }
 
 }

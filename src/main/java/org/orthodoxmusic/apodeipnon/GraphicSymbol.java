@@ -8,6 +8,9 @@ public interface GraphicSymbol {
 
     SVGPath getSvgPath();
 
-    int getCurrentY();
+    double getCurrentY();
 
+    double getCurrentX();
+
+    int getGraphicalSize();
 }

@@ -29,9 +29,9 @@ public class UserInputList {
         return userInputs.size()-1;
     }
 
-    public int getCurrentX() {
-        int currentX = 0;
-        int maxY = getMaxY();
+    public double getCurrentX() {
+        double currentX = 0;
+        double maxY = getMaxY();
         for(UserInput userInput : userInputs) {
             if(userInput.getCurrentY() < maxY) continue;
             currentX += userInput.getHorizontalSpace();
@@ -39,8 +39,8 @@ public class UserInputList {
         return currentX;
     }
 
-    private int getMaxY() {
-        int maxY = 0;
+    private double getMaxY() {
+        double maxY = 0;
         for(UserInput userInput : userInputs) {
             if(userInput.getCurrentY() > maxY) {
                 maxY =userInput.getCurrentY();
