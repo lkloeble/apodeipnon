@@ -37,14 +37,20 @@ public class TextualSymbols {
         for(Integer position : orderedPositions) {
             stringBuilder.append(letters.get(position).getLetterName());
         }
+        stringBuilder.append(" (").append(getGraphicalSize())
+                .append(" From ").append(getStartXIndice())
+                .append(" To ").append(getLastXPosition()).append(")");
         System.out.print(stringBuilder);
     }
 
-    public void draw(Group group) {
-        Collection<Letter> values = letters.values();
-        for(Letter letter : values) {
-            group.getChildren().add(letter.getSvgPath());
+    private double getStartXIndice() {
+        double startXIndice = Integer.MAX_VALUE;
+        for(Letter letter : letters.values()) {
+            if(letter.getCurrentX() < startXIndice) {
+                startXIndice = letter.getCurrentX();
+            }
         }
+        return startXIndice;
     }
 
     public int getGraphicalSize() {
@@ -56,21 +62,26 @@ public class TextualSymbols {
     }
 
     public double getLastXPosition() {
-        int higherIndice = getHigherIndice();
-        if(higherIndice > 0) {
-            Letter mostRightLetter = letters.get(higherIndice);
-            return mostRightLetter.getCurrentX();
-        }
-        return 0;
+        return getStartXIndice() + getGraphicalSize();
     }
 
-    private int getHigherIndice() {
-        int higherIndice = 0;
-        for(Integer indice : letters.keySet()) {
-            if(indice > higherIndice) {
-                higherIndice = indice;
-            }
+    public void drawCenter(Group group, double graphicalSize) {
+        System.out.println("je centre les lettres sur " + graphicalSize);
+        double shift = (graphicalSize - getGraphicalSize()) / 2;
+        Collection<Letter> values = new ArrayList<>(letters.values());
+        for(Letter letter : values) {
+            Letter oldLetter = letter;
+            Letter letterWithShifting = letter.getLetterWithShifting(shift);
+            System.out.println("letter " + oldLetter + " devient " + letterWithShifting);
+            group.getChildren().add(letterWithShifting.getSvgPath());
         }
-        return higherIndice;
     }
+
+    public void draw(Group group) {
+        Collection<Letter> values = letters.values();
+        for(Letter letter : values) {
+            group.getChildren().add(letter.getSvgPath());
+        }
+    }
+
 }

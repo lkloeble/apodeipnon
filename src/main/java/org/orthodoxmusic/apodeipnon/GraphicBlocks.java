@@ -19,7 +19,6 @@ public class GraphicBlocks {
     public void createNewBlock() {
         int currentPosition = getCurrentIndice();
         currentLetterX = updateLetterX();
-        System.out.println("creation d'un graphic block après currentPosition " + currentPosition + " avec pour currentLetterX " + currentLetterX);
         internalMap.put(++currentPosition,new GraphicBlock(currentPosition));
     }
 
@@ -35,10 +34,6 @@ public class GraphicBlocks {
             return internalMap.get(currentIndice);
         }
         return null;
-    }
-
-    public int getBlockCount() {
-        return internalMap.size();
     }
 
     public void printlog() {

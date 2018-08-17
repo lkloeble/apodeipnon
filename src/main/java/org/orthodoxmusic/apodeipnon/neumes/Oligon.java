@@ -40,12 +40,12 @@ public class Oligon implements Neume {
 
     @Override
     public double getCurrentX() {
-        return svgPath.getTranslateX() + OLIGON_HORIZONTAL_SPACE;
+        return svgPath.getTranslateX();
     }
 
     @Override
     public int getGraphicalSize() {
-        return (int)(svgPath.getBoundsInLocal().getWidth()*getSvgPath().getScaleX()) + OLIGON_HORIZONTAL_SPACE;
+        return OLIGON_HORIZONTAL_SPACE;
     }
 
 }

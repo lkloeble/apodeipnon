@@ -42,12 +42,12 @@ public class Kendimata implements Neume {
 
     @Override
     public double getCurrentX() {
-        return svgPath.getTranslateX() + KENDIMATA_HORIZONTAL_SPACE;
+        return svgPath.getTranslateX();
     }
 
     @Override
     public int getGraphicalSize() {
-        return (int)(svgPath.getBoundsInLocal().getWidth()*getSvgPath().getScaleX()) + KENDIMATA_HORIZONTAL_SPACE;
+        return KENDIMATA_HORIZONTAL_SPACE;
     }
 
 }

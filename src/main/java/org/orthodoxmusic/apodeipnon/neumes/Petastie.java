@@ -40,12 +40,12 @@ public class Petastie implements Neume {
 
     @Override
     public double getCurrentX() {
-        return svgPath.getTranslateX() + PETASTIE_HORIZONTAL_SPACE;
+        return svgPath.getTranslateX();
     }
 
     @Override
     public int getGraphicalSize() {
-        return (int)(svgPath.getBoundsInLocal().getWidth()*getSvgPath().getScaleX()) + PETASTIE_HORIZONTAL_SPACE;
+        return PETASTIE_HORIZONTAL_SPACE;
     }
 
 }

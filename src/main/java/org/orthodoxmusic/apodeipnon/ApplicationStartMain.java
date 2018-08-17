@@ -42,7 +42,6 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
     private double currentLetterY = 0;
 
     public static void main(String[] args) {
-        System.out.println("on passe par main avec " + args.length + " arguments");
         userArguments = new UserArguments(args);
         launch(args);
     }
@@ -53,7 +52,6 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         scene.setOnKeyPressed(this);
         stage.setScene(scene);
         stage.setTitle("Apodeipnon Application");
-        System.out.println("on peut logger ");
         try {
             keyboardMapper = new KeyboardMapper(userArguments.hasMapping());
         } catch (IOException ioException) {
@@ -68,10 +66,8 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
     public void handle(KeyEvent e)
     {
         KeyCode keyCode = e.getCode();
-        System.out.println("keyevent " + keyCode.getName());
 
         String mappedKeyCode = keyboardMapper.getMapping(keyCode);
-        System.out.println("keyevent après mapping : " + mappedKeyCode);
 
 
         eraseEveryNodes();
@@ -87,7 +83,6 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
             allBlocks.createNewBlock();
             currentLetterX = allBlocks.getNewCurrentLetterX();
             currentNeumeX = allBlocks.getNewCurrentLetterX();
-            System.out.println("*****newPhase with currentLetter " + currentLetterX + " currentNeumeX " + currentNeumeX);
             inputPhase.setTextPhase();
         } else if(inputPhase.isTextPhase()) {
             drawTextInterface();
@@ -119,11 +114,11 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
     }
 
     private void drawAllBlocks() {
+        allBlocks.printlog();
         allBlocks.drawBlocks(group);
     }
 
     private void drawTextInterface() {
-        System.out.println("DRAW TEXT INTERFACE");
         Text textParoles = new Text();
         textParoles.setText("SAISIE DU TEXTE");
         textParoles.setX(500);
@@ -145,7 +140,6 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
     }
 
     private void drawNeumesInterface() {
-        System.out.println("DRAW NEUMES INTERFACE");
         Text textNeumes = new Text();
         textNeumes.setText("SAISIE DES NEUMES");
         textNeumes.setX(500);
@@ -164,7 +158,6 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
             currentLetterX = 0;
         }
         if(keyCode.equals("Backspace")) {
-            System.out.println("asked for backspace");
             ObservableList<Node> groupChildren = group.getChildren();
             group.getChildren().removeAll(groupChildren);
             currentNeumeX = 0;
@@ -179,7 +172,6 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
     }
 
     private void updateNeumesInputPhase(String keyCode) {
-        System.out.println("ENTER NEUMES MODE");
         if (keyCode.equals("I")) {
             drawIson();
         }
@@ -201,7 +193,6 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
     }
 
     private void updateTextInputPhase(String keyCode) {
-        System.out.println("ENTER TEXT MODE");
         if (keyCode.equals("A")) {
             drawLetterA();
         }
@@ -223,112 +214,88 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
     }
 
     public void drawIson() {
-        System.out.println("drawIson");
         Ison ison = new Ison(currentNeumeX,currentNeumeY);
         currentNeumeX += ison.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(ison));
         allBlocks.addNeumeToVerticalNeumeContainer(ison);
-        //group.getChildren().addAll(ison.getSvgPath());
     }
 
     public void drawApostrophos() {
-        System.out.println("drawApostrophos");
         Apostrophos apostrophos = new Apostrophos(currentNeumeX,currentNeumeY);
         currentNeumeX += apostrophos.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(apostrophos));
         allBlocks.addNeumeToVerticalNeumeContainer(apostrophos);
-        //group.getChildren().addAll(apostrophos.getSvgPath());
     }
 
     private void drawPetastie() {
-        System.out.println("drawPetastie");
         Petastie petastie = new Petastie(currentNeumeX,currentNeumeY);
         currentNeumeX += petastie.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(petastie));
         allBlocks.addNeumeToVerticalNeumeContainer(petastie);
-        //group.getChildren().addAll(petastie.getSvgPath());
     }
 
     private void drawElafron() {
-        System.out.println("drawElafron");
         Elaphron elaphron = new Elaphron(currentNeumeX,currentNeumeY);
         currentNeumeX += elaphron.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(elaphron));
         allBlocks.addNeumeToVerticalNeumeContainer(elaphron);
-        //group.getChildren().addAll(elaphron.getSvgPath());
     }
 
 
     public void drawOligon() {
-        System.out.println("drawOligon");
         Oligon oligon = new Oligon(currentNeumeX, currentNeumeY);
         currentNeumeX += oligon.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(oligon));
         allBlocks.addNeumeToVerticalNeumeContainer(oligon);
-        //group.getChildren().addAll(oligon.getSvgPath());
     }
 
     public void drawKendimata() {
-        System.out.println("drawKendimata");
         Kendimata kendimata = new Kendimata(currentNeumeX, currentNeumeY);
         currentNeumeX += kendimata.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(kendimata));
         allBlocks.addNeumeToVerticalNeumeContainer(kendimata);
-        //group.getChildren().addAll(kendimata.getSvgPath());
     }
 
     public void drawLetterA() {
-        System.out.println("letter A");
         LetterA letterA = new LetterA(currentLetterX,currentLetterY);
         currentLetterX += letterA.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(letterA));
         allBlocks.addLetterToTextualSymbols(letterA);
-        //group.getChildren().addAll(letterA.getSvgPath());
     }
 
     public void drawLetterL() {
-        System.out.println("letter L");
         LetterL letterL = new LetterL(currentLetterX,currentLetterY);
         currentLetterX += letterL.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(letterL));
         allBlocks.addLetterToTextualSymbols(letterL);
-        //group.getChildren().addAll(letterL.getSvgPath());
     }
 
     public void drawLetterE() {
-        System.out.println("letter E");
         LetterE letterE = new LetterE(currentLetterX, currentLetterY);
         currentLetterX += letterE.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(letterE));
         allBlocks.addLetterToTextualSymbols(letterE);
-        //group.getChildren().addAll(letterE.getSvgPath());
     }
 
     public void drawLetterU() {
-        System.out.println("letter U");
         LetterU letterU = new LetterU(currentLetterX, currentLetterY);
         currentLetterX += letterU.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(letterU));
         allBlocks.addLetterToTextualSymbols(letterU);
-        //group.getChildren().addAll(letterU.getSvgPath());
     }
 
     public void drawLetterI() {
-        System.out.println("letter I");
         LetterI letterI = new LetterI(currentLetterX, currentLetterY);
         currentLetterX += letterI.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(letterI));
         allBlocks.addLetterToTextualSymbols(letterI);
-        //group.getChildren().addAll(letterI.getSvgPath());
     }
 
     public void drawUnderline() {
-        System.out.println("symbol underscore");
         Underscore underscore = new Underscore(currentLetterX,currentLetterY);
         currentLetterX += underscore.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(underscore));
         allBlocks.addLetterToTextualSymbols(underscore);
-        //group.getChildren().addAll(underscore.getSvgPath());
     }
 
 }

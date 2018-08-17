@@ -24,11 +24,24 @@ public class NeumeVerticalBlock {
         for(Neume neume : neumes) {
             stringBuilder.append(neume.getNeumeName()).append(" ");
         }
+        stringBuilder.append(" (").append(getGraphicalSize())
+                .append(" From ").append(getStartXIndice())
+                .append(" To ").append(getLastXPosition()).append(")");
         System.out.println(stringBuilder);
     }
 
     public void draw(Group group) {
         neumes.forEach(neume -> group.getChildren().add(neume.getSvgPath()));
+    }
+
+    private double getStartXIndice() {
+        double startXIndice = Integer.MAX_VALUE;
+        for(Neume neume : neumes) {
+            if(neume.getCurrentX() < startXIndice) {
+                startXIndice = neume.getCurrentX();
+            }
+        }
+        return startXIndice;
     }
 
     public int getGraphicalSize() {
@@ -42,15 +55,11 @@ public class NeumeVerticalBlock {
     }
 
     public double getLastXPosition() {
-        double lastXPosition = 0;
-        for(Neume neume : neumes) {
-            double lastXPositionNeume = neume.getCurrentX();
-            if(lastXPositionNeume > lastXPosition) {
-                lastXPosition = lastXPositionNeume;
-            }
-        }
-        return lastXPosition;
+        return getStartXIndice() + getGraphicalSize();
     }
 
 
+    public void drawCenter(Group group, double graphicalSize) {
+        draw(group);
+    }
 }

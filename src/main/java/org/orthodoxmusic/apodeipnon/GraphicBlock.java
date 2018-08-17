@@ -14,7 +14,6 @@ public class GraphicBlock {
         textualSymbols = new TextualSymbols();
         neumeVerticalBlock = new NeumeVerticalBlock();
         this.blockIndice = blockIndice;
-        System.out.println("NEW GB indice " + blockIndice);
     }
 
     public void addLetterToTextualSymbols(Letter letter) {
@@ -26,26 +25,24 @@ public class GraphicBlock {
     }
 
     public void printlog() {
-        System.out.print("block indice : " + blockIndice + " => ");
+        System.out.print("PRINTLOG : block indice : " + blockIndice + " => ");
         textualSymbols.printlog();
         neumeVerticalBlock.printlog();
     }
 
     public void drawBlock(Group group) {
-        System.out.println("group graphicalSize " + getGraphicalSize() + " lastXPosition " + getLastXPosition());
-        textualSymbols.draw(group);
-        neumeVerticalBlock.draw(group);
-    }
-
-    private int getGraphicalSize() {
-        int graphicalSize = textualSymbols.getGraphicalSize();
-        return neumeVerticalBlock.getGraphicalSize() > graphicalSize ? neumeVerticalBlock.getGraphicalSize() : graphicalSize;
+        if(textualSymbols.getGraphicalSize() > neumeVerticalBlock.getGraphicalSize()) {
+            textualSymbols.draw(group);
+            neumeVerticalBlock.drawCenter(group, textualSymbols.getGraphicalSize());
+        } else {
+            textualSymbols.drawCenter(group, neumeVerticalBlock.getGraphicalSize());
+            neumeVerticalBlock.draw(group);
+        }
     }
 
     public double getLastXPosition() {
         double lastXPosition = textualSymbols.getLastXPosition();
         double neumeLastXPosition = neumeVerticalBlock.getLastXPosition();
-        System.out.println("lastXPosition text : " + lastXPosition + " neumes " + neumeLastXPosition);
         return neumeLastXPosition > lastXPosition ? neumeLastXPosition : lastXPosition;
     }
 }

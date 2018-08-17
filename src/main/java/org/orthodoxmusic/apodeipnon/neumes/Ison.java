@@ -40,12 +40,12 @@ public class Ison implements Neume {
 
     @Override
     public double getCurrentX() {
-        return svgPath.getTranslateX() + ISON_HORIZONTAL_SPACE;
+        return svgPath.getTranslateX();
     }
 
     @Override
     public int getGraphicalSize() {
-        return (int)(svgPath.getBoundsInLocal().getWidth()*getSvgPath().getScaleX()) + ISON_HORIZONTAL_SPACE;
+        return ISON_HORIZONTAL_SPACE;
     }
 
     @Override

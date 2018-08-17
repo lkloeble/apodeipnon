@@ -1,10 +1,78 @@
 package org.orthodoxmusic.apodeipnon.letters.french;
 
 import javafx.scene.Group;
+import javafx.scene.shape.SVGPath;
 import org.orthodoxmusic.apodeipnon.GraphicSymbol;
 
-public interface Letter extends GraphicSymbol {
+import java.sql.Timestamp;
+import java.time.Instant;
+import java.util.Objects;
 
-    String getLetterName();
+public abstract class Letter implements GraphicSymbol {
 
+    public Letter(String letterName) {
+        this.name = letterName;
+    }
+
+    protected String name;
+    protected SVGPath svgPath;
+
+    public SVGPath getSvgPath() {
+        SVGPath newSVGPath = new SVGPath();
+        newSVGPath.setContent(svgPath.getContent());
+        newSVGPath.setTranslateX(svgPath.getTranslateX());
+        newSVGPath.setTranslateY(svgPath.getTranslateY());
+        newSVGPath.setScaleX(0.03);
+        newSVGPath.setScaleY(0.03);
+        return newSVGPath;
+    }
+
+    public String getLetterName() {
+        return name;
+    }
+
+    public double getCurrentY() {
+        return svgPath.getTranslateY();
+    }
+
+    public double getCurrentX() {
+        return svgPath.getTranslateX();
+    }
+
+    abstract public int getGraphicalSize();
+
+    public Letter getLetterWithShifting(double shift) {
+        SVGPath newSvgPath = getSvgPath();
+        newSvgPath.setTranslateX(getCurrentX() + shift);
+        Letter newLetter = new LetterA(getCurrentX(),getCurrentY());
+        newLetter.updateSvgPath(newSvgPath);
+        return newLetter;
+    }
+
+    protected void updateSvgPath(SVGPath newSvgPath) {
+        this.svgPath = newSvgPath;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Letter letter = (Letter) o;
+        return Objects.equals(name, letter.name) &&
+                Objects.equals(svgPath, letter.svgPath);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, svgPath);
+    }
+
+    @Override
+    public String toString() {
+        return "Letter{" +
+                "name='" + name + '\'' +
+                ", currentX=" + getCurrentX() +
+                ", graphicalSize=" + (getCurrentX() + getGraphicalSize()) +
+                '}';
+    }
 }

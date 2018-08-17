@@ -40,12 +40,12 @@ public class Elaphron implements Neume {
 
     @Override
     public double getCurrentX() {
-        return svgPath.getTranslateX() + ELAPHRON_HORIZONTAL_SPACE;
+        return svgPath.getTranslateX();
     }
 
     @Override
     public int getGraphicalSize() {
-        return (int)(svgPath.getBoundsInLocal().getWidth()*getSvgPath().getScaleX()) + ELAPHRON_HORIZONTAL_SPACE;
+        return ELAPHRON_HORIZONTAL_SPACE;
     }
 
 }

@@ -40,12 +40,12 @@ public class Apostrophos implements Neume {
 
     @Override
     public double getCurrentX() {
-        return svgPath.getTranslateX() + APOSTROPHOS_HORIZONTAL_SPACE;
+        return svgPath.getTranslateX();
     }
 
     @Override
     public int getGraphicalSize() {
-        return (int)(svgPath.getBoundsInLocal().getWidth()*getSvgPath().getScaleX()) + APOSTROPHOS_HORIZONTAL_SPACE;
+        return APOSTROPHOS_HORIZONTAL_SPACE;
     }
 
 }

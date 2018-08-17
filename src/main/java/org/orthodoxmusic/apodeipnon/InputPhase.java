@@ -11,7 +11,6 @@ public class InputPhase {
     }
 
     public void setCurrentType(String keyboardInput) {
-        System.out.println("new phase : " + keyboardInput);
         InputType inputType = InputType.getValueByKeyboardInput(keyboardInput);
         currentType = UNKNOWN.equals(inputType) ? currentType : inputType;
     }
