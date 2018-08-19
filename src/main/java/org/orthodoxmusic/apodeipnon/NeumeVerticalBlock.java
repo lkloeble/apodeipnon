@@ -4,6 +4,8 @@ import javafx.scene.Group;
 import org.orthodoxmusic.apodeipnon.letters.french.Letter;
 import org.orthodoxmusic.apodeipnon.neumes.Neume;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -47,9 +49,7 @@ public class NeumeVerticalBlock {
     public int getGraphicalSize() {
         int graphicalSize = 0;
         for(Neume neume : neumes) {
-            if(neume.getGraphicalSize() > graphicalSize) {
-                graphicalSize = neume.getGraphicalSize();
-            }
+            graphicalSize += neume.getGraphicalSize();
         }
         return graphicalSize;
     }
@@ -60,6 +60,16 @@ public class NeumeVerticalBlock {
 
 
     public void drawCenter(Group group, double graphicalSize) {
-        draw(group);
+        double shift = (graphicalSize - getGraphicalSize()) / 2;
+        Set<Neume> localNeumes = new HashSet<>(neumes);
+        for(Neume neume : localNeumes) {
+            Neume neumeWithShifting = neume.getNeumeWithShifting(shift);
+            group.getChildren().add(neumeWithShifting.getSvgPath());
+        }
+    }
+
+    public boolean isEmpty() {
+        System.out.println("neumes empty " + neumes.isEmpty());
+        return neumes.isEmpty();
     }
 }

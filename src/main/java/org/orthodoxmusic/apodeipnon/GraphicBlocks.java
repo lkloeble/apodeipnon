@@ -2,7 +2,6 @@ package org.orthodoxmusic.apodeipnon;
 
 import javafx.scene.Group;
 import org.orthodoxmusic.apodeipnon.letters.french.Letter;
-import org.orthodoxmusic.apodeipnon.neumes.Ison;
 import org.orthodoxmusic.apodeipnon.neumes.Neume;
 
 import java.util.*;
@@ -17,9 +16,17 @@ public class GraphicBlocks {
     }
 
     public void createNewBlock() {
+        if(currentBlockIsEmpty()) return;
         int currentPosition = getCurrentIndice();
         currentLetterX = updateLetterX();
         internalMap.put(++currentPosition,new GraphicBlock(currentPosition));
+    }
+
+    private boolean currentBlockIsEmpty() {
+        Integer currentIndice = getCurrentIndice();
+        if(currentIndice == 0) return false;
+        GraphicBlock currentGraphicBlock = internalMap.get(currentIndice);
+        return currentGraphicBlock.isEmpty();
     }
 
     private double updateLetterX() {

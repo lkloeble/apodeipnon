@@ -44,9 +44,28 @@ public abstract class Letter implements GraphicSymbol {
     public Letter getLetterWithShifting(double shift) {
         SVGPath newSvgPath = getSvgPath();
         newSvgPath.setTranslateX(getCurrentX() + shift);
-        Letter newLetter = new LetterA(getCurrentX(),getCurrentY());
+        Letter newLetter = getLetter(getCurrentX(),getCurrentY());
         newLetter.updateSvgPath(newSvgPath);
         return newLetter;
+    }
+
+    private Letter getLetter(double currentX, double currentY) {
+        switch(getLetterName()) {
+            case "A":
+                return new LetterA(currentX,currentY);
+            case "L":
+                return new LetterL(currentX,currentY);
+            case "E":
+                return new LetterE(currentX,currentY);
+            case "I":
+                return new LetterI(currentX,currentY);
+            case "U":
+                return new LetterU(currentX,currentY);
+            case "_":
+                return new Underscore(currentX,currentY);
+                default:
+                    return null;
+        }
     }
 
     protected void updateSvgPath(SVGPath newSvgPath) {

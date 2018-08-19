@@ -66,13 +66,10 @@ public class TextualSymbols {
     }
 
     public void drawCenter(Group group, double graphicalSize) {
-        System.out.println("je centre les lettres sur " + graphicalSize);
         double shift = (graphicalSize - getGraphicalSize()) / 2;
         Collection<Letter> values = new ArrayList<>(letters.values());
         for(Letter letter : values) {
-            Letter oldLetter = letter;
             Letter letterWithShifting = letter.getLetterWithShifting(shift);
-            System.out.println("letter " + oldLetter + " devient " + letterWithShifting);
             group.getChildren().add(letterWithShifting.getSvgPath());
         }
     }
@@ -84,4 +81,8 @@ public class TextualSymbols {
         }
     }
 
+    public boolean isEmpty() {
+        System.out.println("letters empty " + letters.isEmpty() + " letters.size " + letters.size() + " " + letters.get(0));
+        return letters.isEmpty();
+    }
 }

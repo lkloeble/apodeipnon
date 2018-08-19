@@ -25,7 +25,7 @@ public class GraphicBlock {
     }
 
     public void printlog() {
-        System.out.print("PRINTLOG : block indice : " + blockIndice + " => ");
+        System.out.println("GB => " + blockIndice);
         textualSymbols.printlog();
         neumeVerticalBlock.printlog();
     }
@@ -44,5 +44,9 @@ public class GraphicBlock {
         double lastXPosition = textualSymbols.getLastXPosition();
         double neumeLastXPosition = neumeVerticalBlock.getLastXPosition();
         return neumeLastXPosition > lastXPosition ? neumeLastXPosition : lastXPosition;
+    }
+
+    public boolean isEmpty() {
+        return textualSymbols.isEmpty() && neumeVerticalBlock.isEmpty();
     }
 }

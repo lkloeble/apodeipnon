@@ -31,6 +31,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
     Stage globalStage;
     KeyboardMapper keyboardMapper;
     static UserArguments userArguments;
+    private static final String VERSION = "VERSION-19082018-1840";
 
     UserInputList userInputList = new UserInputList();
     private InputPhase inputPhase = new InputPhase();
@@ -51,7 +52,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
 
         scene.setOnKeyPressed(this);
         stage.setScene(scene);
-        stage.setTitle("Apodeipnon Application");
+        stage.setTitle("Apodeipnon Application " + VERSION);
         try {
             keyboardMapper = new KeyboardMapper(userArguments.hasMapping());
         } catch (IOException ioException) {
