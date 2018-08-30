@@ -28,7 +28,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
     Stage globalStage;
     KeyboardMapper keyboardMapper;
     static UserArguments userArguments;
-    private static final String VERSION = "VERSION-29082018-1840";
+    private static final String VERSION = "VERSION-30082018-2050";
 
     UserInputList userInputList = new UserInputList();
     private InputPhase inputPhase = new InputPhase();
