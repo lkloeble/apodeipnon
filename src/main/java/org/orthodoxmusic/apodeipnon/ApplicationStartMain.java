@@ -1,26 +1,23 @@
 package org.orthodoxmusic.apodeipnon;
 
 import javafx.application.Application;
-import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
 import javafx.event.EventHandler;
+import javafx.geometry.Orientation;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.ScrollBar;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.shape.SVGPath;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.orthodoxmusic.apodeipnon.letters.french.*;
 import org.orthodoxmusic.apodeipnon.neumes.*;
 
 import java.io.IOException;
-import java.util.*;
 
 
 public class ApplicationStartMain extends Application implements EventHandler<KeyEvent>{
@@ -31,7 +28,7 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
     Stage globalStage;
     KeyboardMapper keyboardMapper;
     static UserArguments userArguments;
-    private static final String VERSION = "VERSION-19082018-1840";
+    private static final String VERSION = "VERSION-29082018-1840";
 
     UserInputList userInputList = new UserInputList();
     private InputPhase inputPhase = new InputPhase();
@@ -70,8 +67,8 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
 
         String mappedKeyCode = keyboardMapper.getMapping(keyCode);
 
-
         eraseEveryNodes();
+
         showReperes();
         handleNoPhaseEvent(mappedKeyCode);
         updateInputPhaseWithNewInput(mappedKeyCode);
@@ -191,6 +188,15 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
         else if (keyCode.equals("K")) {
             drawKendimata();
         }
+        else if (keyCode.equals("V")) {
+            drawVarea();
+        }
+        else if (keyCode.equals("F")) {
+            drawPsefeston();
+        }
+        else if(keyCode.equals("L")) {
+            drawKlasma();
+        }
     }
 
     private void updateTextInputPhase(String keyCode) {
@@ -243,56 +249,77 @@ public class ApplicationStartMain extends Application implements EventHandler<Ke
     }
 
 
-    public void drawOligon() {
+    private void drawOligon() {
         Oligon oligon = new Oligon(currentNeumeX, currentNeumeY);
         currentNeumeX += oligon.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(oligon));
         allBlocks.addNeumeToVerticalNeumeContainer(oligon);
     }
 
-    public void drawKendimata() {
+    private void drawKendimata() {
         Kendimata kendimata = new Kendimata(currentNeumeX, currentNeumeY);
         currentNeumeX += kendimata.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(kendimata));
         allBlocks.addNeumeToVerticalNeumeContainer(kendimata);
     }
 
-    public void drawLetterA() {
+    private void drawVarea() {
+        Varea varea = new Varea(currentNeumeX, currentNeumeY);
+        currentNeumeX += varea.getHorizontalSpace();
+        userInputList.addUserInput(new UserInput(varea));
+        allBlocks.addNeumeToVerticalNeumeContainer(varea);
+    }
+
+    private void drawPsefeston() {
+        Psefeston psefeston = new Psefeston(currentNeumeX, currentNeumeY);
+        currentNeumeX += psefeston.getHorizontalSpace();
+        userInputList.addUserInput(new UserInput(psefeston));
+        allBlocks.addNeumeToVerticalNeumeContainer(psefeston);
+    }
+
+    public void drawKlasma() {
+        Klasma klasma = new Klasma(currentNeumeX,currentNeumeY);
+        currentNeumeX += klasma.getHorizontalSpace();
+        userInputList.addUserInput(new UserInput(klasma));
+        allBlocks.addNeumeToVerticalNeumeContainer(klasma);
+    }
+
+    private void drawLetterA() {
         LetterA letterA = new LetterA(currentLetterX,currentLetterY);
         currentLetterX += letterA.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(letterA));
         allBlocks.addLetterToTextualSymbols(letterA);
     }
 
-    public void drawLetterL() {
+    private void drawLetterL() {
         LetterL letterL = new LetterL(currentLetterX,currentLetterY);
         currentLetterX += letterL.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(letterL));
         allBlocks.addLetterToTextualSymbols(letterL);
     }
 
-    public void drawLetterE() {
+    private void drawLetterE() {
         LetterE letterE = new LetterE(currentLetterX, currentLetterY);
         currentLetterX += letterE.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(letterE));
         allBlocks.addLetterToTextualSymbols(letterE);
     }
 
-    public void drawLetterU() {
+    private void drawLetterU() {
         LetterU letterU = new LetterU(currentLetterX, currentLetterY);
         currentLetterX += letterU.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(letterU));
         allBlocks.addLetterToTextualSymbols(letterU);
     }
 
-    public void drawLetterI() {
+    private void drawLetterI() {
         LetterI letterI = new LetterI(currentLetterX, currentLetterY);
         currentLetterX += letterI.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(letterI));
         allBlocks.addLetterToTextualSymbols(letterI);
     }
 
-    public void drawUnderline() {
+    private void drawUnderline() {
         Underscore underscore = new Underscore(currentLetterX,currentLetterY);
         currentLetterX += underscore.getHorizontalSpace();
         userInputList.addUserInput(new UserInput(underscore));

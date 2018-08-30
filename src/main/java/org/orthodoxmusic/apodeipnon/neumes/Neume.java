@@ -55,6 +55,12 @@ public abstract class Neume implements GraphicSymbol {
                 return new Petastie(currentX, currentY);
             case "kendimata":
                 return new Kendimata(currentX, currentY);
+            case "varea":
+                return new Varea(currentX,currentY);
+            case "psefeston":
+                return new Psefeston(currentX,currentY);
+            case "klasma":
+                return new Klasma(currentX,currentY);
             default:
                 System.out.println("demande d'un neume inexistant " + getNeumeName());
                 return null;

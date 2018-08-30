@@ -66,14 +66,9 @@ public class GraphicBlocks {
         return getMax(internalMap.keySet());
     }
 
-    private Integer getMax(Set<Integer> integerSet) {
-        int max = 0;
-        for(Integer indice : integerSet) {
-            if(max < indice) {
-                max = indice;
-            }
-        }
-        return max;
+    private int getMax(Set<Integer> integerSet) {
+        return integerSet.stream()
+                .mapToInt(nb -> nb).max().orElse(0);
     }
 
     public void addNeumeToVerticalNeumeContainer(Neume neume) {

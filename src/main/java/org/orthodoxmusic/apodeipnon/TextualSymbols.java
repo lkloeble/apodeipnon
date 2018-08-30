@@ -21,13 +21,8 @@ public class TextualSymbols {
     }
 
     private int getMax(Set<Integer> integerSet) {
-        int max = 0;
-        for(Integer integer : integerSet) {
-            if(max < integer) {
-                max = integer;
-            }
-        }
-        return max;
+        return integerSet.stream()
+                .mapToInt(nb -> nb).max().orElse(0);
     }
 
     public void printlog() {
@@ -54,11 +49,7 @@ public class TextualSymbols {
     }
 
     public int getGraphicalSize() {
-        int graphicalSize = 0;
-        for(Letter letter : letters.values()) {
-            graphicalSize += letter.getGraphicalSize();
-        }
-        return graphicalSize;
+        return letters.values().stream().mapToInt(nb -> nb.getGraphicalSize()).sum();
     }
 
     public double getLastXPosition() {
@@ -67,22 +58,14 @@ public class TextualSymbols {
 
     public void drawCenter(Group group, double graphicalSize) {
         double shift = (graphicalSize - getGraphicalSize()) / 2;
-        Collection<Letter> values = new ArrayList<>(letters.values());
-        for(Letter letter : values) {
-            Letter letterWithShifting = letter.getLetterWithShifting(shift);
-            group.getChildren().add(letterWithShifting.getSvgPath());
-        }
+        letters.values().forEach(letter -> group.getChildren().add(letter.getLetterWithShifting(shift).getSvgPath()));
     }
 
     public void draw(Group group) {
-        Collection<Letter> values = letters.values();
-        for(Letter letter : values) {
-            group.getChildren().add(letter.getSvgPath());
-        }
+        letters.values().stream().forEach(letter -> group.getChildren().add(letter.getSvgPath()));
     }
 
     public boolean isEmpty() {
-        System.out.println("letters empty " + letters.isEmpty() + " letters.size " + letters.size() + " " + letters.get(0));
         return letters.isEmpty();
     }
 }
