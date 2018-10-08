@@ -1,75 +1,87 @@
 package org.orthodoxmusic.apodeipnon;
 
-import javafx.scene.Group;
-import org.orthodoxmusic.apodeipnon.letters.french.Letter;
 import org.orthodoxmusic.apodeipnon.neumes.Neume;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class NeumeVerticalBlock {
 
-    private Set<Neume> neumes;
+    private Map<Integer,Neume> neumes = new HashMap<>();
 
-    public NeumeVerticalBlock() {
-        neumes = new HashSet<Neume>();
+    public NeumeVerticalBlock(String content) {
+        addNeumes(content);
     }
 
-    public void addNeume(Neume neume) {
-        neumes.add(neume);
-    }
-
-    public void printlog() {
-        StringBuilder stringBuilder = new StringBuilder(" / Neumes : ");
-        for(Neume neume : neumes) {
-            stringBuilder.append(neume.getNeumeName()).append(" ");
+    private void addNeumes(String content) {
+        StringTokenizer stringTokenizer = new StringTokenizer(content, "|");
+        int indice = 0;
+        while(stringTokenizer.hasMoreTokens()) {
+            Neume neume = Neume.getNeume(stringTokenizer.nextToken());
+            neumes.put(indice,neume);
+            indice++;
         }
-        stringBuilder.append(" (").append(getGraphicalSize())
-                .append(" From ").append(getStartXIndice())
-                .append(" To ").append(getLastXPosition()).append(")");
-        System.out.println(stringBuilder);
     }
 
-    public void draw(Group group) {
-        neumes.forEach(neume -> group.getChildren().add(neume.getSvgPath()));
+    public Map<Integer,Neume> getNeumes() {
+        return neumes;
     }
 
-    private double getStartXIndice() {
-        double startXIndice = Integer.MAX_VALUE;
-        for(Neume neume : neumes) {
-            if(neume.getCurrentX() < startXIndice) {
-                startXIndice = neume.getCurrentX();
+    public String getAllSvgData(TextLinePositions textLinePositions, int currentXPosition) {
+        StringJoiner stringJoiner = new StringJoiner(" ");
+        Set<Integer> neumesIndices = getNeumes().keySet();
+        for(Integer indice : neumesIndices) {
+            Neume neume = getNeumes().get(indice);
+            stringJoiner.add(neume.getNeumeSVG(textLinePositions,currentXPosition));
+        }
+
+        return stringJoiner.toString();
+    }
+
+    public int getXStart() {
+        int xStart = Integer.MAX_VALUE;
+        for(Integer indice : neumes.keySet()) {
+            Neume neume = neumes.get(indice);
+            if(neume.getXStart() < xStart) {
+                xStart = neume.getXStart();
             }
         }
-        return startXIndice;
+        return xStart;
     }
 
-    public int getGraphicalSize() {
-        int graphicalSize = 0;
-        for(Neume neume : neumes) {
-            graphicalSize += neume.getGraphicalSize();
+    public int getXEnd() {
+        int xEnd = 0;
+        for(Integer indice : neumes.keySet()) {
+            Neume neume = neumes.get(indice);
+            if(neume.getXEnd() > xEnd) {
+                xEnd = neume.getXEnd();
+            }
         }
-        return graphicalSize;
+        return xEnd;
     }
 
-    public double getLastXPosition() {
-        return getStartXIndice() + getGraphicalSize();
-    }
-
-
-    public void drawCenter(Group group, double graphicalSize) {
-        double shift = (graphicalSize - getGraphicalSize()) / 2;
-        Set<Neume> localNeumes = new HashSet<>(neumes);
-        for(Neume neume : localNeumes) {
-            Neume neumeWithShifting = neume.getNeumeWithShifting(shift);
-            group.getChildren().add(neumeWithShifting.getSvgPath());
+    public int getLength() {
+        int maxLength = 0;
+        for(Integer indice : neumes.keySet()) {
+        Neume neume = neumes.get(indice);
+        if(neume.getLength() > maxLength) {
+                maxLength = neume.getLength();
+            }
         }
+        return maxLength;
     }
 
-    public boolean isEmpty() {
-        System.out.println("neumes empty " + neumes.isEmpty());
-        return neumes.isEmpty();
+    @Override
+    public String toString() {
+        return "NeumeVerticalBlock{" +
+                "neumes=" + neumes +
+                '}';
+    }
+
+    public boolean hasUnspokenNeume() {
+        for(Integer indice : neumes.keySet()) {
+            Neume neume = neumes.get(indice);
+            if(neume.isUnspoken()) return true;
+        }
+        return false;
     }
 }

@@ -1,10 +1,9 @@
 package org.orthodoxmusic.apodeipnon.letters.french;
 
-import javafx.scene.shape.SVGPath;
-import org.orthodoxmusic.apodeipnon.GraphicSymbol;
 
 public class LetterE extends Letter {
 
+    /*
     private static final int E_HORIZONTAL_SPACE = 11;
 
     public LetterE(double currentLetterX, double currentLetterY) {
@@ -28,6 +27,6 @@ public class LetterE extends Letter {
     public int getGraphicalSize() {
         return E_HORIZONTAL_SPACE;
     }
-
+*/
 }
 

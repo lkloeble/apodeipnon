@@ -1,30 +1,23 @@
 package org.orthodoxmusic.apodeipnon.neumes;
 
-import javafx.scene.shape.SVGPath;
+
+import org.orthodoxmusic.apodeipnon.TextLinePositions;
 
 public class Ison extends Neume {
 
-    private static final int ISON_HORIZONTAL_SPACE = 60;
-
-    public Ison(double currentNeumeX,double currentNeumeY) {
-        super("Ison");
-        SVGPath svgPath = new SVGPath();
-        svgPath.setContent("M890 300 c-36 -13 -127 -17 -465 -23 -493 -9 -710 -29 -970 -87 -182 -40 -315 -147 -338 -270 -13 -67 29 -138 89 -149 54 -10 184 62 184 101 0 7 -19 20 -41 31 -68 30 -89 51 -89 89 0 63 90 115 235 136 48 7 246 5 654 -6 321 -9 598 -13 615 -9 55 12 104 42 161 101 83 85 68 121 -35 86z");
-        svgPath.setScaleX(0.03);
-        svgPath.setScaleY(0.03);
-        svgPath.setTranslateX(currentNeumeX);
-        svgPath.setTranslateY(currentNeumeY);
-        this.svgPath = svgPath;
+    @Override
+    public String getNeumeSVG(TextLinePositions textLinePositions, int currentXPosition) {
+        this.xStart = currentXPosition;
+        return "<path ison d=\"M" + currentXPosition + " 537 c-42 -21 -65 -62 -64 -115 2 -130 141 -251 338 -295 260 -58 477 -78 970 -87 353 -6 428 -10 474 -24 98 -32 108 2 26 87 -57 59 -107 90 -161 101 -17 4 -294 0 -615 -9 -600 -16 -670 -14 -770 20 -25 9 -62 29 -82 46 -29 24 -37 37 -37 64 0 38 21 59 89 89 22 11 41 24 41 31 0 31 -116 104 -165 105 -11 0 -31 -6 -44 -13z\"/>\n";
     }
 
     @Override
-    public int getHorizontalSpace() {
-        return ISON_HORIZONTAL_SPACE;
+    public int getLength() {
+        return 2129;
     }
 
     @Override
-    public int getGraphicalSize() {
-        return ISON_HORIZONTAL_SPACE;
+    public String toString() {
+        return "Ison{}";
     }
-
 }

@@ -1,12 +1,11 @@
 package org.orthodoxmusic.apodeipnon;
 
-import javafx.scene.shape.SVGPath;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserInputList {
-
+/*
     private List<UserInput> userInputs = new ArrayList<UserInput>();
 
     public void addUserInput(UserInput userInput) {
@@ -48,4 +47,5 @@ public class UserInputList {
         }
         return maxY;
     }
+    */
 }

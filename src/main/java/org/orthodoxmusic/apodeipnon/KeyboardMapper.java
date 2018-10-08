@@ -1,14 +1,11 @@
 package org.orthodoxmusic.apodeipnon;
 
-import javafx.scene.input.KeyCode;
-
 import java.io.*;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
 public class KeyboardMapper {
-
+/*
     private boolean enableMapping;
     private Map<String, String> keyboardMapping = new HashMap<String, String>();
 
@@ -32,4 +29,5 @@ public class KeyboardMapper {
         if(!enableMapping || !keyboardMapping.containsKey(keyCode.getName())) return keyCode.getName();
         return keyboardMapping.get(keyCode.getName());
     }
+    */
 }

@@ -1,12 +1,48 @@
 package org.orthodoxmusic.apodeipnon.neumes;
 
-import javafx.scene.shape.SVGPath;
-import org.orthodoxmusic.apodeipnon.GraphicSymbol;
 
-public abstract class Neume implements GraphicSymbol {
+import org.orthodoxmusic.apodeipnon.TextLinePositions;
 
-    protected SVGPath svgPath;
+public abstract class Neume {
+
+    protected Neume() {
+
+    }
+
+    public static Neume getNeume(String neumeName) {
+        switch (neumeName.toLowerCase()) {
+            case "ison":
+                return new Ison();
+            case "apostrophos":
+                return new Apostrophos();
+            case "oligon":
+                return new Oligon();
+            case "petastie":
+                return new Petastie();
+            case "elaphron":
+                return new Elaphron();
+            case "kendimata":
+                return new Kendimata();
+            case "varea":
+                return new Varea();
+            case "psefeston":
+                return new Psefeston();
+            case "klasma":
+                return new Klasma();
+            case "diese":
+                return new Diese();
+            case "2b":
+                return new TwoBars();
+            default:
+                System.out.println("demande d'un neume inexistant " + neumeName);
+                return new NullNeume();
+        }
+    }
+
     protected String name;
+
+    protected int xStart;
+    protected int xEnd;
 
     public Neume(String name) {
         this.name=name;
@@ -16,59 +52,19 @@ public abstract class Neume implements GraphicSymbol {
         return name;
     }
 
-    public SVGPath getSvgPath() {
-        SVGPath newSVGPath = new SVGPath();
-        newSVGPath.setContent(svgPath.getContent());
-        newSVGPath.setTranslateX(svgPath.getTranslateX());
-        newSVGPath.setTranslateY(svgPath.getTranslateY());
-        newSVGPath.setScaleX(0.03);
-        newSVGPath.setScaleY(0.03);
-        return newSVGPath;
+    public abstract String getNeumeSVG(TextLinePositions textLinePositions, int horizontalIndice);
+
+    public abstract int getLength();
+
+    public int getXStart() {
+        return xStart;
     }
 
-    public double getCurrentY() {
-        return svgPath.getTranslateY();
+    public int getXEnd() {
+        return xStart + getLength();
     }
 
-    public double getCurrentX() {
-        return svgPath.getTranslateX();
+    public boolean isUnspoken() {
+        return false;
     }
-
-    public Neume getNeumeWithShifting(double shift) {
-        SVGPath newSvgPath = getSvgPath();
-        System.out.println("Neume transfert de " + getCurrentX() + " à " + (getCurrentX()+shift));
-        newSvgPath.setTranslateX(getCurrentX() + shift);
-        Neume newNeume = getNeume(getCurrentX(), getCurrentY());
-        newNeume.updateSvgPath(newSvgPath);
-        return newNeume;
-    }
-
-    private Neume getNeume(double currentX, double currentY) {
-        switch (getNeumeName().toLowerCase()) {
-            case "ison":
-                return new Ison(currentX, currentY);
-            case "apostrophos":
-                return new Apostrophos(currentX, currentY);
-            case "oligon":
-                return new Oligon(currentX, currentY);
-            case "petastie":
-                return new Petastie(currentX, currentY);
-            case "kendimata":
-                return new Kendimata(currentX, currentY);
-            case "varea":
-                return new Varea(currentX,currentY);
-            case "psefeston":
-                return new Psefeston(currentX,currentY);
-            case "klasma":
-                return new Klasma(currentX,currentY);
-            default:
-                System.out.println("demande d'un neume inexistant " + getNeumeName());
-                return null;
-        }
-    }
-
-    protected void updateSvgPath(SVGPath newSvgPath) {
-        this.svgPath = newSvgPath;
-    }
-
 }

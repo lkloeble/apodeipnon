@@ -1,35 +1,28 @@
 package org.orthodoxmusic.apodeipnon.neumes;
 
-import javafx.scene.shape.SVGPath;
+import org.orthodoxmusic.apodeipnon.TextLinePositions;
 
 public class Petastie extends Neume {
-
-    private static final int PETASTIE_HORIZONTAL_SPACE = 50;
-
-    public Petastie(double currentNeumeX,double currentNeumeY) {
-        super("Petastie");
-        SVGPath svgPath = new SVGPath();
-        svgPath.setContent("M205 290 c-179 -25 -459 -154 -842 -387 -69 -42 -95 -75 -76 -94 5 -5 93 -12 196 -16 144 -5 190 -3 202 7 22 19 19 25 -25 45 -98 44 -87 101 36 184 93 61 256 142 363 178 65 22 94 26 206 27 116 1 135 -1 180 -22 96 -44 144 -114 145 -211 0 -88 -57 -161 -128 -161 -40 0 -82 -13 -82 -26 0 -22 21 -28 96 -26 76 1 174 28 232 64 46 28 81 93 88 164 12 116 -66 208 -214 255 -76 24 -272 34 -377 19z");
-        svgPath.setScaleX(0.03);
-        svgPath.setScaleY(0.03);
-        svgPath.setTranslateX(currentNeumeX);
-        svgPath.setTranslateY(currentNeumeY);
-        this.svgPath = svgPath;
+    @Override
+    public String getNeumeSVG(TextLinePositions textLinePositions, int horizontalIndice) {
+        return "<svg version=\"1.0\" xmlns=\"http://www.w3.org/2000/svg\"\n" +
+                " width=\"152.000000pt\" height=\"52.000000pt\" viewBox=\"0 0 152.000000 52.000000\"\n" +
+                " preserveAspectRatio=\"xMidYMid meet\">\n" +
+                "\n" +
+                "<g transform=\"translate(0.000000,52.000000) scale(0.100000,-0.100000)\"\n" +
+                "fill=\"#000000\" stroke=\"none\">\n" +
+                "<path d=\"M1135 511 c-42 -9 -45 -37 -4 -45 17 -3 40 -6 51 -6 71 0 128 -73\n" +
+                "128 -161 -1 -97 -49 -167 -145 -211 -45 -21 -64 -23 -180 -22 -112 1 -141 5\n" +
+                "-206 27 -184 63 -428 203 -456 262 -14 29 -14 35 1 57 9 14 34 33 56 43 44 20\n" +
+                "47 26 25 45 -12 10 -58 12 -202 7 -103 -4 -191 -11 -196 -16 -19 -19 7 -52 76\n" +
+                "-94 519 -316 768 -409 1052 -394 184 10 306 67 358 167 26 49 28 62 23 114 -7\n" +
+                "71 -42 136 -88 164 -74 45 -221 77 -293 63z\"/>\n" +
+                "</g>\n" +
+                "</svg>\n";
     }
 
     @Override
-    public String getNeumeName() {
-        return "Petastie";
+    public int getLength() {
+        return 0;
     }
-
-    @Override
-    public int getHorizontalSpace() {
-        return PETASTIE_HORIZONTAL_SPACE;
-    }
-
-    @Override
-    public int getGraphicalSize() {
-        return PETASTIE_HORIZONTAL_SPACE;
-    }
-
 }

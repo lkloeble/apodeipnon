@@ -1,10 +1,7 @@
 package org.orthodoxmusic.apodeipnon.letters.french;
 
-import javafx.scene.shape.SVGPath;
-import org.orthodoxmusic.apodeipnon.GraphicSymbol;
-
 public class Underscore extends Letter {
-
+/*
     private static final int UNDERSCORE_HORIZONTAL_SPACE = 20;
 
     public Underscore(double currentLetterX, double currentLetterY) {
@@ -28,5 +25,5 @@ public class Underscore extends Letter {
     public int getGraphicalSize() {
         return UNDERSCORE_HORIZONTAL_SPACE;
     }
-
+*/
 }

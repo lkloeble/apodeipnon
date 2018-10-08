@@ -1,12 +1,9 @@
 package org.orthodoxmusic.apodeipnon;
 
-import javafx.scene.shape.SVGPath;
-import org.orthodoxmusic.apodeipnon.neumes.Neume;
-
 import java.sql.Timestamp;
 
 public class UserInput {
-
+/*
     private GraphicSymbol graphicSymbol;
     private Timestamp timestamp;
 
@@ -38,4 +35,5 @@ public class UserInput {
     public int getHorizontalSpace() {
         return getGraphicSymbol().getHorizontalSpace();
     }
+    */
 }

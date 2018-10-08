@@ -1,13 +1,15 @@
 package org.orthodoxmusic.apodeipnon;
 
-import javafx.scene.Group;
 import org.orthodoxmusic.apodeipnon.letters.french.Letter;
 import org.orthodoxmusic.apodeipnon.neumes.Neume;
 
+import java.time.LocalDate;
+import java.time.temporal.JulianFields;
+import java.time.temporal.TemporalField;
 import java.util.*;
 
 public class GraphicBlocks {
-
+/*
     private Map<Integer,GraphicBlock> internalMap = new HashMap<Integer, GraphicBlock>();
     private double currentLetterX = 0;
 
@@ -84,4 +86,9 @@ public class GraphicBlocks {
     public double getNewCurrentLetterX() {
         return currentLetterX;
     }
+
+    public Long getBlockId() {
+        return getCurrentGraphicBlock().getBlockId();
+    }
+    */
 }

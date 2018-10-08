@@ -1,22 +1,20 @@
 package org.orthodoxmusic.apodeipnon.letters.french;
 
-import javafx.scene.Group;
-import javafx.scene.shape.SVGPath;
 import org.orthodoxmusic.apodeipnon.GraphicSymbol;
 
-import java.sql.Timestamp;
-import java.time.Instant;
 import java.util.Objects;
 
 public abstract class Letter implements GraphicSymbol {
 
+    /*
     public Letter(String letterName) {
         this.name = letterName;
     }
 
     protected String name;
-    protected SVGPath svgPath;
+    //protected SVGPath svgPath;
 
+    /*
     public SVGPath getSvgPath() {
         SVGPath newSVGPath = new SVGPath();
         newSVGPath.setContent(svgPath.getContent());
@@ -71,7 +69,9 @@ public abstract class Letter implements GraphicSymbol {
     protected void updateSvgPath(SVGPath newSvgPath) {
         this.svgPath = newSvgPath;
     }
+    */
 
+    /*
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -94,4 +94,5 @@ public abstract class Letter implements GraphicSymbol {
                 ", graphicalSize=" + (getCurrentX() + getGraphicalSize()) +
                 '}';
     }
+    */
 }

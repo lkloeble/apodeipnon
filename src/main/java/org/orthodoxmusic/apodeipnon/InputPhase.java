@@ -4,6 +4,7 @@ import static org.orthodoxmusic.apodeipnon.InputType.*;
 
 public class InputPhase {
 
+    /*
     private InputType currentType;
 
     public InputPhase() {
@@ -32,4 +33,5 @@ public class InputPhase {
     public void setTextPhase() {
         currentType = TEXT;
     }
+    */
 }

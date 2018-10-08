@@ -1,19 +1,23 @@
 package org.orthodoxmusic.apodeipnon;
 
-import javafx.scene.Group;
 import org.orthodoxmusic.apodeipnon.letters.french.Letter;
 import org.orthodoxmusic.apodeipnon.neumes.Neume;
 
-public class GraphicBlock {
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
+public class GraphicBlock {
+/*
     private int blockIndice;
     private TextualSymbols textualSymbols;
     private NeumeVerticalBlock neumeVerticalBlock;
+    private Long blockId;
 
     public GraphicBlock(int blockIndice) {
         textualSymbols = new TextualSymbols();
         neumeVerticalBlock = new NeumeVerticalBlock();
         this.blockIndice = blockIndice;
+        this.blockId = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
     }
 
     public void addLetterToTextualSymbols(Letter letter) {
@@ -25,11 +29,12 @@ public class GraphicBlock {
     }
 
     public void printlog() {
-        System.out.println("GB => " + blockIndice);
+        System.out.println("GB => " + blockIndice + " [" + blockId + "]");
         textualSymbols.printlog();
         neumeVerticalBlock.printlog();
     }
 
+    /*
     public void drawBlock(Group group) {
         if(textualSymbols.getGraphicalSize() > neumeVerticalBlock.getGraphicalSize()) {
             textualSymbols.draw(group);
@@ -41,12 +46,18 @@ public class GraphicBlock {
     }
 
     public double getLastXPosition() {
-        double lastXPosition = textualSymbols.getLastXPosition();
+        double textualSymbolsLastXPosition = textualSymbols.getLastXPosition();
         double neumeLastXPosition = neumeVerticalBlock.getLastXPosition();
-        return neumeLastXPosition > lastXPosition ? neumeLastXPosition : lastXPosition;
+        System.out.println("lastXBlock : T:" + textualSymbolsLastXPosition + " N:" + neumeLastXPosition);
+        return neumeLastXPosition > textualSymbolsLastXPosition ? neumeLastXPosition : textualSymbolsLastXPosition;
     }
 
     public boolean isEmpty() {
         return textualSymbols.isEmpty() && neumeVerticalBlock.isEmpty();
     }
+
+    public Long getBlockId() {
+        return blockId;
+    }
+    */
 }
