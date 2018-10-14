@@ -2,11 +2,12 @@ package org.orthodoxmusic.apodeipnon.neumes;
 
 import org.orthodoxmusic.apodeipnon.TextLinePositions;
 
-public class Varea extends Neume  {
+public class Croche extends Neume {
+
     @Override
     public String getNeumeSVG(TextLinePositions textLinePositions, int positionInSentence, int currentXPosition, int maxHeight) {
         this.xStart = currentXPosition;
-        return "<path varea d=\"M" + currentXPosition + " 863 c-13 -13 -7 -31 12 -36 21 -5 21 -2 45 -187 21 -151 47 -251 102 -380 84 -200 199 -347 317 -405 80 -39 191 -65 208 -48 7 7 -13 16 -63 28 -40 9 -89 25 -109 35 -55 29 -132 103 -162 158 -53 97 -84 285 -96 571 -8 174 -9 185 -30 203 -37 29 -209 77 -224 61z\"/>";
+        return "<path croche fill=\"#ff0000\" d=\"M" + (currentXPosition+1000) + " 613 l-108 -4 0 -58 c0 -32 -3 -99 -7 -150 l-6 -92 49 3 49 3 -4 123 -3 122 155 0 c86 0 162 3 171 6 9 3 16 17 16 30 0 27 8 26 -312 17z\"/>\n";
     }
 
     @Override
@@ -16,12 +17,12 @@ public class Varea extends Neume  {
 
     @Override
     public int getLength() {
-        return 650;
+        return 0;
     }
 
     @Override
     public String toString() {
-        return "Varea{}";
+        return "Croche{}";
     }
 
 }

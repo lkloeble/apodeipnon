@@ -19,30 +19,22 @@ public class SVGPartition {
                 "<html>\n" +
                 "<body>\n" +
                 "\n" +
-                "<h1>SVG tests</h1>");
+                "<h1>SVG tests</h1>\n");
     }
 
     public void addNewLine() {
-        stringJoiner.add("<br><br>");
+        stringJoiner.add("<br><br>\n");
+        stringJoiner.add("<svg version=\"1.0\" height=\"150\" width=\"1500\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid meet\" transform=\"scale(0.8)\">\n");
+
     }
 
     public void addNeumes(NeumeVerticalBlocks neumeVerticalBlocks, TextLinePositions textLinePositions) {
-        stringJoiner.add("<table border=\"0\">\n" +
-                "<tr>\n" +
-                "<td>\n<svg version=\"1.0\" height=\"70\" width=\"1000\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid meet\">\n");
-        stringJoiner.add("<g transform=\"translate(0.000000,45.000000) scale(0.030000,-0.030000)\" fill=\"#000000\" stroke=\"none\">\n");
         stringJoiner.add(neumeVerticalBlocks.getAllSvgData(textLinePositions));
-        stringJoiner.add("</g>");
-        stringJoiner.add("</svg>\n" +
-                "</tr>\n");
     }
 
     public void addText(TextualSymbols textualSymbols, NeumesLinePositions neumesLinePositions) {
-        stringJoiner.add("<tr>\n" +
-                "<td>\n");
         stringJoiner.add(textualSymbols.getSvgData(neumesLinePositions));
-        stringJoiner.add("</td></tr>\n" +
-                "</table>\n");
+        stringJoiner.add("</svg>\n");
     }
 
     public void endFile() {

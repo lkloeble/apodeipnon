@@ -11,8 +11,8 @@ public class TextualSymbolsTest {
     @Test
     public void test_ison_and_one_syllab_text_positionning() {
         textualSymbols.addText("Al");
-        NeumesLinePositions positionForOneSingleIson = new NeumesLinePositions(0.03d);
-        positionForOneSingleIson.setWidthForOrder(0,71,2000);
+        NeumesLinePositions positionForOneSingleIson = new NeumesLinePositions();
+        positionForOneSingleIson.setWidthForOrder(0,71,150, 15);
         String svgData = textualSymbols.getData(positionForOneSingleIson);
         assertEquals("<text x=\"21\" y=\"15\" fill=\"black\">Al</text>\n", svgData);
     }
@@ -20,9 +20,9 @@ public class TextualSymbolsTest {
     @Test
     public void test_alleluia_full_formula() {
         textualSymbols.addText("Al le");
-        NeumesLinePositions positionForOneSingleIson = new NeumesLinePositions(0.03d);
-        positionForOneSingleIson.setWidthForOrder(0,71,1800);
-        positionForOneSingleIson.setWidthForOrder(1,2200,3800);
+        NeumesLinePositions positionForOneSingleIson = new NeumesLinePositions();
+        positionForOneSingleIson.setWidthForOrder(0,71,150,15);
+        positionForOneSingleIson.setWidthForOrder(1,165,300,15);
         String svgData = textualSymbols.getData(positionForOneSingleIson);
         assertEquals("<text x=\"18\" y=\"15\" fill=\"black\">Al</text>\n<text x=\"81\" y=\"15\" fill=\"black\">le</text>\n", svgData);
     }

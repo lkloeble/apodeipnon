@@ -4,10 +4,12 @@ public class NeumeLength {
 
     private int xStartCoordinate;
     private int xEndCoordinate;
+    private int xSpaceWithNextName;
 
-    public NeumeLength(int xStartCoordinate, int xEndCoordinate) {
+    public NeumeLength(int xStartCoordinate, int xEndCoordinate, int xSpaceNextNeume) {
         this.xStartCoordinate = xStartCoordinate;
         this.xEndCoordinate = xEndCoordinate;
+        this.xSpaceWithNextName = xSpaceNextNeume;
     }
 
     public int getxStartCoordinate() {
@@ -18,12 +20,16 @@ public class NeumeLength {
         return xEndCoordinate;
     }
 
-    public int getTextCenterCoordinate(double ratio) {
-        return (int)(getLength(ratio)/2 + getxStartCoordinate()*ratio);
+    public int getTextCenterCoordinate() {
+        return getLength()/2 + getxStartCoordinate();
     }
 
-    public int getLength(double ratio) {
-        return (int)(getxEndCoordinate()*ratio - getxStartCoordinate()*ratio);
+    public int getLength() {
+        return getxEndCoordinate() - getxStartCoordinate();
+    }
+
+    public int getLengthAndSpaceForNextNeume() {
+        return getLength() + xSpaceWithNextName;
     }
 
     @Override
@@ -31,6 +37,7 @@ public class NeumeLength {
         return "NeumeLength{" +
                 "xStartCoordinate=" + xStartCoordinate +
                 ", xEndCoordinate=" + xEndCoordinate +
+                ", xSpaceWithNextName=" + xSpaceWithNextName +
                 '}';
     }
 }

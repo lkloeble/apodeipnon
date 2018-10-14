@@ -4,14 +4,29 @@ import org.orthodoxmusic.apodeipnon.TextLinePositions;
 
 public class Elaphron extends Neume {
 
+    private static int ELAPHRON_LENGTH = 55;
+
+    public Elaphron() {
+        xSpaceBetweenNeume = 15;
+        height = 19;
+    }
+
+
     @Override
-    public String getNeumeSVG(TextLinePositions textLinePositions, int currentXPosition) {
+    public String getNeumeSVG(TextLinePositions textLinePositions, int positionInSentence, int currentXPosition, int maxHeight) {
         this.xStart = currentXPosition;
-        return "<path d=\"M" + currentXPosition + " 510 c-208 -30 -333 -139 -319 -275 6 -59 33 -119 69 -152 73 -68 357 -114 346 -56 -2 12 -23 20 -73 30 -59 10 -74 18 -97 45 -32 37 -42 80 -36 149 8 76 47 126 133 169 67 34 74 35 175 34 67 0 131 -7 175 -18 158 -41 446 -196 499 -269 19 -26 19 -30 5 -55 -8 -15 -34 -38 -57 -50 -35 -20 -41 -27 -31 -38 10 -12 47 -14 202 -12 172 3 191 5 201 21 16 27 -32 65 -220 172 -386 220 -560 289 -769 305 -133 11 -129 11 -203 0z\"/>\n";
+        int y = maxHeight - height + 13;
+        return "<image elaphron x=\"" + currentXPosition + "\" y=\""  + y + "\" width=\"55.04\" height=\"19.2\" image-rendering=\"optimizeQuality\" preserveAspectRatio=\"none\" xlink:href=\"data:image/png;base64,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 \"/>\n";
     }
 
     @Override
     public int getLength() {
-        return 1200;
+        return ELAPHRON_LENGTH;
     }
+
+    @Override
+    public String toString() {
+        return "Elaphron{}";
+    }
+
 }

@@ -5,21 +5,23 @@ import java.util.Map;
 
 public class NeumesLinePositions {
 
-    private double ratio;
+    private Map<Integer, NeumeLength> orderAndWidthMap = new HashMap<>();
+    private int neumeHeight = 0;
 
-    public NeumesLinePositions(double ratio) {
-
-        this.ratio=ratio;
+    public void setWidthForOrder(int orderInSentence, int xSvgStartCoordinate, int xSvgEndCoordinate, int spaceWithNextNeume) {
+        orderAndWidthMap.put(orderInSentence,new NeumeLength(xSvgStartCoordinate,xSvgEndCoordinate, spaceWithNextNeume));
     }
 
-    private Map<Integer, NeumeLength> orderAndWidthMap = new HashMap<>();
-
-    public void setWidthForOrder(int orderInSentence, int xSvgStartCoordinate, int xSvgEndCoordinate) {
-        orderAndWidthMap.put(orderInSentence,new NeumeLength(xSvgStartCoordinate,xSvgEndCoordinate));
+    public void setNeumeHeight(int neumeHeight) {
+        this.neumeHeight = neumeHeight;
     }
 
     public int getXPosition(int currentPosition) {
         NeumeLength neumeLength = orderAndWidthMap.get(currentPosition);
-        return neumeLength != null ? neumeLength.getTextCenterCoordinate(ratio) : 0;
+        return neumeLength != null ? neumeLength.getTextCenterCoordinate() : 0;
+    }
+
+    public int getNeumeHeight() {
+        return neumeHeight;
     }
 }

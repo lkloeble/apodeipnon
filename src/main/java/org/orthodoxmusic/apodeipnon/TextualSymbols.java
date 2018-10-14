@@ -7,7 +7,7 @@ import java.util.*;
 
 public class TextualSymbols {
 
-    private static final Integer DEFAULT_Y_POSITION = 15;
+    private static final Integer DEFAULT_Y_POSITION = 70;
     private static final String EMPTY_WORD_FOR_UNSPOKEN_NEUME = " ";
 
     private Map<Integer, String> words = new HashMap<Integer, String>();
@@ -28,11 +28,7 @@ public class TextualSymbols {
     }
 
     public String getSvgData(NeumesLinePositions neumesLinePositions) {
-        StringJoiner stringJoiner = new StringJoiner(" ");
-        stringJoiner.add("<svg height=\"30\" width=\"1000\">\n");
-        stringJoiner.add(getData(neumesLinePositions));
-        stringJoiner.add("</svg>");
-        return stringJoiner.toString();
+        return getData(neumesLinePositions);
     }
 
 
@@ -46,9 +42,22 @@ public class TextualSymbols {
             int currentWordXCenterPosition = neumesLinePositions.getXPosition(currentPosition);
             String word = words.get(currentPosition);
             int currentWordXPosition = getLeftPositionFromCenterAndlength(currentWordXCenterPosition, word);
-            String textPath = "<text x=\"" + currentWordXPosition + "\" y=\"" + DEFAULT_Y_POSITION + "\" fill=\"black\">" + word + "</text>\n";
+            String textPath = "<text x=\"" + currentWordXPosition + "\" y=\"" + (DEFAULT_Y_POSITION +  neumesLinePositions.getNeumeHeight()) + "\" fill=\"black\" font-size=\"40\">" + htmlEntites(word) + "</text>\n";
             stringJoiner.add(textPath);
             currentPosition++;
+        }
+        return stringJoiner.toString();
+    }
+
+    private String htmlEntites(String word) {
+        StringJoiner stringJoiner = new StringJoiner("");
+        char[] chars = word.toCharArray();
+        for(char c : chars) {
+            int i = (int)c;
+            if(i == 32) {
+                stringJoiner.add(" ");
+            }
+            stringJoiner.add("&#").add(Integer.toString(i)).add(";");
         }
         return stringJoiner.toString();
     }
@@ -58,7 +67,9 @@ public class TextualSymbols {
     }
 
     public TextLinePositions getPositions() {
-        return new TextLinePositions();
+        TextLinePositions textLinePositions = new TextLinePositions();
+        textLinePositions.setOrderAndWidthMap(words);
+        return textLinePositions;
     }
 
     public void insertSpacesForUnspokenNeumes(List<Integer> unSpokenNeumesPositionsIndices) {

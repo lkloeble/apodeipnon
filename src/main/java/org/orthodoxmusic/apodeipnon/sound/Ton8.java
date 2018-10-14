@@ -1,37 +1,14 @@
 package org.orthodoxmusic.apodeipnon.sound;
 
-import java.nio.ByteBuffer;
 import javax.sound.sampled.*;
+import java.nio.ByteBuffer;
 
-
-public class FixedFreqSine {
-
+public class Ton8 {
 
     public static void main(String[] args) throws InterruptedException, LineUnavailableException {
-        FixedFreqSine player = new FixedFreqSine();
-        player.play(132,1);
-        player.play(148.5,1);
-        player.play(165,1);
-        player.play(176,1);
-        player.play(198,1);
-        player.play(220,1);
-        player.play(247.5,1);
-        player.play(264,1);
-        player.play(297,1);
-        player.play(330,1);
-    }
-
-    private void play(double frequency,double timeDuration)  throws InterruptedException, LineUnavailableException
-    {
+        Ton8 player = new Ton8();
         final int SAMPLING_RATE = 44100;            // Audio sampling rate
-        final int SAMPLE_SIZE = 2;                  // Audio sample size in bytes
-
         SourceDataLine line;
-        double fFreq = frequency;                         // Frequency of sine wave in hz
-
-        //Position through the sine wave as a percentage (i.e. 0 to 1 is 0 to 2*PI)
-        double fCyclePosition = 0;
-
         //Open up audio output, using 44100hz sampling rate, 16 bit samples, mono, and big
         // endian byte ordering
         AudioFormat format = new AudioFormat(SAMPLING_RATE, 16, 1, true, true);
@@ -45,6 +22,34 @@ public class FixedFreqSine {
         line = (SourceDataLine)AudioSystem.getLine(info);
         line.open(format);
         line.start();
+
+        player.play(132,1, SAMPLING_RATE, line);
+        player.play(148.5,1, SAMPLING_RATE, line);
+        player.play(165,1, SAMPLING_RATE, line);
+        player.play(176,1, SAMPLING_RATE, line);
+        player.play(198,1, SAMPLING_RATE, line);
+        player.play(220,1, SAMPLING_RATE, line);
+        player.play(247.5,1, SAMPLING_RATE, line);
+        player.play(264,1, SAMPLING_RATE, line);
+        player.play(297,1, SAMPLING_RATE, line);
+        player.play(330,1, SAMPLING_RATE, line);
+
+        //Done playing the whole waveform, now wait until the queued samples finish
+        //playing, then clean up and exit
+        line.drain();
+        line.close();
+
+    }
+
+    private void play(double frequency,double timeDuration,int SAMPLING_RATE,SourceDataLine line)
+            throws InterruptedException, LineUnavailableException
+    {
+        final int SAMPLE_SIZE = 2;                  // Audio sample size in bytes
+
+        double fFreq = frequency;                         // Frequency of sine wave in hz
+
+        //Position through the sine wave as a percentage (i.e. 0 to 1 is 0 to 2*PI)
+        double fCyclePosition = 0;
 
         // Make our buffer size match audio system's buffer
         ByteBuffer cBuf = ByteBuffer.allocate(line.getBufferSize());
@@ -77,13 +82,8 @@ public class FixedFreqSine {
 
             //Wait until the buffer is at least half empty  before we add more
             while (line.getBufferSize()/2 < line.available())
-                Thread.sleep(1);
+                //Thread.sleep(1);
+                System.out.println("thread");
         }
-
-
-        //Done playing the whole waveform, now wait until the queued samples finish
-        //playing, then clean up and exit
-        line.drain();
-        line.close();
     }
 }
