@@ -11,6 +11,7 @@ public class TextualSymbols {
     private static final String EMPTY_WORD_FOR_UNSPOKEN_NEUME = " ";
 
     private Map<Integer, String> words = new HashMap<Integer, String>();
+    private TextLinePositions textLinePositions;
 
     public void addText(String content) {
         StringTokenizer stringTokenizer = new StringTokenizer(content);
@@ -41,7 +42,7 @@ public class TextualSymbols {
         for (Integer currentPosition : words.keySet()) {
             int currentWordXCenterPosition = neumesLinePositions.getXPosition(currentPosition);
             String word = words.get(currentPosition);
-            int currentWordXPosition = getLeftPositionFromCenterAndlength(currentWordXCenterPosition, word);
+            int currentWordXPosition = getLeftPositionFromCenterAndlength(currentWordXCenterPosition, currentPosition);
             String textPath = "<text x=\"" + currentWordXPosition + "\" y=\"" + (DEFAULT_Y_POSITION +  neumesLinePositions.getNeumeHeight()) + "\" fill=\"black\" font-size=\"40\">" + htmlEntites(word) + "</text>\n";
             stringJoiner.add(textPath);
             currentPosition++;
@@ -62,12 +63,12 @@ public class TextualSymbols {
         return stringJoiner.toString();
     }
 
-    private int getLeftPositionFromCenterAndlength(int currentWordXCenterPosition, String word) {
-        return currentWordXCenterPosition - (word.length() - 1) * 9;
+    private int getLeftPositionFromCenterAndlength(int currentWordXCenterPosition, int positionInWords) {
+        return currentWordXCenterPosition - textLinePositions.getLengthForThisWord(positionInWords)/2;
     }
 
     public TextLinePositions getPositions() {
-        TextLinePositions textLinePositions = new TextLinePositions();
+        textLinePositions = new TextLinePositions();
         textLinePositions.setOrderAndWidthMap(words);
         return textLinePositions;
     }

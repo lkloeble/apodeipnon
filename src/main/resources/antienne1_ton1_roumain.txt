@@ -1,0 +1,31 @@
+Ligne1
+Neume
+oligon+3 oligon psefeston|oligon apostrophos apostrophos ison petastie|ison apostrophos apostrophos|gorgon oligon oligon klasma|petastie+ison apostrophos apostrophos apostrophos|klasma mart(pa,dia3)
+Texte
+Sla vă Ta tă lui și Fi u _ lui și Sfân tu lui Duh
+Ligne2
+Neume
+oligon+2 oligon petastie apostrophos psefeston|+2oligon apostrophos apostrophos|klasma apostrophos apostrophos oligon oligon oligon+ison+kendimata|gorgon apostrophos apostrophos apostrophos apostrophos|klasma mart(pa,dia3)
+Texte
+și a cum și pu ru rea și în ve cii ve ci lor, A min
+Ligne3
+Neume
+petastie apostrophos oligon oligon petastie apostrophos psefeston|+2oligon apostrophos apostrophos apostrophos->elaphron oligon oligon ison kendimata ison|klasma mart(di,dia2)
+Texte
+Bi ne cu vin tea ză, su fle te al meu, pe Dom - nul
+Ligne4
+Neume
+gorgon|ison  petastie apostrophos oligon gorgon|kendimata andikenoma|oligon apostrophos apostrophos apostrophos apostrophos oligon|klasma
+Texte
+și toa te ce - le din lă un trul meu
+Ligne5
+Neume
+apostrophos apostrophos apostrophos gorgon|kendimata oligon apostrophos->elaphron apostrophos apostrophos|klasma
+Texte
+nu me le _ cel sfânt al Lui
+Ligne6
+Neume
+psefeston|oligon+6 apostrophos apostrophos apostrophos apostrophos oligon psefeston|+2oligon apostrophos apostrophos apostrophos|gorgon ison|klasma
+Texte
+Bi ne cu vân tat ești, Doam - - - ne.
+Ligne7

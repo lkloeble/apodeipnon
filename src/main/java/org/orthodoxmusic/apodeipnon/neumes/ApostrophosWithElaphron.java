@@ -1,0 +1,33 @@
+package org.orthodoxmusic.apodeipnon.neumes;
+
+import org.orthodoxmusic.apodeipnon.TextLinePositions;
+
+public class ApostrophosWithElaphron extends Neume {
+
+    private static int APOSTROPHOS_WITH_ELAPHRON_LENGTH = 86;
+
+    public ApostrophosWithElaphron() {
+        xSpaceBetweenNeume = 15;
+        height = 19;
+    }
+
+
+    @Override
+    public String getNeumeSVG(TextLinePositions textLinePositions, int positionInSentence, int currentXPosition, int maxHeight) {
+        this.xStart = currentXPosition;
+        int y = maxHeight - height + 13;
+        return "<image apostrophos-elaphron x=\"" + currentXPosition + "\" y=\""  + y + "\" width=\"85.76\" height=\"19.2\" image-rendering=\"optimizeQuality\" preserveAspectRatio=\"none\" xlink:href=\"data:image/png;base64,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 wBjDf63A5u7V80gUAAAAAElFTkSuQmCC \"/>\n";
+    }
+
+    @Override
+    public int getLength() {
+        return APOSTROPHOS_WITH_ELAPHRON_LENGTH;
+    }
+
+    @Override
+    public String toString() {
+        return "ApostrophosWithElaphron{}";
+    }
+
+
+}

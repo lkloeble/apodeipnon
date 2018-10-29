@@ -1,0 +1,66 @@
+Ligne 1
+Neume
+oligon+4 oligon psefeston|oligon|bemol apostrophos apostrophos apostrophos oligon ison elaphron ison psefeston|+2oligon apostrophos apostrophos apostrophos apostrophos|klasma mart(ni,dia2)
+Texte
+Sla vă Ta tă lui și Fi u lui și Sfân - tu lui Duh
+Ligne 2
+Neume
+oligon+4 ison ison oligon psefeston|oligon|bemol apostrophos apostrophos|klasma ison ison elaphron ison psefeston|+2oligon apostrophos apostrophos apostrophos apostrophos|klasma mart(ni,dia2)
+Texte
+și a cum și pu ru rea și în ve cii ve ci lor, A min.
+Ligne3
+Neume
+petastie+ison apostrophos oligon oligon oligon|klasma klasma|oligon apostrophos apostrophos oligon oligon psefeston|oligon+kendimata apostrophos apostrophos apostrophos oligon oligon|klasma mart(di,dia6)
+Texte
+U nu le Năs cut, Fi u le și Cu vân tul lui Dum ne zeu,
+Ligne4
+Neume
+apostrophos+elaphron oligon psefeston|oligon apostrophos apostrophos apostrophos oligon+kendimata elaphron|klasma  mart(ni,dia2)
+Texte
+Cel ce ești fă ră de moar te
+Ligne5
+Neume
+petastie+oligon apostrophos oligon oligon psefeston|oligon+kendimata apostrophos apostrophos apostrophos apostrophos oligon oligon ison kendimata ison|klasma  mart(di,dia6)
+Texte
+și - ai pri mit, pen tru mân tu i rea noas - tră
+Ligne6
+Neume
+ison apostrophos oligon oligon psefeston|oligon|bemol apostrophos apostrophos ison ison apostrophos psefeston|oligon+kendimata apostrophos apostrophos apostrophos oligon oligon|klasma
+Texte
+A te în tru pat din Sfân ta Năs că toa re de Dum ne zeu
+Ligne7
+Neume
+gorgon|ison petastie apostrophos ison ison psefeston|oligon|ison apostrophos apostrophos apostrophos oligon+kendimata elaphron|klasma mart(ni,dia2)
+Texte
+și pu ru rea Fe cioa - ra Ma ri a;
+Ligne8
+Neume
+klasma|elaphron+3 bareia apostrophos apostrophos oligon oligon psefeston|oligon apostrophos apostrophos oligon oligon|klasma
+Texte
+Ca re - ne schim bat te-ai în tru pat
+Ligne9
+Neume
+gorgon|apostrophos oligon oligon psefeston|oligon apostrophos apostrophos ison petastie elaphron oligon oligon psefeston|oligon+kendimata apostrophos apostrophos apostrophos|klasma  mart(di,dia6)
+Texte
+și ras tig nin du- Te, Hris toa se Dum ne ze u - le,
+Ligne10
+Neume
+gorgon|ison ison|klasma elaphron ison psefeston|+2oligon apostrophos apostrophos apostrophos apostrophos|klasma mart(ni,dia2)
+Texte
+cu moar tea pe moar te ai căl cat.
+Ligne11
+Neume
+klasma|petastie+3 apostrophos apostrophos oligon oligon psefeston|oligon apostrophos apostrophos oligon ison kendimata ison|klasma mart(di,dia6)
+Texte
+U nul fi ind din Sfân - ta Tre i - me,
+Ligne12
+Neume
+ison oligon psefeston|oligon apostrophos apostrophos apostrophos oligon ison petastie elaphron oligon oligon psefeston|oligon+kendimata apostrophos apostrophos apostrophos|klasma mart(di,dia6)
+Texte
+îm pre u - nă slă vit cu Ta tăl și cu Du hul - Sfânt
+Ligne13
+Neume
+ison ison psefeston|ison apostrophos apostrophos apostrophos psefeston|ison|klasma hyporroie|gorgon apostrophos kendimata+oligon|gorgon mart(ni,dia2)
+Texte
+mân tu ieș te- ne pe noi! - - -
+Ligne14

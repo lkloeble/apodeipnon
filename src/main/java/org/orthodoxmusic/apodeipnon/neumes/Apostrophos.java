@@ -35,6 +35,10 @@ public class Apostrophos extends Neume {
         return getLength()/2 -12;
     }
 
+    public int getGorgonCorrection() {
+        return getLength()/2 - 40;
+    }
+
     @Override
     public String toString() {
         return "Apostrophos{}";

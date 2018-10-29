@@ -1,0 +1,41 @@
+Ligne1
+Neume
+oligon+2|klasma oligon elaphron oligon|klasma mart(bou,dia4)
+Texte
+A - - min
+Ligne2
+Neume
+ison gorgon|ison apostrophos apostrophos|gorgon oligon+kendimata|gorgon elaphron|klasma mart(ni,dia2)
+Texte
+Doam ne, mi lu ieș te.
+Ligne3
+Neume
+oligon+2 gorgon|ison apostrophos gorgon|oligon oligon+kendimata elaphron|klasma mart(bou,dia4)
+Texte
+Doam ne, mi lu ieș te.
+Ligne4
+Neume
+oligon+2 gorgon|ison diese|apostrophos gorgon|oligon oligon apostrophos|klasma mart(di,dia6)
+Texte
+Doam ne, mi lu ieș te.
+Ligne5
+Neume
+psefeston|oligon apostrophos|gorgon apostrophos apostrophos|gorgon oligon+kendimata|gorgon elaphron|klasma mart(bou,dia4)
+Texte
+Doam ne, mi lu ieș te.
+Ligne6
+Neume
+oligon+2 gorgon|ison apostrophos+elaphron gorgon|oligon psefeston|oligon gorgon|elaphron apostrophos|klasma mart(ni,dia2)
+Texte
+Doam ne, mi lu ieș te.
+Ligne7
+Neume
+ison oligon+2 gorgon|ison ison gorgon|ison petastie apostrophos apostrophos|gorgon oligon gorgon|oligon oligon petastie gorgon|ison psefeston|oligon|klasma apostrophos|gorgon apostrophos ison apostrophos|klasma mart(ni,dia2)
+Texte
+Prea Sfân tă Năs că toa re de Dum ne zeu, mi lu ieș te- ne pe noi
+Ligne8
+Neume
+oligon+4 gorgon|ison apostrophos+elaphron gorgon|kendimata psefeston|oligon gorgon|elaphron apostrophos|klasma mart(ni,dia2)
+Texte
+ți e, Doam - - - ne.
+Ligne9

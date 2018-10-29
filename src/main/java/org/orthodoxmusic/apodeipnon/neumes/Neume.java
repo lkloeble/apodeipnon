@@ -9,6 +9,10 @@ public abstract class Neume {
 
     }
 
+    public static Neume getMartyrie(String note, String diatonique) {
+        return new Martyrie(new Note(note), new Diatonique(diatonique));
+    }
+
     public static Neume getNeume(String neumeName, Neume previousNeume) {
         switch (neumeName.toLowerCase()) {
             case "ison":
@@ -19,28 +23,46 @@ public abstract class Neume {
                 return new Oligon();
             case "petastie":
                 return new Petastie();
+            case "andikenoma":
+                return new Andikenoma();
             case "elaphron":
                 return new Elaphron();
             case "kendimata":
                 return new Kendimata();
-            case "varea":
-                return new Varea();
+            case "bareia":
+                return new Bareia();
             case "psefeston":
                 return new Psefeston();
+            case "omalon":
+                return new Omalon();
             case "klasma":
                 return new Klasma(previousNeume);
+            case "startklasma":
+                return new StartKlasma(previousNeume);
             case "diese":
                 return new Diese();
+            case "gorgon":
+                return new Gorgon(previousNeume);
+            case "startgorgon":
+                return new StartGorgon(previousNeume);
             case "2b":
                 return new TwoBars();
             case "markni":
                 return new MarkNi();
-            case "1c":
-                return new Croche();
+            case "oligon+2":
+                return new AscendingTwoOligon();
+            case "oligon+3":
+                return new TriAscendingOligon();
             case "oligon+4":
                 return new TetraAscendingOligon();
+            case "oligon+6":
+                return new HexaAscendingOligon();
             case "oligon+kendimata":
                 return new OligonAndKendimata();
+            case "oligon+2+kendimata":
+                return new AscendingTwoOligonAndKendimata();
+            case "kendimata+oligon":
+                return new KendimataAndOligon();
             case "oligon+apostrophos":
                 return new OligonAndApostrophos();
             case "bemol":
@@ -51,6 +73,30 @@ public abstract class Neume {
                 return new TriAscendingElaphron();
             case "petastie+1":
                 return new DiAscendingPetastie();
+            case "petastie+ison":
+                return new PetastieAndIson();
+            case "petastie+apostrophos":
+                return new PetastieAndApostrophos();
+            case "petastie+3":
+                return new TriAscendingPetastie();
+            case "petastie+4":
+                return new TetraAscendingPetastie();
+            case "petastie+5":
+                return new PentaAscendingPetastie();
+            case "petastie+6":
+                return new HexaAscendingPetastie();
+            case "apostrophos+elaphron":
+                return new ApostrosAndElaphron();
+            case "apostrophos->elaphron":
+                return new ApostrophosWithElaphron();
+            case "petastie+oligon":
+                return new PetastieAndOligon();
+            case "hyporroie":
+                return new Hyporroie();
+            case "oligon+apostrophos+kendimata":
+                return new OligonAndApostrophosAndKendimata();
+            case "oligon+ison+kendimata":
+                return new OligonAndIsonAndKendimata();
             default:
                 System.out.println("demande d'un neume inexistant " + neumeName);
                 return new NullNeume();
@@ -109,5 +155,13 @@ public abstract class Neume {
 
     public boolean hasName(String name) {
         return this.toString().equals(name);
+    }
+
+    public int getGorgonCorrection() {
+        return getLength()/2;
+    }
+
+    public int getHeightCorrection() {
+        return 0;
     }
 }

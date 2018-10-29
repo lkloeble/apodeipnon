@@ -25,6 +25,16 @@ public class Elaphron extends Neume {
     }
 
     @Override
+    public int getKlasmaCorrection() {
+        return +4;
+    }
+
+    @Override
+    public int getGorgonCorrection() {
+        return getLength()/2 - 10;
+    }
+
+    @Override
     public String toString() {
         return "Elaphron{}";
     }
