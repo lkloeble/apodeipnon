@@ -8,7 +8,7 @@ public class TextLinePositions {
 
     private static final Integer SMALL_LOWERCASE_LETTER = 10;
     private static final Integer NORMAL_LOWERCASE_LETTER = 14;
-    private static final Integer LONG_LOWERCASE_LETTER = 22;
+    private static final Integer LONG_LOWERCASE_LETTER = 25;
     private static final Integer SMALL_UPPERCASE_LETTER = 22;
     private static final Integer NORMAL_UPPERCASE_LETTER = 29;
     private static final Integer LONG_UPPERCASE_LETTER = 40;
@@ -71,6 +71,30 @@ public class TextLinePositions {
         letterValues.put("X",NORMAL_UPPERCASE_LETTER);
         letterValues.put("Y",NORMAL_UPPERCASE_LETTER);
         letterValues.put("Z",NORMAL_UPPERCASE_LETTER);
+        letterValues.put("α",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("β",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("γ",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("δ",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("ε",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("η",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("θ",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("ζ",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("ι",SMALL_LOWERCASE_LETTER);
+        letterValues.put("κ",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("λ",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("μ",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("ν",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("ο",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("ξ",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("π",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("ρ",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("ς",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("σ",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("τ",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("υ",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("φ",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("χ",NORMAL_LOWERCASE_LETTER);
+        letterValues.put("ω",LONG_LOWERCASE_LETTER);
     }
 
     private Map<Integer, String> orderAndWidthMap = new HashMap<>();
@@ -97,8 +121,14 @@ public class TextLinePositions {
             if(c == 'ș') c = 's';
             if(c == 'ă') c = 'a';
             if(c == 'â') c = 'a';
+            if(c == 'à') c = 'a';
             if(c == 'î') c = 'i';
             if(c == 'ț') c = 't';
+            if(c == 'Ţ') c = 'T';
+            if(c == 'ô') c = 'o';
+            if(c == 'è') c = 'e';
+            if(c == 'é') c = 'e';
+            if(c == '\'') c = 'i';
             String letter = Character.toString(c);
             if(!letterValues.containsKey(letter)) {
                 System.out.println("unknown letter for length compute : " + letter);

@@ -35,6 +35,16 @@ public class Oligon extends Neume {
     }
 
     @Override
+    public int getUnderGorgonCorrection() {
+        return getLength() - 70;
+    }
+
+    @Override
+    public int getDiplieCorrection() {
+        return getLength()/2 -10;
+    }
+
+    @Override
     public String toString() {
         return "Oligon{}";
     }

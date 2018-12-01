@@ -15,9 +15,13 @@ public class NeumeVerticalBlock {
 
     private void addNeumes(String content) {
         content = inversPsefestonWithPrincipalNeume(content);
+        content = inversDiplieWithPrincipalNeume(content);
+        content = inversAndikenomaWithPrincipalNeume(content);
+        content = inversDiese4WithPrincipalNeume(content);
+        content = inversDieseWithPrincipalNeume(content);
         content = affectSpecialGorgonForUnderGorgons(content);
         content = affectFollowingNeumesForUnderGorgons(content);
-        content = affectSpecialKlasmaFOrUnderKlasma(content);
+        content = affectSpecialKlasmaForUnderKlasma(content);
         content = affectFollowingNeumesForUnderKlasma(content);
         StringTokenizer stringTokenizer = new StringTokenizer(content, "|");
         int indice = 0;
@@ -34,6 +38,26 @@ public class NeumeVerticalBlock {
             neumes.put(indice, neume);
             indice++;
         }
+    }
+
+    private String inversDiese4WithPrincipalNeume(String content) {
+        return inversTargetNeumeWithPrincipalNeume(content, "dies4");
+    }
+
+    private String inversDieseWithPrincipalNeume(String content) {
+        return inversTargetNeumeWithPrincipalNeume(content, "diese");
+    }
+
+    private String inversAndikenomaWithPrincipalNeume(String content) {
+        return inversTargetNeumeWithPrincipalNeume(content, "andikenoma");
+    }
+
+    private String inversDiplieWithPrincipalNeume(String content) {
+        return inversTargetNeumeWithPrincipalNeume(content, "diplie");
+    }
+
+    private String inversPsefestonWithPrincipalNeume(String content) {
+        return inversTargetNeumeWithPrincipalNeume(content, "psefeston");
     }
 
     private String extractNote(String token) {
@@ -78,7 +102,7 @@ public class NeumeVerticalBlock {
         return affectSpecialNeumeForUnderNeumes(content, "gorgon", "startgorgon");
     }
 
-    private String affectSpecialKlasmaFOrUnderKlasma(String content) {
+    private String affectSpecialKlasmaForUnderKlasma(String content) {
         return affectSpecialNeumeForUnderNeumes(content, "klasma", "startklasma");
     }
 
@@ -96,17 +120,17 @@ public class NeumeVerticalBlock {
     }
 
 
-    private String inversPsefestonWithPrincipalNeume(String content) {
-        if (!content.contains("psefeston")) return content;
+    private String inversTargetNeumeWithPrincipalNeume(String content, String targetNeume) {
+        if (!content.contains(targetNeume)) return content;
         StringTokenizer psefestonTokenizer = new StringTokenizer(content, "|");
         StringJoiner stringJoinerPsefeston = new StringJoiner("|");
         while (psefestonTokenizer.hasMoreTokens()) {
             String partOfPsefestonNeume = psefestonTokenizer.nextToken();
-            if (partOfPsefestonNeume.contains("psefeston")) continue;
+            if (partOfPsefestonNeume.contains(targetNeume)) continue;
             stringJoinerPsefeston.add(partOfPsefestonNeume);
         }
-        stringJoinerPsefeston.add("psefeston");
-        return stringJoinerPsefeston.toString().replace("klasma|psefeston","psefeston|klasma");
+        stringJoinerPsefeston.add(targetNeume);
+        return stringJoinerPsefeston.toString().replace("klasma|"+targetNeume,targetNeume + "|klasma");
     }
 
     public Map<Integer, Neume> getNeumes() {

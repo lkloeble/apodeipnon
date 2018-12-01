@@ -24,23 +24,33 @@ public abstract class Neume {
             case "petastie":
                 return new Petastie();
             case "andikenoma":
-                return new Andikenoma();
+                return new Andikenoma(previousNeume);
             case "elaphron":
                 return new Elaphron();
             case "kendimata":
                 return new Kendimata();
             case "bareia":
                 return new Bareia();
+            case "pause1":
+                return new Pause1();
             case "psefeston":
                 return new Psefeston();
             case "omalon":
                 return new Omalon();
+            case "respiration":
+                return new Respiration();
+            case "stavros":
+                return new Stavros();
             case "klasma":
                 return new Klasma(previousNeume);
+            case "diplie":
+                return new Diplie(previousNeume);
             case "startklasma":
                 return new StartKlasma(previousNeume);
             case "diese":
-                return new Diese();
+                return new Diese(previousNeume);
+            case "dies4":
+                return new Diese4(previousNeume);
             case "gorgon":
                 return new Gorgon(previousNeume);
             case "startgorgon":
@@ -67,6 +77,8 @@ public abstract class Neume {
                 return new OligonAndApostrophos();
             case "bemol":
                 return new Bemol();
+            case "phtoradiatdur7":
+                return new PhtoraDiatoniqueDur7();
             case "+2oligon":
                 return new AscendingOligonBeforeDown();
             case "elaphron+3":
@@ -153,6 +165,10 @@ public abstract class Neume {
         return getLength()/2;
     }
 
+    public int getDiplieCorrection() {
+        return getLength()/2;
+    }
+
     public boolean hasName(String name) {
         return this.toString().equals(name);
     }
@@ -161,7 +177,19 @@ public abstract class Neume {
         return getLength()/2;
     }
 
+    public int getAndikenomaCorrection() {
+        return getLength()/2;
+    }
+
+    public int getUnderGorgonCorrection() {
+        return getLength()/2;
+    }
+
     public int getHeightCorrection() {
+        return 0;
+    }
+
+    public int getDieseCorrection() {
         return 0;
     }
 }

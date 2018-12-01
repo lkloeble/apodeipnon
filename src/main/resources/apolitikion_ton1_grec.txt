@@ -1,0 +1,51 @@
+Ligne1
+Neume
+gorgon|ison oligon+3 ison apostrophos oligon klasma|petastie apostrophos respiration apostrophos psefeston|oligon apostrophos apostrophos oligon ison kendimata ison|klasma mart(di,dia2)
+Texte
+του λι θου σφρα γι σθεν τος υ πο των ι ου δαι - ων
+Ligne2
+Neume
+apostrophos apostrophos oligon oligon oligon ison apostrophos klasma|petastie apostrophos respiration apostrophos psefeston|oligon apostrophos apostrophos oligon ison kendimata ison|klasma mart(di,dia2)
+Texte
+και στρα τι ω των φυ λα σον των το α χραν τον σου σω - μα
+Ligne3
+Neume
+ison psefeston|oligon+3 apostrophos apostrophos apostrophos petastie apostrophos->elaphron apostrophos oligon oligon|klasma mart(di,dia2)
+Texte
+α νε - στης τρι η με μος σω τηρ
+Ligne4
+Neume
+ison psefeston|oligon apostrophos apostrophos apostrophos psefeston|oligon+3 apostrophos apostrophos apostrophos apostrophos|klasma mart(pa,dia3)
+Texte
+δω ρου με νος τω κοσ μω την ζω ην
+Ligne5
+Neume
+oligon+2 oligon petastie apostrophos respiration ison ison oligon kendimata+oligon|gorgon apostrophos apostrophos apostrophos apostrophos oligon|klasma respiration
+Texte
+δι α του το αι δυ να - μεις των ου ρα νων
+Ligne6
+Neume
+elaphron bareia oligon ison apostrophos oligon ison apostrophos->elaphron oligon+kendimata elaphron|klasma mart(pa,dia3)
+Texte
+ε βο - ων σοι ζω ο δο τα
+Ligne7
+Neume
+oligon+4 ison apostrophos respiration ison ison apostrophos psefeston|oligon apostrophos apostrophos oligon oligon|klasma mart(di,dia2)
+Texte
+δο - ξα τη α να στα σει σου χρι στε
+Ligne8
+Neume
+ison kendimata ison respiration apostrophos oligon ison psefeston|oligon apostrophos apostrophos|klasma mart(di,dia2)
+Texte
+δο - ξα τη βα σι λει α σου
+Ligne9
+Neume
+psefeston|oligon apostrophos apostrophos apostrophos oligon oligon psefeston|oligon apostrophos apostrophos respiration
+Texte
+δο ξα τη οι κο νο μι α σου
+Ligne10
+Neume
+psefeston|oligon apostrophos apostrophos psefeston|+2oligon apostrophos andikenoma|apostrophos gorgon|apostrophos diplie|ison pause1 mart(pa,dia3)
+Texte
+μο νε φι λα αν θρω - πε
+Ligne11

@@ -1,12 +1,11 @@
 package org.orthodoxmusic.apodeipnon;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Lines {
 
+    private List<String> acceptedMetadata = Arrays.asList(new String[]{"title","tonelabel","tone"});
+    private Map<String,String> metadata = new HashMap<>();
     private Map<Integer,Line> lineMap = new HashMap<>();
 
     public boolean hasLines() {
@@ -28,6 +27,11 @@ public class Lines {
         }
     }
 
+    public void addMetadata(String key, String value) {
+        if(!acceptedMetadata.contains(key.toLowerCase())) return;
+        metadata.put(key.toLowerCase(),value.toLowerCase());
+    }
+
     public int getNextIndice() {
         return lineMap.size() + 1;
     }
@@ -38,5 +42,9 @@ public class Lines {
 
     public Set<Integer> getAllLineNumbers() {
         return lineMap.keySet();
+    }
+
+    public Map<String,String> getMetadata() {
+        return metadata;
     }
 }

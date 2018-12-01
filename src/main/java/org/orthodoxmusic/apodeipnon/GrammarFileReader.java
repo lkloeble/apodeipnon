@@ -24,6 +24,11 @@ public class GrammarFileReader {
         List<List<String>> delimitedLists = new ArrayList<>();
         List<String> newLineContent = new ArrayList<>();
         for (String line : allLines) {
+            if(weFindPartitionMetaData(line)) {
+                String[] keyValueArray = line.split("=");
+                partitionLines.addMetadata(keyValueArray[0],keyValueArray[1]);
+                continue;
+            }
             if (weFindLineSeparator(line)) {
                 delimitedLists.add(newLineContent);
                 newLineContent = new ArrayList<>();
@@ -33,6 +38,11 @@ public class GrammarFileReader {
         }
         partitionLines.addLineContentFromFile(delimitedLists);
         return partitionLines;
+    }
+
+    private boolean weFindPartitionMetaData(String line) {
+        if(line == null || line.length() == 0) return false;
+        return line.toLowerCase().startsWith("title") || line.toLowerCase().startsWith("tone");
     }
 
     private boolean weFindLineSeparator(String line) {

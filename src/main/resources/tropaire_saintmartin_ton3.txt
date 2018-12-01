@@ -1,0 +1,34 @@
+title=St Martin, tropaire apoltikion
+toneLabel=ton 3
+tone=3GA
+Ligne1
+Neume
+oligon klasma|petastie elaphron psefeston|oligon apostrophos apostrophos->elaphron ison klasma|petastie+3 apostrophos|elaphron andikenoma|+2oligon apostrophos apostrophos->elaphron|klasma mart(ni,dia2)
+Texte
+A pô tre des Gau les, et pè re des moi nes
+Ligne2
+Neume
+oligon+4 ison petastie apostrophos oligon psefeston|oligon|phtoradiatdur7 apostrophos apostrophos apostrophos->elaphron oligon dies4|oligon+kendimata ison|klasma mart(ke,dia7)
+Texte
+Saint Mar tin, bien heu reux pon tife in ter cè de
+Ligne3
+Neume
+ison ison ison petastie apostrophos dies4|apostrophos oligon oligon psefeston|oligon apostrophos apostrophos|klasma mart(ke,dia7)
+Texte
+au près du Dieu de mi sé ri cor - de
+Ligne4
+Neume
+ison oligon psefeston|oligon apostrophos apostrophos ison elaphron oligon psefeston|oligon apostrophos apostrophos apostrophos apostrophos|klasma mart(pa,dia3)
+Texte
+pour qu'il af fer mis se son E gli se dans la foi
+Ligne5
+Neume
+oligon+4 ison oligon klasma|petastie apostrophos apostrophos oligon+kendimata|gorgon apostrophos apostrophos|klasma mart(ke,dia7)
+Texte
+et qu'il ac cor de-à nos â - mes
+Ligne6
+Neume
+apostrophos ison psefeston|oligon apostrophos apostrophos diese|apostrophos diplie|oligon  mart(ga,dia5)
+Texte
+le par don - des pé chés.
+Ligne7

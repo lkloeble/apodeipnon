@@ -76,10 +76,12 @@ public class TextualSymbols {
     public void insertSpacesForUnspokenNeumes(List<Integer> unSpokenNeumesPositionsIndices) {
         Map<Integer,String> newWords = new HashMap<>();
         int newIndice = 1;
+        int found = 0;
         for(Integer indice : words.keySet()) {
-            if(unSpokenNeumesPositionsIndices.contains(indice)) {
+            if(unSpokenNeumesPositionsIndices.contains(indice+found)) {
                 newWords.put(newIndice,EMPTY_WORD_FOR_UNSPOKEN_NEUME);
                 newIndice++;
+                found++;
             }
             newWords.put(newIndice,words.get(indice));
             newIndice++;

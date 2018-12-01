@@ -8,9 +8,15 @@ import java.util.StringJoiner;
 
 public class SVGPartition {
 
+    private String title;
+    private String toneLabel;
+    private String tone;
+
     StringJoiner stringJoiner = new StringJoiner("");
 
-    public SVGPartition() {
+    public SVGPartition(String title, String toneLabel) {
+        this.title = title;
+        this.toneLabel = toneLabel;
         addTitle();
     }
 
@@ -19,7 +25,7 @@ public class SVGPartition {
                 "<html>\n" +
                 "<body>\n" +
                 "\n" +
-                "<h1>SVG tests</h1>\n");
+                "<center><h1>" + title + " - " + toneLabel  + "</h1></center>\n");
     }
 
     public void addNewLine() {

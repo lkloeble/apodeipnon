@@ -24,6 +24,11 @@ public class Kendimata extends Neume {
     }
 
     @Override
+    public int getUnderGorgonCorrection() {
+        return getLength() - 60;
+    }
+
+    @Override
     public int getLength() {
         return KENDIMATA_LENGTH;
     }

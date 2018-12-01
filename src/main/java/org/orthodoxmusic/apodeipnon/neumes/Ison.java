@@ -19,6 +19,7 @@ public class Ison extends Neume {
         int wordUnderNeumeLength = textLinePositions.getLengthForThisWord(positionInSentence);
         if(wordUnderNeumeLength > getLength()) {
             lengthCorrection = (wordUnderNeumeLength - ISON_LENGTH)*2;
+            if(lengthCorrection > 15) lengthCorrection = 15;
             currentXPosition += lengthCorrection;
             xSpaceBetweenNeume += lengthCorrection;
         }
@@ -31,6 +32,10 @@ public class Ison extends Neume {
 
     public int getGorgonCorrection() {
         return getLength()/2 -5;
+    }
+
+    public int getUnderGorgonCorrection() {
+        return getLength()/2 - 40;
     }
 
     @Override

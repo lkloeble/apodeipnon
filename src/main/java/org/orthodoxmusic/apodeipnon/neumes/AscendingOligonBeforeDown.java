@@ -31,6 +31,11 @@ public class AscendingOligonBeforeDown extends Neume {
     }
 
     @Override
+    public int getAndikenomaCorrection() {
+        return 20;
+    }
+
+    @Override
     public String toString() {
         return "AscendingOligonBeforeDown{}";
     }

@@ -35,6 +35,16 @@ public class Elaphron extends Neume {
     }
 
     @Override
+    public int getUnderGorgonCorrection() {
+        return getLength() - 70;
+    }
+
+    @Override
+    public int getDiplieCorrection() {
+        return 10;
+    }
+
+    @Override
     public String toString() {
         return "Elaphron{}";
     }

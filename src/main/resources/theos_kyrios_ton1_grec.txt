@@ -1,0 +1,31 @@
+Ligne1
+Neume
+gorgon|apostrophos oligon|klasma psefeston|oligon+kendimata apostrophos apostrophos respiration oligon oligon psefeston|oligon apostrophos apostrophos respiration oligon oligon|klasma mart(di,dia2)
+Texte
+θε ος κυ ρι ος και ε πε φα νεν η μιν
+Ligne2
+Neume
+elaphron oligon oligon petastie apostrophos respiration oligon ison psefeston|oligon apostrophos apostrophos|klasma mart(di,dia2)
+Texte
+ευ λο γη με νος ο ερ χο με νος
+Ligne3
+Neume
+apostrophos apostrophos psefeston|+2oligon apostrophos apostrophos apostrophos oligon+kendimata diplie|elaphron pause1 mart(pa,dia3)
+Texte
+εν ο νο μα τι κυ ρι ου
+Ligne4
+Neume
+gorgon|ison klasma|oligon+3 petastie apostrophos ison respiration ison apostrophos psefeston|oligon apostrophos apostrophos oligon oligon|klasma mart(di,dia2)
+Texte
+θε ος κυ ρι ος και ε πε φα νεν η μιν
+Ligne5
+Neume
+elaphron oligon oligon petastie apostrophos respiration oligon ison petastie+oligon apostrophos->elaphron apostrophos|klasma mart(di,dia2)
+Texte
+ευ λο γη με νος ο ερ χο με νος
+Ligne6
+Neume
+apostrophos apostrophos psefeston|+2oligon apostrophos apostrophos apostrophos oligon+kendimata diplie|elaphron pause1 mart(pa,dia3)
+Texte
+εν ο νο μα τι κυ ρι ου
+Ligne7

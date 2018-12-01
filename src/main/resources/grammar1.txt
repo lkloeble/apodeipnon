@@ -1,6 +1,19 @@
+Title=Ectenia Mare
+ToneLabel=Glas 8 (Ni)
+Tone=8NI
 Ligne1
 Neume
-oligon+2 gorgon|ison
+ison ison respiration ison ison ison ison|klasma
 Texte
-Doam ne,
+Doam ne, mi lu ieș te.
 Ligne2
+Neume
+ison oligon respiration ison oligon ison oligon|klasma
+Texte
+Doam ne, mi lu ieș te.
+Ligne3
+Neume
+ison apostrophos respiration ison apostrophos ison apostrophos|klasma
+Texte
+Doam ne, mi lu ieș te.
+Ligne3
