@@ -8,6 +8,7 @@ public class TextualSymbolsTest {
 
     private TextualSymbols textualSymbols = new TextualSymbols();
 
+    /*
     @Test
     public void test_ison_and_one_syllab_text_positionning() {
         textualSymbols.addText("Al");
@@ -16,7 +17,9 @@ public class TextualSymbolsTest {
         String svgData = textualSymbols.getData(positionForOneSingleIson);
         assertEquals("<text x=\"21\" y=\"15\" fill=\"black\">Al</text>\n", svgData);
     }
+    */
 
+    /*
     @Test
     public void test_alleluia_full_formula() {
         textualSymbols.addText("Al le");
@@ -26,5 +29,6 @@ public class TextualSymbolsTest {
         String svgData = textualSymbols.getData(positionForOneSingleIson);
         assertEquals("<text x=\"18\" y=\"15\" fill=\"black\">Al</text>\n<text x=\"81\" y=\"15\" fill=\"black\">le</text>\n", svgData);
     }
+    */
 
 }

@@ -10,7 +10,13 @@ public class ExampleTone1{
     public static void main(String[] args){
 
         try {
-            ExampleTone1.createTone(262, 100);
+            ExampleTone1.createTone(392, 70);
+            ExampleTone1.createTone(441, 70);
+            ExampleTone1.createTone(349, 70);
+            ExampleTone1.createTone(392, 70);
+            ExampleTone1.createTone(349, 70);
+            ExampleTone1.createTone(324, 70);
+            ExampleTone1.createTone(294, 70);
         } catch (LineUnavailableException lue) {
             System.out.println(lue);
         }

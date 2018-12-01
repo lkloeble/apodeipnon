@@ -1,5 +1,7 @@
 package org.orthodoxmusic.apodeipnon;
 
+import org.orthodoxmusic.apodeipnon.sound.MidiPlayer;
+
 import java.io.File;
 
 public class ApplicationStartMain {
@@ -15,6 +17,10 @@ public class ApplicationStartMain {
         if(args == null || args.length == 0) {
             System.out.println("nothing to process. Exiting...");
             return;
+        }
+        if(args.length == 1 && args[0].equals("music")) {
+            MidiPlayer midiPlayer = new MidiPlayer();
+            midiPlayer.play();
         }
         Main.processScore(args);
     }
