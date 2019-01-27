@@ -1,5 +1,6 @@
 package org.orthodoxmusic.apodeipnon;
 
+import org.orthodoxmusic.apodeipnon.neumes.BasseNoteIson;
 import org.orthodoxmusic.apodeipnon.neumes.Neume;
 
 import java.util.*;
@@ -64,11 +65,18 @@ public class NeumeVerticalBlocks {
 
     public int getHeight() {
         int height = 0;
+        boolean hasIson = false;
         for(Integer indice : neumeInHorizontalOrder.keySet()) {
             NeumeVerticalBlock neumeVerticalBlock = neumeInHorizontalOrder.get(indice);
             if(neumeVerticalBlock.getHeight() > height) {
                 height = neumeVerticalBlock.getHeight();
             }
+            if(neumeVerticalBlock.hasIson()) {
+                hasIson = true;
+            }
+        }
+        if(hasIson) {
+            height += BasseNoteIson.getAdditionalHeightForIson();
         }
         return height;
     }

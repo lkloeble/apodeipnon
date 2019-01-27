@@ -122,13 +122,24 @@ public class TextLinePositions {
             if(c == 'ă') c = 'a';
             if(c == 'â') c = 'a';
             if(c == 'à') c = 'a';
+            if(c == 'ά') c = 'a';
+            if(c == 'ᾶ') c = 'a';
             if(c == 'î') c = 'i';
             if(c == 'ț') c = 't';
             if(c == 'Ţ') c = 'T';
             if(c == 'ô') c = 'o';
             if(c == 'è') c = 'e';
             if(c == 'é') c = 'e';
+            if(c == 'ἐ') c = 'e';
+            if(c == 'έ') c = 'e';
+            if(c == 'ἡ') c = 'e';
             if(c == '\'') c = 'i';
+            if(c =='Ἄ') c = 'A';
+            if(c =='Ἁ') c = 'A';
+            if(c =='ὁ') c = 'o';
+            if(c =='ό') c = 'o';
+            if(c =='Θ') c = 't';
+            if(c =='Ἱ') c = 'I';
             String letter = Character.toString(c);
             if(!letterValues.containsKey(letter)) {
                 System.out.println("unknown letter for length compute : " + letter);

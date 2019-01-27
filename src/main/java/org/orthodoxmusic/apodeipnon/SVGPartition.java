@@ -25,7 +25,7 @@ public class SVGPartition {
                 "<html>\n" +
                 "<body>\n" +
                 "\n" +
-                "<center><h1>" + title + " - " + toneLabel  + "</h1></center>\n");
+                "<center><h1><font color=\"#FF0000\">" + title + " - " + toneLabel  + "</font></h1></center>\n");
     }
 
     public void addNewLine() {

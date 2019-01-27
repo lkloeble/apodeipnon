@@ -75,6 +75,8 @@ public abstract class Neume {
                 return new KendimataAndOligon();
             case "oligon+apostrophos":
                 return new OligonAndApostrophos();
+            case "combisymeon":
+                return new SymeonCombiSynechesElaphron();
             case "bemol":
                 return new Bemol();
             case "phtoradiatdur7":

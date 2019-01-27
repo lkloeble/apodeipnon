@@ -1,5 +1,6 @@
 package org.orthodoxmusic.apodeipnon;
 
+import org.orthodoxmusic.apodeipnon.neumes.BasseNoteIson;
 import org.orthodoxmusic.apodeipnon.neumes.Neume;
 import org.orthodoxmusic.apodeipnon.neumes.NullNeume;
 
@@ -8,12 +9,14 @@ import java.util.*;
 public class NeumeVerticalBlock {
 
     private Map<Integer, Neume> neumes = new HashMap<>();
+    private BasseNoteIson basseNoteIson;
 
     public NeumeVerticalBlock(String content) {
         addNeumes(content);
     }
 
     private void addNeumes(String content) {
+        content = extractBasseIsonIfAny(content);
         content = inversPsefestonWithPrincipalNeume(content);
         content = inversDiplieWithPrincipalNeume(content);
         content = inversAndikenomaWithPrincipalNeume(content);
@@ -38,6 +41,13 @@ public class NeumeVerticalBlock {
             neumes.put(indice, neume);
             indice++;
         }
+    }
+
+    private String extractBasseIsonIfAny(String content) {
+        if(!content.startsWith("[")) return content;
+        String[] split = content.split("]");
+        basseNoteIson = new BasseNoteIson(split[0].substring(1));
+        return split[1];
     }
 
     private String inversDiese4WithPrincipalNeume(String content) {
@@ -142,6 +152,9 @@ public class NeumeVerticalBlock {
         Set<Integer> neumesIndices = getNeumes().keySet();
         for (Integer indice : neumesIndices) {
             Neume neume = getNeumes().get(indice);
+            if(hasBassNoteIson()) {
+                stringJoiner.add(basseNoteIson.getSVG(currentXPosition));
+            }
             stringJoiner.add(neume.getNeumeSVG(textLinePositions, indiceInSentence, currentXPosition, maxHeightForNeumes));
             currentXPosition = neume.getXStart();
         }
@@ -184,9 +197,19 @@ public class NeumeVerticalBlock {
 
     @Override
     public String toString() {
+        if(hasBassNoteIson()) {
+            return "NeumeVerticalBlock{" +
+                    "neumes=" + neumes +
+                    " // ISON=" + basseNoteIson +
+                    '}' ;
+        }
         return "NeumeVerticalBlock{" +
                 "neumes=" + neumes +
-                '}';
+                '}' ;
+    }
+
+    private boolean hasBassNoteIson() {
+        return basseNoteIson !=  null && basseNoteIson.hasIsonNote();
     }
 
     public boolean hasUnspokenNeume() {
@@ -221,5 +244,9 @@ public class NeumeVerticalBlock {
 
     public int getLengthWithSpace() {
         return getLength() + getSpaceWithNextNeume();
+    }
+
+    public boolean hasIson() {
+        return hasBassNoteIson();
     }
 }

@@ -1,0 +1,24 @@
+Title=Trisagion Kuriakou Iwavvidou
+ToneLabel=HXOS 5 (Pa)
+Tone=1PA
+Ligne1
+Neume
+psefeston|oligon+2+kendimata apostrophos apostrophos apostrophos|klasma oligon+kendimata|gorgon elaphron gorgon|kendimata oligon|klasma mart(ga,dia5)
+Texte
+Ἄ γι ος ὁ Θε ε ε ός
+Ligne2
+Neume
+ison oligon+kendimata|gorgon apostrophos apostrophos->elaphron oligon oligon+kendimata|gorgon elaphron gorgon|kendimata oligon|klasma mart(ke,dia7)
+Texte
+α α γι ος Ἱ σχυ υ υ ρός
+Ligne3
+Neume
+petastie+3 bareia apostrophos apostrophos bareia apostrophos apostrophos oligon kendimata psefeston|oligon apostrophos bareia apostrophos apostrophos apostrophos oligon+ison+kendimata|gorgon apostrophos apostrophos->elaphron
+Texte
+Ἄ γι ι ο ος Ἁ ά θά α να α το ο ος ἐ
+Ligne4
+Neume
+petastie+4 apostrophos apostrophos|gorgon bareia ison apostrophos|gorgon oligon+kendimata|gorgon petastie+apostrophos apostrophos->elaphron oligon|gorgon apostrophos diplie|ison
+Texte
+λέ έ έ η η η σον ἡ ἡ ἡ μᾶς
+Ligne5
