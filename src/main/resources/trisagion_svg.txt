@@ -1,0 +1,9 @@
+title=Trisagion fin de grande doxo ton 1
+toneLabel=ton 1
+tone=1Pa
+Ligne1
+Neume
+eteron|oligon+3 kendimata applie|andikenoma|ison apostrophos|gorgon bareia ison apostrophos
+Texte
+Saint - - - Dieu - -
+Ligne2

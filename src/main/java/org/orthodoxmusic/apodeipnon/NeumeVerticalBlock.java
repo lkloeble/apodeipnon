@@ -25,6 +25,7 @@ public class NeumeVerticalBlock {
         content = affectSpecialGorgonForUnderGorgons(content);
         content = affectFollowingNeumesForUnderGorgons(content);
         content = affectSpecialKlasmaForUnderKlasma(content);
+        content = affectSpecialEteronForUnderEteron(content);
         content = affectFollowingNeumesForUnderKlasma(content);
         StringTokenizer stringTokenizer = new StringTokenizer(content, "|");
         int indice = 0;
@@ -41,6 +42,10 @@ public class NeumeVerticalBlock {
             neumes.put(indice, neume);
             indice++;
         }
+    }
+
+    private String affectSpecialEteronForUnderEteron(String content) {
+        return affectSpecialNeumeForUnderNeumes(content, "eteron", "starteteron");
     }
 
     private String extractBasseIsonIfAny(String content) {

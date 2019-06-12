@@ -111,6 +111,10 @@ public abstract class Neume {
                 return new OligonAndApostrophosAndKendimata();
             case "oligon+ison+kendimata":
                 return new OligonAndIsonAndKendimata();
+            case "starteteron":
+                return new Eteron(previousNeume);
+            case "applie":
+                return new Applie(previousNeume);
             default:
                 System.out.println("demande d'un neume inexistant " + neumeName);
                 return new NullNeume();
