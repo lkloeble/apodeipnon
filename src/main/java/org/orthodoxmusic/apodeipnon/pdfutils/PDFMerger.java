@@ -1,12 +1,9 @@
-package org.orthodoxmusic.apodeipnon;
+package org.orthodoxmusic.apodeipnon.pdfutils;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.pdf.*;
+import org.apache.pdfbox.multipdf.PDFMergerUtility;
+import org.orthodoxmusic.apodeipnon.pdfutils.PDFCleaner;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -130,10 +127,27 @@ public class PDFMerger {
                     new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_K.pdf").toURI().toURL(),
                     new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_5\\ectenie_apres_cherubikon_ton5.pdf").toURI().toURL(),
                     new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_5\\liturgika_ton5.pdf").toURI().toURL(),
-                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_L.pdf").toURI().toURL()
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_L.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\anaphore_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_M.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\il_est_digne_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_N.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\memoires_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\ectenie_avant_notre_pere_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_O.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\un_seul_est_saint_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_P.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\kinonikon_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_Q.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\appel_communion_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\polyeleos_symeon_ton168.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_2\\nous_avons_vu_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_R.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_5\\que_nos_levres_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_S.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_2\\que_le_nom_du_seigneur_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\laurent.kloeble\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_T.pdf").toURI().toURL()
                     ));
-
-
 
 
         } catch (MalformedURLException e) {
@@ -144,18 +158,19 @@ public class PDFMerger {
     static List<URL> files = liturgie_ton1_files;
     static final String FILE_NAME = LITURGIE_TON1;
 
-    public static void main(String... args) throws IOException, DocumentException {
-        Document document = new Document();
-        PdfCopy copy = new PdfCopy(document, new FileOutputStream(FILE_NAME));
+    public static void main(String... args) throws IOException {
 
-        document.open();
-        for (URL file : files){
-            PdfReader reader = new PdfReader(file);
-            copy.addDocument(reader);
-            copy.freeReader(reader);
-            reader.close();
+        PDFPageCounter pageCounter = new PDFPageCounter();
+        PDFMergerUtility merger = new PDFMergerUtility();
+        for (URL file : files) {
+            File pdfFile = new File(PDFCleaner.cleanPartition(file.getPath()));
+            merger.addSource(pdfFile);
         }
-        document.close();
+        OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(FILE_NAME));
+        merger.setDestinationStream(outputStream);
+        merger.mergeDocuments();
+        File finalFile = new File(FILE_NAME);
+        pageCounter.dostuff(finalFile.getAbsolutePath());
     }
 
 }
