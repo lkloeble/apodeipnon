@@ -19,7 +19,8 @@ public class GeneratorTest {
         Actors actors = new Actors();
         actors.addActor(ActorType.PRIEST);
         OfficeType officeType = OfficeType.PRIME;
-        LiturgicalContext liturgicalContext = new LiturgicalContext(officeDate,actors,officeType);
+        Omophore omophore = new Omophore().addOmophore("our bishop Somebody");
+        LiturgicalContext liturgicalContext = new LiturgicalContext(officeDate,actors,officeType,omophore);
         generator = new Generator(liturgicalContext);
 
         //when

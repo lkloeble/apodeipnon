@@ -2,13 +2,14 @@ package org.orthodoxliturgy.generator.offices;
 
 import org.orthodoxliturgy.generator.LiturgicalContext;
 import org.orthodoxliturgy.generator.Office;
+import org.orthodoxliturgy.generator.OfficeType;
 
 public class Theotokion extends Office implements OfficeBlock {
 
     private static final String STRUCTURE = "THEOTOK";
 
     public Theotokion(LiturgicalContext liturgicalContext) {
-
+        this.liturgicalContext = liturgicalContext;
     }
 
     @Override
@@ -25,4 +26,17 @@ public class Theotokion extends Office implements OfficeBlock {
     public String getInnerLiturgicalStructure() {
         return null;
     }
+
+    @Override
+    public String getContent() {
+        StringBuilder content = new StringBuilder();
+        content.append("<div class=\"theotokion\">").append("Theotokion").append("</div>");
+        if(liturgicalContext.getOfficeType() == OfficeType.PRIME) {
+            content.append("<div class=\"prayer\">");
+            content.append("Comment te nommerons-nous, Pleine de grâce? Ciel, car tu as fait resplendir le Soleil de Justice; Paradis, car tu as produit la fleur d'incorruptibilité; Vierge, car tu es demeurée sans corruption; Mère très pure, car tu as porté dans tes bras, le Fils, le Dieu de l'univers. Supplie-le de sauver nos âmes.");
+            content.append("</div>");
+        }
+        return content.toString();
+    }
+
 }

@@ -10,4 +10,6 @@ public interface OfficeBlock {
 
     public String getInnerLiturgicalStructure();
 
+    public String getContent();
+
 }

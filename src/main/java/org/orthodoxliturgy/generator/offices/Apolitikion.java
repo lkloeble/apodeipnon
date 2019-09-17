@@ -26,4 +26,10 @@ public class Apolitikion extends Office implements OfficeBlock {
     public String getInnerLiturgicalStructure() {
         return null;
     }
+
+    @Override
+    public String getContent() {
+        return null;
+    }
+
 }

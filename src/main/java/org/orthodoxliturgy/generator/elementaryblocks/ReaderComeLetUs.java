@@ -21,5 +21,14 @@ public class ReaderComeLetUs implements OfficeBlock {
         return STRUCTURE;
     }
 
+    @Override
+    public String getContent() {
+        StringBuilder content = new StringBuilder();
+        content.append("<div class=\"prayer\">Venez, adorons, prosternons-nous devant Dieu, notre Roi.</div>");
+        content.append("<div class=\"prayer\">Venez, adorons, prosternons-nous devant le Christ, notre Roi et notre Dieu.</div>");
+        content.append("<div class=\"prayer\">Venez, adorons, prosternons-nous devant le Christ lui-même, notre Roi et notre Dieu.</div>");
+        content.append("<br>");
+        return content.toString();
+    }
 
 }

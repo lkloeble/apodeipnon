@@ -21,5 +21,12 @@ public class ReaderTrisagion implements OfficeBlock {
         return STRUCTURE;
     }
 
+    @Override
+    public String getContent() {
+        StringBuilder content = new StringBuilder();
+        content.append("<div class=\"prayer\">Saint Dieu, Saint Fort, Saint Immortel, aie pitié de nous. (3 fois)</div>");
+        content.append("<br>");
+        return content.toString();
+    }
 
 }

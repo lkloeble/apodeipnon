@@ -50,4 +50,21 @@ public abstract class Office {
         return structureBuilder.toString();
     }
 
+    protected String getAllContent() {
+        StringBuilder contentBuilder = new StringBuilder();
+        for(Integer indice : order.getIndices()) {
+            String content = order.getBlockByPosition(indice).getContent();
+            contentBuilder.append(content);
+            contentBuilder.append("\n");
+        }
+        return contentBuilder.toString();
+    }
+
+    public OfficeBlockOrder getOrder() {
+        return order;
+    }
+
+    public void injectLiturgicalOrder(LiturgicalContext liturgicalContext) {
+        this.liturgicalContext=liturgicalContext;
+    }
 }

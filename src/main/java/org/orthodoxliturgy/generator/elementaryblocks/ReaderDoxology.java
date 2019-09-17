@@ -21,5 +21,12 @@ public class ReaderDoxology implements OfficeBlock {
         return STRUCTURE;
     }
 
+    @Override
+    public String getContent() {
+        StringBuilder content = new StringBuilder();
+        content.append("<div class=\"prayer\">Gloire au Père et au Fils et au Saint-Esprit, maintenant et toujours et dans les siècles des siècles. Amen.</div>");
+        content.append("<br>");
+        return content.toString();
+    }
 
 }

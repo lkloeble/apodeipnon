@@ -27,5 +27,14 @@ public class ReaderKyrieEleison implements OfficeBlock {
         return STRUCTURE + kyrieNumber;
     }
 
+    @Override
+    public String getContent() {
+        StringBuilder content = new StringBuilder();
+        content.append("<div class=\"prayer\">Kyrie eleison. (");
+        content.append(kyrieNumber);
+        content.append(" fois)</div>");
+        content.append("<br>");
+        return content.toString();
+    }
 
 }

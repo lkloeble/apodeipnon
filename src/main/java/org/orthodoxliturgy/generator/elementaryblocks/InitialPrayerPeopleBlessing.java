@@ -20,4 +20,13 @@ public class InitialPrayerPeopleBlessing implements OfficeBlock {
     public String getInnerLiturgicalStructure() {
         return STRUCTURE;
     }
+
+    @Override
+    public String getContent() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Par les prières de nos saints pères, Seigneur Jésus-Christ notre Dieu, aie pitié de nous !<br>");
+        stringBuilder.append("Amen.<br>");
+        return stringBuilder.toString();
+    }
+
 }

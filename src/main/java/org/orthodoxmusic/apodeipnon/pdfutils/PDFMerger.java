@@ -1,7 +1,6 @@
 package org.orthodoxmusic.apodeipnon.pdfutils;
 
 import org.apache.pdfbox.multipdf.PDFMergerUtility;
-import org.orthodoxmusic.apodeipnon.pdfutils.PDFCleaner;
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -73,7 +72,9 @@ public class PDFMerger {
 
             vepres_ton1_files = new ArrayList<URL>(Arrays.asList(
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieA.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\anixandaria_symeon_ton1.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\grande_ectenie_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\cathisme_vepres_symeon_ton8.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieB.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\lucernaire_symeon_ton1.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieC.pdf").toURI().toURL(),
@@ -121,7 +122,9 @@ public class PDFMerger {
 
             vepres_ton4_files = new ArrayList<URL>(Arrays.asList(
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\vepres-ton4-partieA.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\anixandaria_symeon_ton1.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\grande_ectenie_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\cathisme_vepres_symeon_ton8.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieB.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\lucernaire_ton4.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\vepres-ton4-partieC.pdf").toURI().toURL(),
@@ -206,7 +209,7 @@ public class PDFMerger {
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\cathisme2_ton3.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_D.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\polyeleos_symeon_ton168.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\evlogitaires_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\evlogitaires_2019_ton5.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\matines_completes_E.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\antiennes_orthros_ton3.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\matines_completes_F.pdf").toURI().toURL(),
@@ -234,14 +237,14 @@ public class PDFMerger {
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\cathisme2_ton4.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_D.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\polyeleos_symeon_ton168.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\evlogitaires_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\evlogitaires_2019_ton5.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\matines_completes_E.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\antiennes_orthros_ton4.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\matines_completes_F.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_G.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\tropaire_resurrection_ton7.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_H.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\glorificat_matines_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\glorificat_matines_symeon_ton2.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\matines_completes_I.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\magnificat_ton4.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\matines_completes_J.pdf").toURI().toURL(),
@@ -263,7 +266,7 @@ public class PDFMerger {
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\beatitudes_ton1.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_F.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\venez_adorons_ton1.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\apolytikion_liturgie_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\apolytikion_symeon_ton1.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\tropaire_saints_joachim_anne_ton2.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\tropaire_saint_martin_ton3.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\kondakion_ton1.pdf").toURI().toURL(),
@@ -461,8 +464,8 @@ public class PDFMerger {
         }
     }
 
-    static List<URL> files = matines_ton2_files;
-    static final String FILE_NAME = MATINES_TON2;
+    static List<URL> files = matines_ton4_files;
+    static final String FILE_NAME = MATINES_TON4;
 
     public static void main(String... args) throws IOException {
 
@@ -477,6 +480,21 @@ public class PDFMerger {
         merger.mergeDocuments();
         File finalFile = new File(FILE_NAME);
         pageCounter.dostuff(finalFile.getAbsolutePath());
+    }
+
+    public void printAllFiles(List<String> fileNames, String fileName) throws IOException {
+        PDFPageCounter pageCounter = new PDFPageCounter();
+        PDFMergerUtility merger = new PDFMergerUtility();
+        for (String file : fileNames) {
+            File pdfFile = new File(PDFCleaner.cleanPartition(file));
+            merger.addSource(pdfFile);
+        }
+        OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(fileName));
+        merger.setDestinationStream(outputStream);
+        merger.mergeDocuments();
+        File finalFile = new File(fileName);
+        pageCounter.dostuff(finalFile.getAbsolutePath());
+
     }
 
 }
