@@ -24,6 +24,7 @@ public class ChoirAmen  implements OfficeBlock {
     @Override
     public String getContent() {
         StringBuilder content = new StringBuilder();
+        content.append("<br>");
         content.append("<div class=\"choir\">Le Choeur</div>");
         content.append("<br>");
         content.append("<div class=\"prayer\">Amen.</div>");

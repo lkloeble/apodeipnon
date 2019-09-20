@@ -38,12 +38,12 @@ public class PrimeEphremPrayer extends Office implements OfficeBlock {
 
     @Override
     public String getInnerLiturgicalStructure() {
-        return null;
+        return super.getInnerLiturgicalOrder();
     }
 
     @Override
     public String getContent() {
-        return null;
+        return super.getAllContent();
     }
 
 }

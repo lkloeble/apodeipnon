@@ -25,6 +25,7 @@ public class InitialPrayerPriestBlessing  implements OfficeBlock {
     @Override
     public String getContent() {
         StringBuilder content = new StringBuilder();
+        content.append("<br>");
         content.append("<div class=\"priest\">Le Prêtre</div>");
         content.append("<br>");
         content.append("<div class=\"prayer\">Béni soit notre Dieu en tout temps, maintenant et toujours et dans les siècles des siècles. Amen.</div>");

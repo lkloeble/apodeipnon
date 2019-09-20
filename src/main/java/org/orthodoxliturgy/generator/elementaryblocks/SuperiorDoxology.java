@@ -24,6 +24,7 @@ public class SuperiorDoxology implements OfficeBlock {
     @Override
     public String getContent() {
         StringBuilder content = new StringBuilder();
+        content.append("<br>");
         content.append("<div class=\"superior\">Le Supérieur</div>");
         content.append("<br>");
         content.append("<div class=\"prayer\">Gloire à toi, notre Dieu, gloire à toi.</div>");

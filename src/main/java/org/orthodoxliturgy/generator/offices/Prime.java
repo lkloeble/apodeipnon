@@ -1,5 +1,6 @@
 package org.orthodoxliturgy.generator.offices;
 
+import org.orthodoxliturgy.generator.ApolitikionRepository;
 import org.orthodoxliturgy.generator.LiturgicalContext;
 import org.orthodoxliturgy.generator.Office;
 import org.orthodoxliturgy.generator.elementaryblocks.*;
@@ -14,22 +15,26 @@ public class Prime extends Office implements OfficeBlock {
     }
 
     private void buildPrimeOffice(LiturgicalContext context) {
+        order.addBlock(new TitleOffice("Office de Prime",1));
         order.addBlock(new InitialPrayers(context));
-        order.addBlock(new Psalm(context,5));
+        order.addBlock(new TitleOffice("Psaumes de Prime",3));
         order.addBlock(new Psalm(context,89));
         order.addBlock(new Psalm(context,100));
         order.addBlock(new ReaderDoxology());
+        order.addBlock(new Psalm(context,5));
+        order.addBlock(new TitleOffice("Tropaires du jour",3));
+        order.addBlock(new TitleActor("Le Lecteur"));
         order.addBlock(new ReaderAlleluia());
         order.addBlock(new ReaderKyrieEleison(3));
         if(context.isBigFeast() || context.withoutPrecedingOrthros()) {
             order.addBlock(new PrimeFeastPart(context));
         } else {
             order.addBlock(new ReaderGloryFather());
-            order.addBlock(new Apolitikion(liturgicalContext));
+            order.addBlock(ApolitikionRepository.getApolitikion(liturgicalContext));
         }
-        order.addBlock(new TitleActor("Le Lecteur"));
         order.addBlock(new ReaderAndNow());
         order.addBlock(new Theotokion(context));
+        order.addBlock(new TitleOffice("Prière de Prime",3));
         order.addBlock(new PrimeVerses(context));
         order.addBlock(new TrisagionPrayer(context));
         order.addBlock(new PrimeKondakion(context));

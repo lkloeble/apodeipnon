@@ -63,4 +63,16 @@ public class LiturgicalContext {
     public boolean willCelebrate(OfficeType tierce) {
         return false;
     }
+
+    public String getCelebrationFormula() {
+        return null;
+    }
+
+    public String getParishProtectors() {
+        return null;
+    }
+
+    public String getSaintsOfCelebrationDay() {
+        return null;
+    }
 }

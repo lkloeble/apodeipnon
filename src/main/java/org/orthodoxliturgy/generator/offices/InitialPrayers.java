@@ -9,6 +9,7 @@ public class InitialPrayers extends Office implements OfficeBlock {
     private static final String STRUCTURE = "INIPRY";
 
     public InitialPrayers(LiturgicalContext context) {
+        order.addBlock(new TitleOffice("Pri&egrave;res initiales",3));
         if(context.isWithoutPriest()) {
             order.addBlock(new InitialPrayerPeopleBlessing());
         } else {

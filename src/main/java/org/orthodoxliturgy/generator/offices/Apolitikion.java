@@ -2,6 +2,7 @@ package org.orthodoxliturgy.generator.offices;
 
 import org.orthodoxliturgy.generator.LiturgicalContext;
 import org.orthodoxliturgy.generator.Office;
+import org.orthodoxliturgy.generator.OfficeType;
 
 public class Apolitikion extends Office implements OfficeBlock {
 
@@ -29,7 +30,10 @@ public class Apolitikion extends Office implements OfficeBlock {
 
     @Override
     public String getContent() {
-        return null;
+        StringBuilder content = new StringBuilder();
+        content.append("<div class=\"apolitikion\">").append("Apolitikion").append("</div>");
+        content.append("<div class=\"prayer\">texte de l'apolitikion</div>");
+        return content.toString();
     }
 
 }
