@@ -3,7 +3,9 @@ import org.orthodoxliturgy.generator.*;
 import org.orthodoxliturgy.generator.offices.OfficeBlock;
 import org.orthodoxliturgy.generator.offices.Prime;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,7 +22,9 @@ public class GeneratorTest {
         actors.addActor(ActorType.PRIEST);
         OfficeType officeType = OfficeType.PRIME;
         Omophore omophore = new Omophore().addOmophore("our bishop Somebody");
-        LiturgicalContext liturgicalContext = new LiturgicalContext(officeDate,actors,officeType,omophore);
+        List<String> protectors = Arrays.asList(new String[]{});
+        List<String> countrySaints = Arrays.asList(new String[]{});
+        LiturgicalContext liturgicalContext = new LiturgicalContext(officeDate,actors,officeType,omophore,protectors,countrySaints);
         generator = new Generator(liturgicalContext);
 
         //when

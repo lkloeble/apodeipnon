@@ -30,7 +30,6 @@ public class PrimeVerses extends Office implements OfficeBlock {
     @Override
     public String getContent() {
         StringBuilder content = new StringBuilder();
-        content.append("<div class=\"defaulttitle\">").append("Versets de Prime").append("</div>");
         String numberOfTimePrecision = "";
         if (liturgicalContext.isBigFeast()) {
             numberOfTimePrecision = " (2 fois)";

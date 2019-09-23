@@ -16,16 +16,16 @@ public class Prime extends Office implements OfficeBlock {
 
     private void buildPrimeOffice(LiturgicalContext context) {
         order.addBlock(new TitleOffice("Office de Prime",1));
+        order.addBlock(new DateOffice(4,context.getOfficeDate()));
         order.addBlock(new InitialPrayers(context));
         order.addBlock(new TitleOffice("Psaumes de Prime",3));
+        order.addBlock(new Psalm(context,5));
         order.addBlock(new Psalm(context,89));
         order.addBlock(new Psalm(context,100));
         order.addBlock(new ReaderDoxology());
-        order.addBlock(new Psalm(context,5));
-        order.addBlock(new TitleOffice("Tropaires du jour",3));
-        order.addBlock(new TitleActor("Le Lecteur"));
         order.addBlock(new ReaderAlleluia());
         order.addBlock(new ReaderKyrieEleison(3));
+        order.addBlock(new TitleActor("Le Lecteur"));
         if(context.isBigFeast() || context.withoutPrecedingOrthros()) {
             order.addBlock(new PrimeFeastPart(context));
         } else {
@@ -34,12 +34,15 @@ public class Prime extends Office implements OfficeBlock {
         }
         order.addBlock(new ReaderAndNow());
         order.addBlock(new Theotokion(context));
-        order.addBlock(new TitleOffice("Prière de Prime",3));
+        order.addBlock(new TitleOffice("Versets de Prime",3));
+        order.addBlock(new TitleActor("Le Lecteur"));
         order.addBlock(new PrimeVerses(context));
         order.addBlock(new TrisagionPrayer(context));
+        order.addBlock(new TitleOffice("Kondakion de Prime",3));
         order.addBlock(new PrimeKondakion(context));
         order.addBlock(new PrimePrayer(context));
         order.addBlock(new PrimeEphremPrayer(context));
+        order.addBlock(new TitleOffice("Congé",3));
         order.addBlock(new PrimeDismissal(context));
     }
 

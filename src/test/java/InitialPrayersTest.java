@@ -4,6 +4,9 @@ import org.orthodoxliturgy.generator.offices.InitialPrayers;
 import org.orthodoxliturgy.generator.partitionprinter.HTMLHighLevelContainer;
 import org.orthodoxliturgy.generator.partitionprinter.OfficePdfMerger;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class InitialPrayersTest {
@@ -16,7 +19,9 @@ public class InitialPrayersTest {
         Actors actors = new Actors().addActor(ActorType.READER);
         OfficeType officeType = OfficeType.PRIME;
         Omophore omophore = new Omophore().addOmophore("our bishop Somebody");
-        LiturgicalContext liturgicalContext = new LiturgicalContext(liturgicalDay, actors, officeType, omophore);
+        List<String> protectors = Arrays.asList(new String[]{});
+        List<String> countrySaints = Arrays.asList(new String[]{});
+        LiturgicalContext liturgicalContext = new LiturgicalContext(liturgicalDay, actors, officeType, omophore,protectors,countrySaints);
         initialPrayers =new InitialPrayers(liturgicalContext);
 
         assertEquals("INPRPEOBLE/CHAM/SUPDOX/SUPHEAKIN/READTRIS/READDOX/READHOLY/READDOX/READOURFAT/READKYR12/READDOX/READCOME",initialPrayers.getInnerLiturgicalStructure());
@@ -28,7 +33,9 @@ public class InitialPrayersTest {
         Actors actors = new Actors().addActor(ActorType.PRIEST);
         OfficeType officeType = OfficeType.PRIME;
         Omophore omophore = new Omophore().addOmophore("our bishop Somebody");
-        LiturgicalContext liturgicalContext = new LiturgicalContext(liturgicalDay, actors, officeType,omophore);
+        List<String> protectors = Arrays.asList(new String[]{});
+        List<String> countrySaints = Arrays.asList(new String[]{});
+        LiturgicalContext liturgicalContext = new LiturgicalContext(liturgicalDay, actors, officeType,omophore,protectors,countrySaints);
         initialPrayers =new InitialPrayers(liturgicalContext);
 
         assertEquals("INPRPRIEBLES/CHAM/SUPDOX/SUPHEAKIN/READTRIS/READDOX/READHOLY/READDOX/READOURFAT/READKYR12/READDOX/READCOME",initialPrayers.getInnerLiturgicalStructure());
@@ -40,7 +47,9 @@ public class InitialPrayersTest {
         Actors actors = new Actors().addActor(ActorType.PRIEST);
         OfficeType officeType = OfficeType.PRIME;
         Omophore omophore = new Omophore().addOmophore("notre évêque le Métropolite Jean");
-        LiturgicalContext liturgicalContext = new LiturgicalContext(liturgicalDay, actors, officeType,omophore);
+        List<String> protectors = Arrays.asList(new String[]{});
+        List<String> countrySaints = Arrays.asList(new String[]{});
+        LiturgicalContext liturgicalContext = new LiturgicalContext(liturgicalDay, actors, officeType,omophore,protectors,countrySaints);
         initialPrayers =new InitialPrayers(liturgicalContext);
         HTMLHighLevelContainer container = new HTMLHighLevelContainer(liturgicalContext, initialPrayers);
 

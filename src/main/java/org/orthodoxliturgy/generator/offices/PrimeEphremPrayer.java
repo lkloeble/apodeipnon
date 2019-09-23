@@ -13,13 +13,12 @@ public class PrimeEphremPrayer extends Office implements OfficeBlock {
         if(liturgicalContext.isBigFeast()) {
             order.addBlock(new EphremPrayer());
             order.addBlock(new ReaderTrisagion());
-            order.addBlock(new ReaderTrisagion());
             order.addBlock(new ReaderDoxology());
             order.addBlock(new ReaderHolyTrinity());
             order.addBlock(new ReaderKyrieEleison(3));
             order.addBlock(new ReaderDoxology());
             order.addBlock(new ReaderOurFather());
-            order.addBlock(new PriestOurFatherResponse());
+            order.addBlock(new PriestOurFatherResponse(liturgicalContext));
             order.addBlock(new TitleActor("Le lecteur"));
             order.addBlock(new ReaderDoxology());
             order.addBlock(new ReaderKyrieEleison(12));

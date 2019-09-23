@@ -77,12 +77,36 @@ public class LiturgicalDay {
         LocalDateTime beginningOfBigFeast = easterDateByYear.minusDays(42);
         LocalDateTime endOfBigFeast = easterDateByYear.minusDays(7);
         LocalDateTime thisDay = getLocalDateTimeOfThisLiturgicalDay();
-        return (thisDay.isAfter(beginningOfBigFeast) || thisDay.equals(beginningOfBigFeast))&& thisDay.isBefore(endOfBigFeast);
+        return (thisDay.isAfter(beginningOfBigFeast) || thisDay.equals(beginningOfBigFeast)) && thisDay.isBefore(endOfBigFeast);
     }
 
     private LocalDateTime getLocalDateTimeOfThisLiturgicalDay() {
         LocalDateTime localDate = LocalDateTime.of(year, month, day, 01, 01);
         return localDate;
+    }
+
+    public String showDate() {
+        return translateDay(getLocalDateTimeOfThisLiturgicalDay().getDayOfWeek()) + " " + day + "/" + month + "/" + year;
+    }
+
+    private String translateDay(DayOfWeek dayOfWeek) {
+        switch (dayOfWeek) {
+            case MONDAY:
+                return "Lundi";
+            case TUESDAY:
+                return "Mardi";
+            case WEDNESDAY:
+                return "Mercredi";
+            case THURSDAY:
+                return "Jeudi";
+            case FRIDAY:
+                return "Vendredi";
+            case SATURDAY:
+                return "Samedi";
+            case SUNDAY:
+                return "Dimanche";
+        }
+        return null;
     }
 
     @Override
@@ -94,4 +118,14 @@ public class LiturgicalDay {
                 '}';
     }
 
+    public LocalDateTime getDateTime() {
+        return getLocalDateTimeOfThisLiturgicalDay();
+    }
+
+    public boolean isBetweenEasterAndPentecost() {
+        LocalDateTime easterDateByYear = getEasterDateByYear(year);
+        LocalDateTime pentecostFeast = easterDateByYear.plusDays(50);
+        LocalDateTime thisDay = getLocalDateTimeOfThisLiturgicalDay();
+        return (thisDay.isAfter(easterDateByYear) || thisDay.equals(easterDateByYear)) && thisDay.isBefore(pentecostFeast);
+    }
 }

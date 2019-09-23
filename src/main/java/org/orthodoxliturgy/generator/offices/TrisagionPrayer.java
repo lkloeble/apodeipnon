@@ -14,14 +14,14 @@ public class TrisagionPrayer  extends Office implements OfficeBlock {
     }
 
     private void buildTrisagionPrayer(LiturgicalContext liturgicalContext) {
-        order.addBlock(new TitleActor("Le Lecteur"));
         order.addBlock(new ReaderTrisagion());
         order.addBlock(new ReaderDoxology());
         order.addBlock(new ReaderHolyTrinity());
         order.addBlock(new ReaderKyrieEleison(3));
         order.addBlock(new ReaderDoxology());
         order.addBlock(new ReaderOurFather());
-        order.addBlock(new PriestOurFatherResponse());
+        order.addBlock(new PriestOurFatherResponse(liturgicalContext));
+        order.addBlock(new ReaderAmen());
     }
 
     @Override

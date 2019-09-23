@@ -17,7 +17,7 @@ public class InitialPrayers extends Office implements OfficeBlock {
         }
         order.addBlock(new ChoirAmen());
         order.addBlock(new SuperiorDoxology());
-        order.addBlock(new SuperiorHeavenlyKing());
+        order.addBlock(new SuperiorHeavenlyKing(context));
         order.addBlock(new TitleActor("Le lecteur"));
         order.addBlock(new ReaderTrisagion());
         order.addBlock(new ReaderDoxology());
@@ -25,7 +25,7 @@ public class InitialPrayers extends Office implements OfficeBlock {
         order.addBlock(new ReaderKyrieEleison(3));
         order.addBlock(new ReaderDoxology());
         order.addBlock(new ReaderOurFather());
-        order.addBlock(new PriestOurFatherResponse());
+        order.addBlock(new PriestOurFatherResponse(context));
         order.addBlock(new TitleActor("Le lecteur"));
         order.addBlock(new ReaderDoxology());
         order.addBlock(new ReaderKyrieEleison(12));

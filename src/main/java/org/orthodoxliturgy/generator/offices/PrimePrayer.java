@@ -20,7 +20,6 @@ public class PrimePrayer extends Office implements OfficeBlock {
             order.addBlock(new ReaderRequestsBlessing());
             order.addBlock(new TitleActor("Le Prêtre"));
             order.addBlock(new PriestPrimePrayerBlessing());
-            order.addBlock(new TitleActor("Le Lecteur"));
         }
         order.addBlock(new ReaderAmen());
     }

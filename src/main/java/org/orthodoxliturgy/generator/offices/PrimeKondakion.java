@@ -7,7 +7,7 @@ import org.orthodoxliturgy.generator.Office;
 import org.orthodoxliturgy.generator.elementaryblocks.Kondakion;
 import org.orthodoxliturgy.generator.elementaryblocks.WeekTone;
 
-public class PrimeKondakion  extends Office implements OfficeBlock {
+public class PrimeKondakion extends Office implements OfficeBlock {
 
     private static final String STRUCTURE = "PRIMKONDAK";
 
@@ -37,7 +37,7 @@ public class PrimeKondakion  extends Office implements OfficeBlock {
             WeekTone weekTone = liturgicalContext.getWeekTone();
             stringBuilder.append(HypakoiRepository.getSundayHypakoiByTone(weekTone));
         } else {
-            Kondakion kondakion = KondakionRepository.getKondakion(liturgicalContext);
+            Kondakion kondakion = KondakionRepository.getPrimeKondakion(liturgicalContext);
             stringBuilder.append(kondakion.getTitle()).append("<br>");
             stringBuilder.append(kondakion.getText()).append("<br>");
         }

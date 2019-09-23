@@ -464,8 +464,8 @@ public class PDFMerger {
         }
     }
 
-    static List<URL> files = matines_ton4_files;
-    static final String FILE_NAME = MATINES_TON4;
+    static List<URL> files = vepres_ton1_files;
+    static final String FILE_NAME = VEPRES_TON1;
 
     public static void main(String... args) throws IOException {
 
