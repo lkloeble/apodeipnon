@@ -38,6 +38,8 @@ public class PDFMerger {
     static List<URL> liturgie_ton7_files;
     static List<URL> liturgie_ton8_files;
 
+    static List<URL> canon_noel_symeon_ton1_files;
+
 
     private static final String MATINES_TON1 = "matines_completes_ton1.pdf";
     private static final String MATINES_TON2 = "matines_completes_ton2.pdf";
@@ -66,14 +68,28 @@ public class PDFMerger {
     private static final String LITURGIE_TON7 = "liturgie_complete_ton7.pdf";
     private static final String LITURGIE_TON8 = "liturgie_complete_ton8.pdf";
 
+    private static final String CANON_NOEL_SYMEON_TON1 = "canon_noel_symeon_ton1.pdf";
+
 
     static {
         try {
 
+            canon_noel_symeon_ton1_files = new ArrayList<URL>(Arrays.asList(
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\canon_noel_ode1_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\canon_noel_ode3_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\canon_noel_cathisme_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\canon_noel_ode4_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\canon_noel_ode5_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\canon_noel_ode6_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\canon_noel_ode7_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\canon_noel_ode8_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\canon_noel_ode9_ton1.pdf").toURI().toURL()
+            ));
+
             vepres_ton1_files = new ArrayList<URL>(Arrays.asList(
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieA.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\anixandaria_symeon_ton1.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\grande_ectenie_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\anixandaria_symeon_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\grande_ectenie_ton6.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\cathisme_vepres_symeon_ton8.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieB.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\lucernaire_symeon_ton1.pdf").toURI().toURL(),
@@ -90,8 +106,8 @@ public class PDFMerger {
 
             vepres_ton2_files = new ArrayList<URL>(Arrays.asList(
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\vepres-ton2-partieA.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\anixandaria_symeon_ton1.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\grande_ectenie_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\anixandaria_symeon_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\grande_ectenie_ton6.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\cathisme_vepres_symeon_ton8.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieB.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\lucernaire_ton2.pdf").toURI().toURL(),
@@ -108,7 +124,9 @@ public class PDFMerger {
 
             vepres_ton3_files = new ArrayList<URL>(Arrays.asList(
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\vepres-ton3-partieA.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\grande_ectenie_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\anixandaria_symeon_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\grande_ectenie_ton6.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\cathisme_vepres_symeon_ton8.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieB.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\lucernaire_ton3.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\vepres-ton3-partieC.pdf").toURI().toURL(),
@@ -124,8 +142,8 @@ public class PDFMerger {
 
             vepres_ton4_files = new ArrayList<URL>(Arrays.asList(
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\vepres-ton4-partieA.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\anixandaria_symeon_ton1.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\grande_ectenie_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\anixandaria_symeon_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\grande_ectenie_ton6.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\cathisme_vepres_symeon_ton8.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieB.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\lucernaire_ton4.pdf").toURI().toURL(),
@@ -140,9 +158,45 @@ public class PDFMerger {
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieG.pdf").toURI().toURL()
             ));
 
+            vepres_ton5_files = new ArrayList<URL>(Arrays.asList(
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\vepres-ton5-partieA.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\anixandaria_symeon_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\grande_ectenie_ton6.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\cathisme_vepres_symeon_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieB.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\lucernaire_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\vepres-ton5-partieC.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\lumiere_joyeuse_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\prokimeinon_vepres_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieD.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\vepres-ton5-partieE.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\apolytikion_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\theotokion_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieF.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieG.pdf").toURI().toURL()
+            ));
+
+            vepres_ton7_files = new ArrayList<URL>(Arrays.asList(
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\vepres-ton7-partieA.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\anixandaria_symeon_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\grande_ectenie_ton6.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\cathisme_vepres_symeon_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieB.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\lucernaire_ton7.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\vepres-ton7-partieC.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\lumiere_joyeuse_ton7.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\prokimeinon_vepres_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieD.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\vepres-ton7-partieE.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\apolytikion_ton7.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\theotokion_ton7.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieF.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\vepres-ton1-partieG.pdf").toURI().toURL()
+            ));
+
             matines_ton1_files = new ArrayList<URL>(Arrays.asList(
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_A.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\grande_ectenie_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\grande_ectenie_ton6.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\theos_kurios_ton1.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\apolytikion_symeon_ton1.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\theotokion_ton1.pdf").toURI().toURL(),
@@ -167,12 +221,13 @@ public class PDFMerger {
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\laudes_ton1.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\laudes_symeon_ton1.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_K.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\theotokion_des_laudes_ton2.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\grande_doxologie_ton1.pdf").toURI().toURL()
             ));
 
             matines_ton2_files = new ArrayList<URL>(Arrays.asList(
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\matines_completes_A.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\grande_ectenie_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\grande_ectenie_ton6.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\theos_kurios_ton2.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\apolytikion_ton2.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\theotokion_ton2.pdf").toURI().toURL(),
@@ -201,7 +256,7 @@ public class PDFMerger {
 
             matines_ton3_files = new ArrayList<URL>(Arrays.asList(
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\matines_completes_A.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\grande_ectenie_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\grande_ectenie_ton6.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\theos_kurios_ton3.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\apolytikion_ton3.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\theotokion_ton3.pdf").toURI().toURL(),
@@ -218,7 +273,7 @@ public class PDFMerger {
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_G.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\tropaire_resurrection_ton7.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_H.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\glorificat_matines_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\glorificat_matines_symeon_ton2.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\matines_completes_I.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\magnificat_ton3.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\matines_completes_J.pdf").toURI().toURL(),
@@ -229,7 +284,7 @@ public class PDFMerger {
 
             matines_ton4_files = new ArrayList<URL>(Arrays.asList(
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\matines_completes_A.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\grande_ectenie_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\grande_ectenie_ton6.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\theos_kurios_ton4.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\apolytikion_ton4.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\theotokion_ton4.pdf").toURI().toURL(),
@@ -255,9 +310,65 @@ public class PDFMerger {
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\grande_doxologie_ton4.pdf").toURI().toURL()
             ));
 
+            matines_ton5_files = new ArrayList<URL>(Arrays.asList(
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\matines_completes_A.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\grande_ectenie_ton6.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\theos_kurios_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\apolytikion_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\theotokion_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_B.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\cathisme1_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_C.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\cathisme2_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_D.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\polyeleos_symeon_ton168.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\evlogitaires_2019_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\matines_completes_E.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\antiennes_orthros_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\matines_completes_F.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_G.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\tropaire_resurrection_ton7.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_H.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\glorificat_matines_symeon_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\matines_completes_I.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\magnificat_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\matines_completes_J.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\laudes_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\matines_completes_K.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\grande_doxologie_ton5.pdf").toURI().toURL()
+            ));
+
+            matines_ton7_files = new ArrayList<URL>(Arrays.asList(
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\matines_completes_A.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\grande_ectenie_ton6.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\theos_kyrios_ton7.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\apolytikion_ton7.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\theotokion_ton7.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_B.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\cathisme1_ton7.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_C.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\cathisme2_ton7.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_D.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\polyeleos_symeon_ton168.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\evlogitaires_2019_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\matines_completes_E.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\antiennes_orthros_ton7.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\matines_completes_F.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_G.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\tropaire_resurrection_ton7.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\matines_completes_H.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\glorificat_matines_symeon_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\matines_completes_I.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\magnificat_ton7.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\matines_completes_J.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\laudes_ton7.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\matines_completes_K.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\grande_doxologie_ton7.pdf").toURI().toURL()
+            ));
+
             matines_ton8_files = new ArrayList<URL>(Arrays.asList(
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\matines_completes_A.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\grande_ectenie_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\grande_ectenie_ton6.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\theos_kyrios_ton8.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\apolytikion_ton8.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\theotokion_ton8.pdf").toURI().toURL(),
@@ -292,6 +403,7 @@ public class PDFMerger {
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_C.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\psaume_102_liturgie.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_D.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\psaume145_ton7.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\antienne2_ton1.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_E.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\beatitudes_ton1.pdf").toURI().toURL(),
@@ -336,7 +448,7 @@ public class PDFMerger {
                     ));
 
 
-
+            /*
             liturgie_ton2_files = new ArrayList<URL>(Arrays.asList(
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\liturgie_complete_A.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\roi_celeste_ton6.pdf").toURI().toURL(),
@@ -345,6 +457,7 @@ public class PDFMerger {
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_C.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\psaume_102_liturgie.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_D.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\psaume145_ton7.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\antienne2_ton2.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_E.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\beatitudes_ton2.pdf").toURI().toURL(),
@@ -387,6 +500,60 @@ public class PDFMerger {
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\que_le_nom_du_seigneur_ton2.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_T.pdf").toURI().toURL()
             ));
+            */
+
+            liturgie_ton2_files = new ArrayList<URL>(Arrays.asList(
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\liturgie_complete_A.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\roi_celeste_ton6.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_B.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\grande_ectenie_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_C.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\antienne1_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_D.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\antienne2_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_E.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\beatitudes_symeon_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_F.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\venez_adorons_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\apolytikion_liturgie_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\tropaire_sainte_clotilde_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\tropaire_sainte_rencontre_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\kondakion_sainte_clotilde_ton6.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\kondakion_theotokos_ton4.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_G.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\trisagion_grec_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\liturgie_complete_H.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\alleluia_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_I.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\reponses_apres_evangiles_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_J.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\cherubikon_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_K.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\ectenie_apres_cherubikon_ton52.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\liturgika_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_L.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\anaphore_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_M.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\il_est_digne_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_N.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\memoires_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\ectenie_avant_notre_pere_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_O.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\un_seul_est_saint_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_P.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\kinonikon_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_Q.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\appel_communion_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\polyeleos_symeon_ton168.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\nous_avons_vu_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_R.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\que_nos_levres_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_S.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\que_le_nom_du_seigneur_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_T.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\polyeleos_communion_ton135.pdf").toURI().toURL()
+            ));
+
 
             liturgie_ton3_files = new ArrayList<URL>(Arrays.asList(
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\liturgie_complete_A.pdf").toURI().toURL(),
@@ -396,6 +563,7 @@ public class PDFMerger {
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_C.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\psaume_102_liturgie.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_D.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\psaume145_ton7.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\antienne2_ton3.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_E.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\beatitudes_ton3.pdf").toURI().toURL(),
@@ -413,6 +581,7 @@ public class PDFMerger {
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_I.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\reponses_apres_evangiles_ton1.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_J.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\cherubikon_bref_ton3.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\cherubikon_ton3.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_K.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\ectenie_apres_cherubikon_ton53.pdf").toURI().toURL(),
@@ -441,17 +610,18 @@ public class PDFMerger {
 
             liturgie_ton4_files = new ArrayList<URL>(Arrays.asList(
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\liturgie_complete_A.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\roi_celeste_ton6.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\roi_celeste_symeon_ton6.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_B.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\grande_ectenie_ton8.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_C.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\psaume_102_liturgie.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_D.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\psaume145_ton7.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\antienne2_ton4.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_E.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\beatitudes_ton4.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_F.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\venez_adorons_ton4.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\venez_adorons_ton2.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\apolytikion_liturgie_ton4.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\tropaire_saints_joachim_anne_ton2.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\tropaire_saint_martin_ton3.pdf").toURI().toURL(),
@@ -481,7 +651,7 @@ public class PDFMerger {
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\kinonikon_ton4.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_Q.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\appel_communion_ton4.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\o_vierge_pure.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\polyeleos_communion_ton135.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\nous_avons_vu_ton2.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_R.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\que_nos_levres_ton5.pdf").toURI().toURL(),
@@ -489,6 +659,62 @@ public class PDFMerger {
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\que_le_nom_du_seigneur_ton2.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_T.pdf").toURI().toURL()
             ));
+
+            liturgie_ton5_files = new ArrayList<URL>(Arrays.asList(
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\liturgie_complete_A.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\roi_celeste_symeon_ton6.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_B.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\grande_ectenie_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_C.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\psaume_102_liturgie.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_D.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_7\\psaume145_ton7.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\antienne2_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_E.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\beatitudes_symeon_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_F.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\venez_adorons_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\apolytikion_liturgie_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\tropaire_sainte_clotilde_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\kondakion_sainte_clotilde_ton6.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\kondakion_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\kondakion_theotokos_ton4.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_G.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\trisagion_grec_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\liturgie_complete_H.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\alleluia_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_I.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\reponses_apres_evangiles_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_J.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\cherubikon_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_K.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\ectenie_apres_cherubikon_ton55.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\liturgika_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_L.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\anaphore_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_M.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\il_est_digne_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_N.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\memoires_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\ectenie_avant_notre_pere_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_O.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\un_seul_est_saint_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_P.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\kinonikon_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_Q.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\appel_communion_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\polyeleos_symeon_ton168.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\nous_avons_vu_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_R.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\que_nos_levres_ton5.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_S.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\que_le_nom_du_seigneur_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\polyeleos_communion_ton135.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_T.pdf").toURI().toURL()
+            ));
+
+            //pour la liturgie ton 6, prendre l'alleluia du père syméon
+            //pour la liturgie ton 7, prendre l'alleluia du père syméon
 
             liturgie_ton8_files = new ArrayList<URL>(Arrays.asList(
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\liturgie_complete_A.pdf").toURI().toURL(),
@@ -500,12 +726,12 @@ public class PDFMerger {
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_D.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\antienne2_ton8.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_E.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\beatitudes_ton8.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\beatitudes_symeon_ton8.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_F.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\venez_adorons_ton2.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\apolytikion_liturgie_ton8.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\tropaire_saints_joachim_anne_ton2.pdf").toURI().toURL(),
-                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_3\\tropaire_saint_martin_ton3.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\tropaire_sainte_clotilde_ton1.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_6\\kondakion_sainte_clotilde_ton6.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_8\\kondakion_ton8.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_4\\kondakion_theotokos_ton4.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_G.pdf").toURI().toURL(),
@@ -538,6 +764,7 @@ public class PDFMerger {
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_5\\que_nos_levres_ton5.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_S.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_2\\que_le_nom_du_seigneur_ton2.pdf").toURI().toURL(),
+                    new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\polyeleos_communion_ton135.pdf").toURI().toURL(),
                     new File("C:\\Users\\kloeblel\\Desktop\\perso\\partitions_lili\\ton_1\\liturgie_complete_T.pdf").toURI().toURL()
             ));
 
@@ -546,8 +773,8 @@ public class PDFMerger {
         }
     }
 
-    static List<URL> files = liturgie_ton8_files;
-    static final String FILE_NAME = LITURGIE_TON8;
+    static List<URL> files = liturgie_ton2_files;
+    static final String FILE_NAME = LITURGIE_TON2;
 
     public static void main(String... args) throws IOException {
 
