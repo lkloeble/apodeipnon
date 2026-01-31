@@ -1,3 +1,5 @@
-# apodeipnon
+# Archived Repository
 
-This software is intended to bring a way to write and listen to byzantine music
+This repository contains old experiments and is no longer maintained.
+
+It has been archived as part of a repository cleanup and portfolio refocus.
